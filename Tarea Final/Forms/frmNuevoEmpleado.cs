@@ -12,9 +12,9 @@ using Tarea_Final.Models;
 
 namespace Tarea_Final
 {
-    public partial class NuevoEmpleado : Form
+    public partial class frmNuevoEmpleado : Form
     {
-        public NuevoEmpleado()
+        public frmNuevoEmpleado()
         {
             InitializeComponent();
         }

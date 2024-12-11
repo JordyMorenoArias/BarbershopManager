@@ -1,6 +1,6 @@
 ﻿namespace Tarea_Final
 {
-    partial class ConsulatarCita
+    partial class frmConsulatarCita
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsulatarCita));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsulatarCita));
             label6 = new Label();
             cmbBarberos = new ComboBox();
             label5 = new Label();

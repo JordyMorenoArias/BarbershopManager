@@ -1,6 +1,6 @@
 ﻿namespace Tarea_Final
 {
-    partial class ConsultarCliente
+    partial class frmConsultarCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultarCliente));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsultarCliente));
             btnCerrar = new Button();
             btnModificar = new Button();
             label9 = new Label();

@@ -16,8 +16,6 @@ namespace Tarea_Final.Models
         internal Service Service { get; set; }
         internal string Status { get; set; }
 
-        public Appointment() { }
-
         public Appointment(int idAppointment, int idEmployee, int idUser, DateTime date, TimeSpan hour, Service service, string status)
         {
             IdAppointment = idAppointment;
@@ -29,12 +27,12 @@ namespace Tarea_Final.Models
             Status = status;
         }
 
-        public void CreateAppointment(int idEmployee, int idUser, DateTime date, TimeSpan hour, Service service)
+        public void CreateAppointment(Appointment appointment)
         {
             // TODO: Implement this method
         }
 
-        public void CancelAppointment()
+        public void CancelAppointment(Appointment appointment)
         {
             // TODO: Implement this method
         }

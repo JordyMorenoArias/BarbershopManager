@@ -1,6 +1,6 @@
 ﻿namespace Tarea_Final
 {
-    partial class NuevoCliente
+    partial class frmNuevoCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NuevoCliente));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNuevoCliente));
             label1 = new Label();
             txtNombre = new TextBox();
             txtApellido = new TextBox();

@@ -9,7 +9,7 @@ namespace Tarea_Final.Models
     internal class Administrator: User
     {
 
-        internal Administrator(int id, string name, string email, string idUser, string password, DateTime birthDate, string phoneNumber) : base(id, name, email, idUser, password, birthDate, phoneNumber)
+        internal Administrator(int id, string name, string email, string idUser, string password, DateTime birthDate, string phoneNumber) : base(name, email, idUser, password, birthDate, phoneNumber)
         {
         }
 

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -12,31 +13,30 @@ using Tarea_Final.Models;
 
 namespace Tarea_Final
 {
-    public partial class NuevaCita : Form
+    public partial class frmConsultarEmpleado : Form
     {
-        public NuevaCita()
+
+        public frmConsultarEmpleado()
         {
             InitializeComponent();
         }
 
-        private void NuevaCita_Load(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnCrear_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

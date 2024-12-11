@@ -12,16 +12,16 @@ using Tarea_Final.Models;
 
 namespace Tarea_Final
 {
-    public partial class Perfiles : Form
+    public partial class frmPerfiles : Form
     {
-        public Perfiles()
+        public frmPerfiles()
         {
             InitializeComponent();
         }
 
         private void Perfiles_Load(object sender, EventArgs e)
         {
-            Conexion.Conectar();
+
         }
 
         private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -1,6 +1,6 @@
 ﻿namespace Tarea_Final
 {
-    partial class Historial
+    partial class frmHistorial
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Historial));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHistorial));
             dgvDatos = new DataGridView();
             label9 = new Label();
             btnBuscar = new Button();

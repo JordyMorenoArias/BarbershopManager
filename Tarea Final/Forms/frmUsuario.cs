@@ -84,7 +84,7 @@ namespace Tarea_Final
 
         private void btnHistorial_Click(object sender, EventArgs e)
         {
-            OpenForm(new Historial());
+            OpenForm(new frmHistorial());
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -121,22 +121,22 @@ namespace Tarea_Final
 
         private void btnNuevoCitas_Click(object sender, EventArgs e)
         {
-            OpenForm(new NuevaCita());
+            OpenForm(new frmNuevaCita());
         }
 
         private void btnConsultarCitas_Click(object sender, EventArgs e)
         {
-            OpenForm(new ConsulatarCita());
+            OpenForm(new frmConsulatarCita());
         }
 
         private void btnAñadirClientes_Click(object sender, EventArgs e)
         {
-            OpenForm(new NuevoCliente());
+            OpenForm(new frmNuevoCliente());
         }
 
         private void btnConsultarClientes_Click(object sender, EventArgs e)
         {
-            OpenForm(new ConsultarCliente());
+            OpenForm(new frmConsultarCliente());
         }
 
         private void timer1_Tick(object sender, EventArgs e)

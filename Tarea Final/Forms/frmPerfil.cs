@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Tarea_Final
 {
-    public partial class Perfil : Form
+    public partial class frmPerfil : Form
     {
-        public Perfil()
+        public frmPerfil()
         {
             InitializeComponent();
         }

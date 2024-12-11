@@ -12,16 +12,16 @@ using Tarea_Final.Models;
 
 namespace Tarea_Final
 {
-    public partial class Historial : Form
+    public partial class frmHistorial : Form
     {
-        public Historial()
+        public frmHistorial()
         {
             InitializeComponent();
         }
 
         private void Historial_Load(object sender, EventArgs e)
         {
-            Conexion.Conectar();
+            
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

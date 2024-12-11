@@ -12,19 +12,26 @@ using Tarea_Final.Models;
 
 namespace Tarea_Final
 {
-    public partial class ConsultarCliente : Form
+    public partial class frmNuevaCita : Form
     {
-        public ConsultarCliente()
+        public frmNuevaCita()
         {
             InitializeComponent();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void NuevaCita_Load(object sender, EventArgs e)
         {
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -13,10 +12,9 @@ using Tarea_Final.Models;
 
 namespace Tarea_Final
 {
-    public partial class ConsultarEmpleado : Form
+    public partial class frmConsultarCliente : Form
     {
-
-        public ConsultarEmpleado()
+        public frmConsultarCliente()
         {
             InitializeComponent();
         }
@@ -32,11 +30,6 @@ namespace Tarea_Final
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

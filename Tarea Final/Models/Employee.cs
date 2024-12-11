@@ -12,7 +12,7 @@ namespace Tarea_Final.Models
         internal Schedule schedule { get; set; }
 
         internal Employee(int id, string name, string email, string idUser, string password, DateTime birthdate, string phonenumber, string idEmployee, Schedule schedule)
-            : base(id, name, email, idUser, password, birthdate, phonenumber)
+            : base(name, email, idUser, password, birthdate, phonenumber)
         {
             this.IdEmployee = idEmployee;
             this.schedule = schedule;

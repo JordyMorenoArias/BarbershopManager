@@ -1,6 +1,6 @@
 ﻿namespace Tarea_Final
 {
-    partial class NuevaCita
+    partial class frmNuevaCita
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NuevaCita));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNuevaCita));
             btnBuscar = new Button();
             txtcedula = new TextBox();
             label10 = new Label();

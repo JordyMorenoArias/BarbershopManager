@@ -14,8 +14,6 @@ namespace Tarea_Final.Models
         public double Price { get; set; }
         public TimeSpan Duration { get; set; }
 
-        public Service() { }
-
         public Service(int idService, string name, string description, double price, TimeSpan duration)
         {
             IdService = idService;
@@ -23,6 +21,20 @@ namespace Tarea_Final.Models
             Description = description;
             Price = price;
             Duration = duration;
+        }
+
+        public void CreateService(Service service)
+        {
+            // TODO: Implementar método
+        }
+
+        public void ModifyService(Service service)
+        {
+            // TODO: Implementar método
+        }
+        public void DeleteService(Service service)
+        {
+            // TODO: Implementar método
         }
     }
 }

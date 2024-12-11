@@ -13,10 +13,10 @@ using Tarea_Final.Models;
 
 namespace Tarea_Final
 {
-    public partial class ConsulatarCita : Form
+    public partial class frmConsulatarCita : Form
     {
 
-        public ConsulatarCita()
+        public frmConsulatarCita()
         {
             InitializeComponent();
         }
