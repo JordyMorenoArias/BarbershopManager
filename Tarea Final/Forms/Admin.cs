@@ -57,9 +57,25 @@ namespace Tarea_Final
 
         private void TogglePanelVisibility(Panel panelToShow)
         {
-            panelCitas.Visible = panelToShow == panelCitas;
-            panelEmpleado.Visible = panelToShow == panelEmpleado;
-            panelClientes.Visible = panelToShow == panelClientes;
+            if (panelToShow != null)
+            {
+                if (panelToShow.Visible)
+                {
+                    panelToShow.Visible = false;
+                }
+                else
+                {
+                    panelCitas.Visible = panelToShow == panelCitas;
+                    panelEmpleado.Visible = panelToShow == panelEmpleado;
+                    panelClientes.Visible = panelToShow == panelClientes;
+                }
+            }
+            else
+            {
+                panelCitas.Visible = false;
+                panelEmpleado.Visible = false;
+                panelClientes.Visible = false;
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)

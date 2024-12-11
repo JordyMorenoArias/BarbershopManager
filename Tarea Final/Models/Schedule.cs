@@ -8,6 +8,7 @@ namespace Tarea_Final.Models
 {
     internal class Schedule
     {
+        internal int IdSchedule { get; set; }
         internal int IdEmployee { get; set; }
         internal DateTime StartDay { get; set; }
         internal DateTime FinalDay { get; set; }
@@ -15,16 +16,18 @@ namespace Tarea_Final.Models
         internal TimeSpan FinalHour { get; set; }
         internal List<DateTime> BlockedDates { get; set; }
 
-        internal Schedule(int idEmployee, DateTime startDay, DateTime finalDay, TimeSpan startHour, TimeSpan finalHour)
+        internal Schedule(int idSchedule, int idEmployee, DateTime startDay, DateTime finalDay, TimeSpan startHour, TimeSpan finalHour)
         {
+            IdSchedule = idSchedule;
             IdEmployee = idEmployee;
             StartDay = startDay;
             FinalDay = finalDay;
             StartHour = startHour;
             FinalHour = finalHour;
         }
-        internal Schedule(int idEmployee, DateTime startDay, DateTime finalDay, TimeSpan startHour, TimeSpan finalHour, List<DateTime> blockedDates)
+        internal Schedule(int idSchedule, int idEmployee, DateTime startDay, DateTime finalDay, TimeSpan startHour, TimeSpan finalHour, List<DateTime> blockedDates)
         {
+            IdSchedule = idSchedule;
             IdEmployee = idEmployee;
             StartDay = startDay;
             FinalDay = finalDay;

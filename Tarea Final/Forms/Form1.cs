@@ -20,7 +20,9 @@ namespace Tarea_Final
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            logear(this.txtUsuario.Text, this.txtContraseña.Text);
+            frmAdmin frmAdmin = new frmAdmin();
+            frmAdmin.Show();
+            //logear(this.txtUsuario.Text, this.txtContraseña.Text);
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

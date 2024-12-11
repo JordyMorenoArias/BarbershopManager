@@ -38,8 +38,23 @@ namespace Tarea_Final
 
         private void TogglePanelVisibility(Panel panelToShow)
         {
-            panelCitas.Visible = panelToShow == panelCitas;
-            panelClientes.Visible = panelToShow == panelClientes;
+            if (panelToShow != null)
+            {
+                if (panelToShow.Visible)
+                {
+                    panelToShow.Visible = false;
+                }
+                else
+                {
+                    panelCitas.Visible = panelToShow == panelCitas;
+                    panelClientes.Visible = panelToShow == panelClientes;
+                }
+            }
+            else
+            {
+                panelCitas.Visible = false;
+                panelClientes.Visible = false;
+            }
         }
 
         private void btnCitas_Click(object sender, EventArgs e)
@@ -64,7 +79,7 @@ namespace Tarea_Final
         {
             HideLabelsAndLogo();
             AbrirForm(form);
-            TogglePanelVisibility(null);
+            TogglePanelVisibility(null!);
         }
 
         private void btnHistorial_Click(object sender, EventArgs e)

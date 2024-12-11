@@ -44,7 +44,19 @@ namespace Tarea_Final.Models
             // TODO: Implement this method
         }
 
-        public static List<Appointment> GetAppointmentsByUser()
+        public static List<Appointment> GetAppointments()
+        {
+            // TODO: Implement this method
+            return new List<Appointment>();
+        }
+
+        public static List<Appointment> GetAppointmentsByUser(User user)
+        {
+            // TODO: Implement this method
+            return new List<Appointment>();
+        }
+
+        public static List<Appointment> GetAppointmentsByEmployee(Employee employee)
         {
             // TODO: Implement this method
             return new List<Appointment>();
