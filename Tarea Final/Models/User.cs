@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Tarea_Final.Models
 {
-    internal class User
+    public class User
     {
         internal int Id { get; set; }
-        internal string Name { get; set; }
-        internal string Email { get; set; }
-        internal string IdCard { get; set; }
-        internal string Password { get; set; }
+        internal string Name { get; set; } = string.Empty;
+        internal string Email { get; set; } = string.Empty;
+        internal string IdCard { get; set; } = string.Empty;
+        internal string Password { get; set; } = string.Empty;
         internal DateTime BirthDate { get; set; }
-        internal string PhoneNumber { get; set; }
+        internal string PhoneNumber { get; set; } = string.Empty;
         internal bool IsAdmin { get; set; } = false;
 
         internal User() { }
@@ -87,44 +87,37 @@ namespace Tarea_Final.Models
 
         internal static async Task CreateUser(User user)
         {
-            try
+
+            using (SqlConnection connection = Connection.Connect())
             {
-                using (SqlConnection connection = Connection.Connect())
+                await connection.OpenAsync();
+
+                // Verificar si el correo electrónico ya existe
+                string checkQuery = "SELECT COUNT(*) FROM Users WHERE Email = @Email";
+                using (SqlCommand checkCommand = new(checkQuery, connection))
                 {
-                    await connection.OpenAsync();
-
-                    // Verificar si el correo electrónico ya existe
-                    string checkQuery = "SELECT COUNT(*) FROM Users WHERE Email = @Email";
-                    using (SqlCommand checkCommand = new(checkQuery, connection))
+                    checkCommand.Parameters.AddWithValue("@Email", user.Email);
+                    int emailCount = (int)(await checkCommand.ExecuteScalarAsync() ?? 0);
+                    if (emailCount > 0)
                     {
-                        checkCommand.Parameters.AddWithValue("@Email", user.Email);
-                        int emailCount = (int)(await checkCommand.ExecuteScalarAsync() ?? 0);
-                        if (emailCount > 0)
-                        {
-                            throw new ApplicationException("El correo electrónico ya está registrado.");
-                        }
+                        throw new ApplicationException("El correo electrónico ya está registrado.");
                     }
-
-                    // Insertar el nuevo usuario
-                    string query = "INSERT INTO Users (Name, Email, IdCard, Password, BirthDate, PhoneNumber) VALUES (@Name, @Email, @IdCard, @Password, @BirthDate, @PhoneNumber)";
-                    using (SqlCommand command = new(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@Name", user.Name);
-                        command.Parameters.AddWithValue("@Email", user.Email);
-                        command.Parameters.AddWithValue("@IdCard", user.IdCard);
-                        command.Parameters.AddWithValue("@Password", HashPassword(user.Password));
-                        command.Parameters.AddWithValue("@BirthDate", user.BirthDate);
-                        command.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
-                        await command.ExecuteNonQueryAsync();
-                    }
-
-                    await connection.CloseAsync();
                 }
-            }
-            catch (Exception ex)
-            {
-                // Log or handle the exception as needed
-                throw new ApplicationException("Se ha producido un error al crear el usuario.", ex);
+
+                // Insertar el nuevo usuario
+                string query = "INSERT INTO Users (Name, Email, IdCard, Password, BirthDate, PhoneNumber) VALUES (@Name, @Email, @IdCard, @Password, @BirthDate, @PhoneNumber)";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", user.Name);
+                    command.Parameters.AddWithValue("@Email", user.Email);
+                    command.Parameters.AddWithValue("@IdCard", user.IdCard);
+                    command.Parameters.AddWithValue("@Password", HashPassword(user.Password));
+                    command.Parameters.AddWithValue("@BirthDate", user.BirthDate);
+                    command.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
+                    await command.ExecuteNonQueryAsync();
+                }
+
+                await connection.CloseAsync();
             }
         }
 

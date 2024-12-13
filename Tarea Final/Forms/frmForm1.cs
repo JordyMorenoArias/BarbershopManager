@@ -16,22 +16,28 @@ namespace Tarea_Final
 
         private async void btnIniciar_Click(object sender, EventArgs e)
         {
+
             try
             {
-                User user = await User.ValidateUser(txtEmail.Text, txtContraseña.Text);
+                // User user = await User.ValidateUser(txtEmail.Text, txtContraseña.Text);
 
-                if (user.IsAdmin)
-                {
-                    frmAdmin frmAdmin = new frmAdmin();
-                    frmAdmin.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    frmUsuario frmUser = new frmUsuario();
-                    frmUser.Show();
-                    this.Hide();
-                }
+                User user = await User.ValidateUser("yordimorenoarias.11@gmail.com", "2001892zZ@");
+
+                frmUsuario frmUser = new frmUsuario(user);
+                frmUser.Show();
+
+                //if (user.IsAdmin)
+                //{
+                //    frmAdmin frmAdmin = new frmAdmin(user);
+                //    frmAdmin.Show();
+                //    this.Hide();
+                //}
+                //else
+                //{
+                //    frmUsuario frmUser = new frmUsuario(user);
+                //    frmUser.Show();
+                //    this.Hide();
+                //}
             }
             catch (ApplicationException ex)
             {

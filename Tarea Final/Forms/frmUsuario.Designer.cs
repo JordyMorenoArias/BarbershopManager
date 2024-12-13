@@ -53,11 +53,7 @@
             btnCitas = new Button();
             panel3 = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
-            panelContene = new Panel();
-            lblFecha = new Label();
-            lblHora = new Label();
-            lblLogo = new Label();
-            pbLogo = new PictureBox();
+            panelContener = new Panel();
             btnCerrar = new Button();
             btnMaximizar = new Button();
             btnMinimizar = new Button();
@@ -75,7 +71,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelCitas.SuspendLayout();
             panelClientes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -391,58 +386,14 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
-            // panelContene
+            // panelContener
             // 
-            panelContene.Dock = DockStyle.Right;
-            panelContene.Location = new Point(231, 29);
-            panelContene.Margin = new Padding(3, 2, 3, 2);
-            panelContene.Name = "panelContene";
-            panelContene.Size = new Size(654, 498);
-            panelContene.TabIndex = 44;
-            // 
-            // lblFecha
-            // 
-            lblFecha.AutoSize = true;
-            lblFecha.Font = new Font("Century Gothic", 28.2F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFecha.ForeColor = Color.Silver;
-            lblFecha.Location = new Point(351, 152);
-            lblFecha.Name = "lblFecha";
-            lblFecha.Size = new Size(390, 45);
-            lblFecha.TabIndex = 48;
-            lblFecha.Text = "dddd; MMMM; yyyy";
-            // 
-            // lblHora
-            // 
-            lblHora.AutoSize = true;
-            lblHora.Font = new Font("Century Gothic", 55.8F, FontStyle.Regular, GraphicsUnit.Point);
-            lblHora.ForeColor = Color.White;
-            lblHora.Location = new Point(335, 68);
-            lblHora.Name = "lblHora";
-            lblHora.Size = new Size(408, 90);
-            lblHora.TabIndex = 47;
-            lblHora.Text = "hh; mm; ss";
-            // 
-            // lblLogo
-            // 
-            lblLogo.AutoSize = true;
-            lblLogo.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lblLogo.ForeColor = Color.White;
-            lblLogo.Location = new Point(444, 469);
-            lblLogo.Name = "lblLogo";
-            lblLogo.Size = new Size(194, 23);
-            lblLogo.TabIndex = 46;
-            lblLogo.Text = "Gestion de Barberia";
-            // 
-            // pbLogo
-            // 
-            pbLogo.Image = (Image)resources.GetObject("pbLogo.Image");
-            pbLogo.Location = new Point(404, 211);
-            pbLogo.Margin = new Padding(3, 2, 3, 2);
-            pbLogo.Name = "pbLogo";
-            pbLogo.Size = new Size(299, 256);
-            pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
-            pbLogo.TabIndex = 45;
-            pbLogo.TabStop = false;
+            panelContener.Dock = DockStyle.Right;
+            panelContener.Location = new Point(231, 29);
+            panelContener.Margin = new Padding(3, 2, 3, 2);
+            panelContener.Name = "panelContener";
+            panelContener.Size = new Size(654, 498);
+            panelContener.TabIndex = 44;
             // 
             // btnCerrar
             // 
@@ -646,11 +597,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 59, 100);
             ClientSize = new Size(885, 527);
-            Controls.Add(lblFecha);
-            Controls.Add(lblHora);
-            Controls.Add(lblLogo);
-            Controls.Add(pbLogo);
-            Controls.Add(panelContene);
+            Controls.Add(panelContener);
             Controls.Add(panel1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
@@ -663,10 +610,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panelCitas.ResumeLayout(false);
             panelClientes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
             panel2.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -690,11 +635,7 @@
         private Button btnCliente;
         private Panel panel6;
         private System.Windows.Forms.Timer timer1;
-        private Panel panelContene;
-        private Label lblFecha;
-        private Label lblHora;
-        private Label lblLogo;
-        private PictureBox pbLogo;
+        private Panel panelContener;
         private Label label1;
         private Button btnCerrar;
         private Button btnMaximizar;

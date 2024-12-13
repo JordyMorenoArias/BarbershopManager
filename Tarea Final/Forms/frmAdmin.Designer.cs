@@ -69,17 +69,12 @@
             panelContenedor = new Panel();
             lblHoraActual = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
-            lblFecha = new Label();
-            lblHora = new Label();
-            lblLogo = new Label();
-            pbLogo = new PictureBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelCitas.SuspendLayout();
             panelClientes.SuspendLayout();
             panelEmpleado.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -616,60 +611,12 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
-            // lblFecha
-            // 
-            lblFecha.AutoSize = true;
-            lblFecha.Font = new Font("Century Gothic", 28.2F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFecha.ForeColor = Color.Silver;
-            lblFecha.Location = new Point(353, 152);
-            lblFecha.Name = "lblFecha";
-            lblFecha.Size = new Size(390, 45);
-            lblFecha.TabIndex = 51;
-            lblFecha.Text = "dddd; MMMM; yyyy";
-            // 
-            // lblHora
-            // 
-            lblHora.AutoSize = true;
-            lblHora.Font = new Font("Century Gothic", 55.8F, FontStyle.Regular, GraphicsUnit.Point);
-            lblHora.ForeColor = Color.White;
-            lblHora.Location = new Point(337, 68);
-            lblHora.Name = "lblHora";
-            lblHora.Size = new Size(408, 90);
-            lblHora.TabIndex = 50;
-            lblHora.Text = "hh; mm; ss";
-            // 
-            // lblLogo
-            // 
-            lblLogo.AutoSize = true;
-            lblLogo.Font = new Font("Century Gothic", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lblLogo.ForeColor = Color.White;
-            lblLogo.Location = new Point(446, 469);
-            lblLogo.Name = "lblLogo";
-            lblLogo.Size = new Size(194, 23);
-            lblLogo.TabIndex = 49;
-            lblLogo.Text = "Gestion de Barberia";
-            // 
-            // pbLogo
-            // 
-            pbLogo.Image = (Image)resources.GetObject("pbLogo.Image");
-            pbLogo.Location = new Point(406, 211);
-            pbLogo.Margin = new Padding(3, 2, 3, 2);
-            pbLogo.Name = "pbLogo";
-            pbLogo.Size = new Size(299, 256);
-            pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
-            pbLogo.TabIndex = 48;
-            pbLogo.TabStop = false;
-            // 
             // frmAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 59, 100);
             ClientSize = new Size(885, 527);
-            Controls.Add(lblFecha);
-            Controls.Add(lblHora);
-            Controls.Add(lblLogo);
-            Controls.Add(pbLogo);
             Controls.Add(panel1);
             Controls.Add(panelContenedor);
             Controls.Add(lblHoraActual);
@@ -686,7 +633,6 @@
             panelCitas.ResumeLayout(false);
             panelClientes.ResumeLayout(false);
             panelEmpleado.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -731,10 +677,6 @@
         private Panel panelContener;
         private Panel panelContenedor;
         private System.Windows.Forms.Timer timer1;
-        private Label lblFecha;
-        private Label lblHora;
-        private Label lblLogo;
-        private PictureBox pbLogo;
         private Label label1;
     }
 }

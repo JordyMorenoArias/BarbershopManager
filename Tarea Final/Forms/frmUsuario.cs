@@ -8,15 +8,19 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tarea_Final.Models;
 
 namespace Tarea_Final
 {
     public partial class frmUsuario : Form
     {
-        public frmUsuario()
+        private User user { get; set; }
+        public frmUsuario(User user)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+
+            this.user = user;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -69,10 +73,6 @@ namespace Tarea_Final
 
         private void HideLabelsAndLogo()
         {
-            lblHora.Visible = false;
-            lblFecha.Visible = false;
-            pbLogo.Visible = false;
-            lblLogo.Visible = false;
         }
 
         private void OpenForm(Form form)
@@ -108,20 +108,20 @@ namespace Tarea_Final
 
         private void AbrirForm(object frm)
         {
-            if (this.panelContene.Controls.Count > 0)
-                this.panelContene.Controls.RemoveAt(0);
+            if (this.panelContener.Controls.Count > 0)
+                this.panelContener.Controls.RemoveAt(0);
 
             Form fh = frm as Form;
             fh.TopLevel = false;
             fh.Dock = DockStyle.Fill;
-            this.panelContene.Controls.Add(fh);
-            this.panelContene.Tag = fh;
+            this.panelContener.Controls.Add(fh);
+            this.panelContener.Tag = fh;
             fh.Show();
         }
 
         private void btnNuevoCitas_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmNuevaCita());
+            OpenForm(new frmNuevaCita(user));
         }
 
         private void btnConsultarCitas_Click(object sender, EventArgs e)
@@ -141,8 +141,8 @@ namespace Tarea_Final
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblHora.Text = DateTime.Now.ToString("HH; mm; ss");
-            lblFecha.Text = DateTime.Now.ToString("dddd; MMMM; yyyy");
+
         }
+
     }
 }
