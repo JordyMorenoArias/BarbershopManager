@@ -114,6 +114,7 @@
             dtpHora.Size = new Size(116, 26);
             dtpHora.TabIndex = 83;
             dtpHora.Value = new DateTime(2024, 8, 13, 8, 0, 0, 0);
+            dtpHora.ValueChanged += dtpHora_ValueChanged;
             // 
             // label5
             // 

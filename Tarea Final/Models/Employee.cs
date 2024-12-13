@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,11 +12,78 @@ namespace Tarea_Final.Models
         internal string IdEmployee { get; set; }
         internal Schedule schedule { get; set; }
 
-        internal Employee(int id, string name, string email, string idUser, string password, DateTime birthdate, string phonenumber, string idEmployee, Schedule schedule)
-            : base(name, email, idUser, password, birthdate, phonenumber)
+        internal Employee(string name, string email, string IdCard, string password, DateTime birthdate, string phonenumber, string UserId, string idEmployee, Schedule schedule)
+            : base(name, email, IdCard, password, birthdate, phonenumber)
         {
             this.IdEmployee = idEmployee;
             this.schedule = schedule;
+        }
+
+        internal static Employee GetEmployee(int employeeId)
+        {
+            using (SqlConnection connection = Connection.Connect())
+            {
+                string query = "SELECT * FROM Employees e JOIN Users u ON e.UserId = u.UserId WHERE e.EmployeeId = @EmployeeId";
+
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@EmployeeId", employeeId);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new Employee(
+                                name: reader["Name"].ToString(),
+                                email: reader["Email"].ToString(),
+                                IdCard: reader["IdCard"].ToString(),
+                                password: reader["Password"].ToString(),
+                                birthdate: (DateTime)reader["Birthdate"],
+                                phonenumber: reader["Phonenumber"].ToString(),
+                                UserId: reader["UserId"].ToString(),
+                                idEmployee: reader["EmployeeId"].ToString(),
+                                schedule: null
+                            );
+                        }
+                        else
+                        {
+                            throw new InvalidOperationException("No se encontró un empleado con el ID dado.");
+                        }
+                    }
+                }
+            }
+        }
+
+        internal static List<Employee> GetEmployees()
+        {
+            using (SqlConnection connection = Connection.Connect())
+            {
+                string query = "SELECT * FROM Employees e JOIN Users u ON e.UserId = u.UserId";
+                List<Employee> employees = new();
+                connection.Open();
+                using (SqlCommand command = new(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            employees.Add(new Employee(
+                                name: reader["Name"].ToString(),
+                                email: reader["Email"].ToString(),
+                                IdCard: reader["IdCard"].ToString(),
+                                password: reader["Password"].ToString(),
+                                birthdate: (DateTime)reader["Birthdate"],
+                                phonenumber: reader["Phonenumber"].ToString(),
+                                UserId: reader["UserId"].ToString(),
+                                idEmployee: reader["EmployeeId"].ToString(),
+                                schedule: null
+                            ));
+                        }
+                    }
+
+                    return employees;
+                }
+            }
         }
     }
 }

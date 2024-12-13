@@ -121,29 +121,27 @@ namespace Tarea_Final.Models
 
         public static async Task<List<Appointment>> GetAppointmentsByEmployee(Employee employee)
         {
-            string query = "SELECT * FROM Appointments WHERE Employeeld = @Employeeld";
+            string query = "SELECT * FROM Appointments WHERE EmployeeId = @EmployeeId";
 
             using (SqlConnection connection = Connection.Connect())
             {
-                connection.OpenAsync();
+                await connection.OpenAsync();
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Employeeld", employee.IdEmployee);
+                    command.Parameters.AddWithValue("@EmployeeId", employee.IdEmployee);
                     using (SqlDataReader reader = await command.ExecuteReaderAsync())
                     {
                         List<Appointment> appointments = new List<Appointment>();
                         while (reader.Read())
                         {
-                            appointments.Add(new Appointment(
-                                idAppointment: (int)reader["IdAppointment"],
-                                idEmployee: (int)reader["EmployeeId"],
-                                idUser: (int)reader["UserId"],
-                                date: (DateTime)reader["Date"],
-                                hour: (TimeSpan)reader["Hour"],
-                                service: await Service.GetServiceById((int)reader["ServiceId"]),
-                                status: reader["Status"].ToString()
-                            ));
+                            appointments.Add(new Appointment(idAppointment: (int)reader["AppointmentId"],
+                                                             idEmployee: (int)reader["EmployeeId"],
+                                                             idUser: (int)reader["UserId"],
+                                                             date: (DateTime)reader["Date"],
+                                                             hour: (TimeSpan)reader["Hour"],
+                                                             service: await Service.GetServiceById((int)reader["ServiceId"]),
+                                                             status: reader["Status"].ToString()));
                         }
                         return appointments;
                     }

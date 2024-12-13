@@ -91,6 +91,23 @@ namespace Tarea_Final
             // Código para manejar el evento de clic en el botón Buscar
         }
 
+        internal async Task<bool> CheckEmployeeAvailability(int employeeId, DateTime date, TimeSpan hour)
+        {
+            Employee employee = Employee.GetEmployee(employeeId);
+
+            var busySchedules = await Schedule.GetSchedulesbyEmployee(int.Parse(employee.IdEmployee));
+
+            foreach (var schedule in busySchedules)
+            {
+                if (schedule.Date.Date == date.Date && schedule.StartHour <= hour && schedule.FinalHour >= hour)
+                {
+                    MessageBox.Show($"{employee.Name} ya tiene una cita programada a esa hora. Estará disponible a partir de las {DateTime.Today.Add(schedule.FinalHour).ToString("hh:mm tt")}.");
+                    return false;
+                }
+            }
+            return true;
+        }
+
         private async void btnCrear_Click(object sender, EventArgs e)
         {
             try
@@ -121,19 +138,23 @@ namespace Tarea_Final
                     return;
                 }
 
-                Service service = await Service.GetServiceById(idService);
-                Appointment appointment = new Appointment
-                (
-                    idEmployee,
-                    idUser,
-                    dtpFecha.Value,
-                    dtpHora.Value.TimeOfDay,
-                    service,
-                    "Pendiente"
-                );
+                if (await CheckEmployeeAvailability(idEmployee, dtpFecha.Value.Date, dtpHora.Value.TimeOfDay))
+                {
+                    Service service = await Service.GetServiceById(idService);
+                    Appointment appointment = new Appointment
+                    (
+                        idEmployee,
+                        idUser,
+                        dtpFecha.Value.Date,
+                        dtpHora.Value.TimeOfDay,
+                        service,
+                        "Pendiente"
+                    );
 
-                await Appointment.CreateAppointment(appointment);
-                MessageBox.Show("Cita creada exitosamente.");
+                    await Appointment.CreateAppointment(appointment);
+                    MessageBox.Show("Cita creada exitosamente.");
+                }
+
             }
             catch (SqlException sqlEx)
             {
@@ -217,6 +238,10 @@ namespace Tarea_Final
             {
                 MessageBox.Show($"Error al cargar detalles del empleado: {ex.Message}");
             }
+        }
+
+        private void dtpHora_ValueChanged(object sender, EventArgs e)
+        {
         }
     }
 }
