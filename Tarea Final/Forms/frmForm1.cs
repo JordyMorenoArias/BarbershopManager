@@ -21,7 +21,7 @@ namespace Tarea_Final
             {
                 // User user = await User.ValidateUser(txtEmail.Text, txtContraseña.Text);
 
-                User user = await User.ValidateUser("yordimorenoarias.11@gmail.com", "2001892zZ@");
+                User user = await User.ValidateUser("yordimorenoarias.1@gmail.com", "2001892zZ@");
 
                 frmUser frmUser = new frmUser(user);
                 frmUser.Show();

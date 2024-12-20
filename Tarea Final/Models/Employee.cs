@@ -11,12 +11,20 @@ namespace Tarea_Final.Models
     {
         internal int IdEmployee { get; set; }
         internal Schedule schedule { get; set; }
+        internal string position { get; set; }
+        internal DateTime hiredate { get; set; }
+        internal decimal salary { get; set; }
+        internal string status { get; set; }
 
-        internal Employee(string name, string email, string IdCard, string password, DateTime birthdate, string phonenumber, string UserId, int idEmployee, Schedule schedule)
+        internal Employee(string name, string email, string IdCard, string password, DateTime birthdate, string phonenumber, string UserId, int idEmployee, Schedule schedule, string position, DateTime hiredate, decimal salary, string status)
             : base(name, email, IdCard, password, birthdate, phonenumber)
         {
             this.IdEmployee = idEmployee;
             this.schedule = schedule;
+            this.position = position;
+            this.hiredate = hiredate;
+            this.salary = salary;
+            this.status = status;
         }
 
         internal static async Task<Employee> GetEmployee(int employeeId)
@@ -42,7 +50,11 @@ namespace Tarea_Final.Models
                                 phonenumber: reader["Phonenumber"].ToString()!,
                                 UserId: reader["UserId"].ToString()!,
                                 idEmployee: (int)reader["EmployeeId"],
-                                schedule: null!
+                                schedule: null!,
+                                position: reader["Position"].ToString()!,
+                                hiredate: (DateTime)reader["Hiredate"],
+                                salary: (decimal)reader["Salary"],
+                                status: reader["Status"].ToString()!
                             );
                         }
                         else
@@ -76,7 +88,11 @@ namespace Tarea_Final.Models
                                 phonenumber: reader["Phonenumber"].ToString()!,
                                 UserId: reader["UserId"].ToString()!,
                                 idEmployee: (int)reader["EmployeeId"],
-                                schedule: null!
+                                schedule: null!,
+                                position: reader["Position"].ToString()!,
+                                hiredate: (DateTime)reader["Hiredate"],
+                                salary: (decimal)reader["Salary"],
+                                status: reader["Status"].ToString()!
                             ));
                         }
                     }
