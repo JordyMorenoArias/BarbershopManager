@@ -10,13 +10,13 @@ namespace Tarea_Final.Models
 {
     public class User
     {
-        internal int Id { get; set; }
+        internal int UserId { get; set; }
         internal string Name { get; set; } = string.Empty;
         internal string Email { get; set; } = string.Empty;
         internal string IdCard { get; set; } = string.Empty;
         internal string Password { get; set; } = string.Empty;
         internal DateTime BirthDate { get; set; }
-        internal string PhoneNumber { get; set; } = string.Empty;
+        public string PhoneNumber { get; set; } = string.Empty;
         internal bool IsAdmin { get; set; } = false;
 
         internal User() { }
@@ -26,12 +26,12 @@ namespace Tarea_Final.Models
             Name = name;
             Email = email;
             IdCard = idCard;
-            Password = HashPassword(password);
+            Password = password;
             BirthDate = birthDate;
             PhoneNumber = phoneNumber;
         }
 
-        private static string HashPassword(string password)
+        internal static string HashPassword(string password)
         {
             using (SHA256 sha256 = SHA256.Create())
             {
@@ -66,7 +66,7 @@ namespace Tarea_Final.Models
                         {
                             return new User
                             {
-                                Id = reader.GetInt32(0),
+                                UserId = reader.GetInt32(0),
                                 Name = reader.GetString(1),
                                 Email = reader.GetString(2),
                                 IdCard = reader.GetString(3),
@@ -138,7 +138,7 @@ namespace Tarea_Final.Models
                             {
                                 return new User
                                 {
-                                    Id = reader.GetInt32(0),
+                                    UserId = reader.GetInt32(0),
                                     Name = reader.GetString(1),
                                     Email = reader.GetString(2),
                                     IdCard = reader.GetString(3),
@@ -157,7 +157,8 @@ namespace Tarea_Final.Models
                 // Log or handle the exception as needed
                 throw new ApplicationException("Se ha producido un error al obtener el usuario.", ex);
             }
-            return null;
+
+            return null!;
         }
 
         internal static async Task ModifyUser(User user)
@@ -168,7 +169,7 @@ namespace Tarea_Final.Models
                 {
                     await connection.OpenAsync();
 
-                    string query = "UPDATE Users SET Name = @Name, Email = @Email, IdCard = @IdCard, Password = @Password, BirthDate = @BirthDate, PhoneNumber = @PhoneNumber WHERE Id = @Id";
+                    string query = "UPDATE Users SET Name = @Name, Email = @Email, IdCard = @IdCard, Password = @Password, BirthDate = @BirthDate, PhoneNumber = @PhoneNumber WHERE UserId = @UserId";
                     using (SqlCommand command = new(query, connection))
                     {
                         command.Parameters.AddWithValue("@Name", user.Name);
@@ -177,7 +178,7 @@ namespace Tarea_Final.Models
                         command.Parameters.AddWithValue("@Password", HashPassword(user.Password));
                         command.Parameters.AddWithValue("@BirthDate", user.BirthDate);
                         command.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
-                        command.Parameters.AddWithValue("@Id", user.Id);
+                        command.Parameters.AddWithValue("@UserId", user.UserId);
                         command.ExecuteNonQuery();
                     }
 

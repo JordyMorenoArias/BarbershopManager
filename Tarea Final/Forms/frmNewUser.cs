@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,19 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tarea_Final.Models;
 
 namespace Tarea_Final
 {
-    public partial class frmPerfil : Form
+    public partial class frmNewUser : Form
     {
-        public frmPerfil()
+        public frmNewUser()
         {
             InitializeComponent();
         }
 
-        private void Perfil_Load(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
+
     }
 }

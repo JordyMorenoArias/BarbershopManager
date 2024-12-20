@@ -9,40 +9,40 @@ namespace Tarea_Final.Models
 {
     internal class Employee : User
     {
-        internal string IdEmployee { get; set; }
+        internal int IdEmployee { get; set; }
         internal Schedule schedule { get; set; }
 
-        internal Employee(string name, string email, string IdCard, string password, DateTime birthdate, string phonenumber, string UserId, string idEmployee, Schedule schedule)
+        internal Employee(string name, string email, string IdCard, string password, DateTime birthdate, string phonenumber, string UserId, int idEmployee, Schedule schedule)
             : base(name, email, IdCard, password, birthdate, phonenumber)
         {
             this.IdEmployee = idEmployee;
             this.schedule = schedule;
         }
 
-        internal static Employee GetEmployee(int employeeId)
+        internal static async Task<Employee> GetEmployee(int employeeId)
         {
             using (SqlConnection connection = Connection.Connect())
             {
                 string query = "SELECT * FROM Employees e JOIN Users u ON e.UserId = u.UserId WHERE e.EmployeeId = @EmployeeId";
 
-                connection.Open();
+                await connection.OpenAsync();
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@EmployeeId", employeeId);
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlDataReader reader = await command.ExecuteReaderAsync())
                     {
                         if (reader.Read())
                         {
                             return new Employee(
-                                name: reader["Name"].ToString(),
-                                email: reader["Email"].ToString(),
-                                IdCard: reader["IdCard"].ToString(),
-                                password: reader["Password"].ToString(),
+                                name: reader["Name"].ToString()!,
+                                email: reader["Email"].ToString()!,
+                                IdCard: reader["IdCard"].ToString()!,
+                                password: reader["Password"].ToString()!,
                                 birthdate: (DateTime)reader["Birthdate"],
-                                phonenumber: reader["Phonenumber"].ToString(),
-                                UserId: reader["UserId"].ToString(),
-                                idEmployee: reader["EmployeeId"].ToString(),
-                                schedule: null
+                                phonenumber: reader["Phonenumber"].ToString()!,
+                                UserId: reader["UserId"].ToString()!,
+                                idEmployee: (int)reader["EmployeeId"],
+                                schedule: null!
                             );
                         }
                         else
@@ -68,15 +68,15 @@ namespace Tarea_Final.Models
                         while (reader.Read())
                         {
                             employees.Add(new Employee(
-                                name: reader["Name"].ToString(),
-                                email: reader["Email"].ToString(),
-                                IdCard: reader["IdCard"].ToString(),
-                                password: reader["Password"].ToString(),
+                                name: reader["Name"].ToString()!,
+                                email: reader["Email"].ToString()!,
+                                IdCard: reader["IdCard"].ToString()!,
+                                password: reader["Password"].ToString()!,
                                 birthdate: (DateTime)reader["Birthdate"],
-                                phonenumber: reader["Phonenumber"].ToString(),
-                                UserId: reader["UserId"].ToString(),
-                                idEmployee: reader["EmployeeId"].ToString(),
-                                schedule: null
+                                phonenumber: reader["Phonenumber"].ToString()!,
+                                UserId: reader["UserId"].ToString()!,
+                                idEmployee: (int)reader["EmployeeId"],
+                                schedule: null!
                             ));
                         }
                     }

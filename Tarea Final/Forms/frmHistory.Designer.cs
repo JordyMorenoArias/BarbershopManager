@@ -1,6 +1,6 @@
 ﻿namespace Tarea_Final
 {
-    partial class frmHistorial
+    partial class frmHistory
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHistorial));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHistory));
             dgvDatos = new DataGridView();
             label9 = new Label();
             btnBuscar = new Button();
@@ -72,10 +72,10 @@
             btnBuscar.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             btnBuscar.ForeColor = Color.White;
             btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBuscar.Location = new Point(508, 105);
+            btnBuscar.Location = new Point(524, 104);
             btnBuscar.Margin = new Padding(3, 2, 3, 2);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(125, 25);
+            btnBuscar.Size = new Size(110, 25);
             btnBuscar.TabIndex = 64;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = false;
@@ -84,7 +84,7 @@
             // txtcedula
             // 
             txtcedula.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            txtcedula.Location = new Point(18, 109);
+            txtcedula.Location = new Point(18, 105);
             txtcedula.Margin = new Padding(3, 2, 3, 2);
             txtcedula.Name = "txtcedula";
             txtcedula.Size = new Size(486, 24);
@@ -95,13 +95,13 @@
             label10.AutoSize = true;
             label10.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             label10.ForeColor = Color.Silver;
-            label10.Location = new Point(18, 91);
+            label10.Location = new Point(18, 87);
             label10.Name = "label10";
             label10.Size = new Size(61, 19);
             label10.TabIndex = 62;
             label10.Text = "Cedula";
             // 
-            // Historial
+            // frmHistory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -115,7 +115,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
-            Name = "Historial";
+            Name = "frmHistory";
             Text = "Historial";
             Load += Historial_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();

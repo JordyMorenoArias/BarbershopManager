@@ -63,22 +63,22 @@ namespace Tarea_Final.Models
             using (SqlConnection connection = Connection.Connect())
             {
                 connection.Open();
-                string query = "UPDATE Appointments SET Status = 'Cancelled' WHERE IdAppointment = @IdAppointment";
+                string query = "UPDATE Appointments SET Status = 'Cancelled' WHERE AppointmentId = @AppointmentId";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@IdAppointment", appointment.IdAppointment);
+                    command.Parameters.AddWithValue("@AppointmentId", appointment.IdAppointment);
                     command.ExecuteNonQuery();
                 }
             }
         }
 
-        public void ModifyAppointment(Appointment appointment)
+        public static async Task ModifyAppointment(Appointment appointment)
         {
             using (SqlConnection connection = Connection.Connect())
             {
-                connection.Open();
-                string query = "UPDATE Appointments SET UserId = @UserId, EmployeeId = @EmployeeId, ServiceId = @ServiceId, Date = @Date, Hour = @Hour, Status = @Status WHERE IdAppointment = @IdAppointment";
+                await connection.OpenAsync();
+                string query = "UPDATE Appointments SET UserId = @UserId, EmployeeId = @EmployeeId, ServiceId = @ServiceId, Date = @Date, Hour = @Hour, Status = @Status WHERE AppointmentId = @AppointmentId";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@UserId", appointment.IdUser);
@@ -87,66 +87,128 @@ namespace Tarea_Final.Models
                     command.Parameters.AddWithValue("@Date", appointment.Date);
                     command.Parameters.AddWithValue("@Hour", appointment.Hour);
                     command.Parameters.AddWithValue("@Status", appointment.Status);
-                    command.Parameters.AddWithValue("@IdAppointment", appointment.IdAppointment);
-                    command.ExecuteNonQuery();
+                    command.Parameters.AddWithValue("@AppointmentId", appointment.IdAppointment);
+                    await command.ExecuteNonQueryAsync();
                 }
             }
         }
 
-        public static async Task<List<Appointment>> GetAppointments(User user)
+        public static async Task<Appointment> GetAppointment(int appointemntId)
         {
             using (SqlConnection connection = Connection.Connect())
             {
-                connection.Open();
-                string query = "SELECT * FROM Appointments WHERE UserId = @UserId";
+                await connection.OpenAsync();
+                string query = "SELECT * FROM Appointments WHERE AppointmentId = @AppointmentId";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@UserId", user.Id);
-                    SqlDataReader reader = command.ExecuteReader();
-                    List<Appointment> appointments = new List<Appointment>();
-                    while (reader.Read())
+                    command.Parameters.AddWithValue("@AppointmentId", appointemntId);
+                    SqlDataReader reader = await command.ExecuteReaderAsync();
+                    if (reader.Read())
                     {
-                        appointments.Add(new Appointment(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetDateTime(3), reader.GetTimeSpan(4), await Service.GetServiceById(reader.GetInt32(5)), reader.GetString(6)));
+                        return new Appointment(
+                            reader.GetInt32(0), // AppointmentId
+                            reader.GetInt32(1), // UserId
+                            reader.GetInt32(2), // EmployeeId
+                            reader.GetDateTime(4), // Date
+                            reader.GetTimeSpan(5), // Hour
+                            await Service.GetServiceById(reader.GetInt32(3)), // ServiceId
+                            reader.GetString(6) // Status
+                        );
                     }
-                    return appointments;
+                    return null;
                 }
             }
-        }
-
-        public static List<Appointment> GetAppointmentsByUser(User user)
-        {
-            // TODO: Implement this method
-            return new List<Appointment>();
         }
 
         public static async Task<List<Appointment>> GetAppointmentsByEmployee(Employee employee)
         {
-            string query = "SELECT * FROM Appointments WHERE EmployeeId = @EmployeeId";
-
             using (SqlConnection connection = Connection.Connect())
             {
                 await connection.OpenAsync();
-
+                string query = "SELECT * FROM Appointments WHERE EmployeeId = @EmployeeId";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@EmployeeId", employee.IdEmployee);
                     using (SqlDataReader reader = await command.ExecuteReaderAsync())
                     {
                         List<Appointment> appointments = new List<Appointment>();
-                        while (reader.Read())
+                        while (await reader.ReadAsync())
                         {
-                            appointments.Add(new Appointment(idAppointment: (int)reader["AppointmentId"],
-                                                             idEmployee: (int)reader["EmployeeId"],
-                                                             idUser: (int)reader["UserId"],
-                                                             date: (DateTime)reader["Date"],
-                                                             hour: (TimeSpan)reader["Hour"],
-                                                             service: await Service.GetServiceById((int)reader["ServiceId"]),
-                                                             status: reader["Status"].ToString()));
+                            appointments.Add(new Appointment(
+                                reader.GetInt32(0),
+                                reader.GetInt32(1),
+                                reader.GetInt32(2),
+                                reader.GetDateTime(3),
+                                reader.GetTimeSpan(4),
+                                await Service.GetServiceById(reader.GetInt32(5)),
+                                reader.GetString(6)
+                            ));
                         }
                         return appointments;
                     }
                 }
             }
         }
+
+
+        public static async Task<List<Appointment>> GetAppointmentsByUser(User user)
+        {
+            using (SqlConnection connection = Connection.Connect())
+            {
+                await connection.OpenAsync();
+                string query = "SELECT * FROM Appointments WHERE UserId = @UserId";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserId", user.UserId);
+                    using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                    {
+                        List<Appointment> appointments = new List<Appointment>();
+                        while (await reader.ReadAsync())
+                        {
+                            appointments.Add(new Appointment(
+                                reader.GetInt32(0), // AppointmentId
+                                reader.GetInt32(1), // UserId
+                                reader.GetInt32(2), // EmployeeId
+                                reader.GetDateTime(4), // Date
+                                reader.GetTimeSpan(5), // Hour
+                                await Service.GetServiceById(reader.GetInt32(3)), // ServiceId
+                                reader.GetString(6) // Status
+                            ));
+                        }
+                        return appointments;
+                    }
+                }
+            }
+        }
+
+        //public static async Task<List<Appointment>> GetAppointmentsByEmployee(Employee employee)
+        //{
+        //    string query = "SELECT * FROM Appointments WHERE EmployeeId = @EmployeeId";
+
+        //    using (SqlConnection connection = Connection.Connect())
+        //    {
+        //        await connection.OpenAsync();
+
+        //        using (SqlCommand command = new SqlCommand(query, connection))
+        //        {
+        //            command.Parameters.AddWithValue("@EmployeeId", employee.IdEmployee);
+        //            using (SqlDataReader reader = await command.ExecuteReaderAsync())
+        //            {
+        //                List<Appointment> appointments = new List<Appointment>();
+        //                while (reader.Read())
+        //                {
+        //                    appointments.Add(new Appointment(idAppointment: (int)reader["AppointmentId"],
+        //                                                     idEmployee: (int)reader["EmployeeId"],
+        //                                                     idUser: (int)reader["UserId"],
+        //                                                     date: (DateTime)reader["Date"],
+        //                                                     hour: (TimeSpan)reader["Hour"],
+        //                                                     service: await Service.GetServiceById((int)reader["ServiceId"]),
+        //                                                     status: reader["Status"].ToString()));
+        //                }
+        //                return appointments;
+        //            }
+        //        }
+        //    }
+        //}
     }
 }

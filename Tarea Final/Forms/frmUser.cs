@@ -12,10 +12,10 @@ using Tarea_Final.Models;
 
 namespace Tarea_Final
 {
-    public partial class frmUsuario : Form
+    public partial class frmUser : Form
     {
         private User user { get; set; }
-        public frmUsuario(User user)
+        public frmUser(User user)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
@@ -84,7 +84,7 @@ namespace Tarea_Final
 
         private void btnHistorial_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmHistorial());
+            OpenForm(new frmHistory());
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -121,28 +121,22 @@ namespace Tarea_Final
 
         private void btnNuevoCitas_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmNuevaCita(user));
+            OpenForm(new frmNewAppointment(user));
         }
 
         private void btnConsultarCitas_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmConsulatarCita());
+            OpenForm(new frmConsultAppointment(user));
         }
 
-        private void btnAñadirClientes_Click(object sender, EventArgs e)
+        private void btnAñadirClientes_Click_1(object sender, EventArgs e)
         {
-            OpenForm(new frmNuevoCliente());
+            OpenForm(new frmProfileUser(user));
         }
 
         private void btnConsultarClientes_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmConsultarCliente());
+            OpenForm(new frmConsultUser(user));
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

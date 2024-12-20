@@ -92,120 +92,121 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.Silver;
             label5.Location = new Point(43, 99);
             label5.Name = "label5";
-            label5.Size = new Size(64, 19);
+            label5.Size = new Size(68, 20);
             label5.TabIndex = 83;
             label5.Text = "Nombre";
             // 
             // txtName
             // 
-            txtName.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txtName.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtName.Location = new Point(43, 120);
             txtName.Margin = new Padding(3, 2, 3, 2);
             txtName.Name = "txtName";
-            txtName.Size = new Size(260, 24);
+            txtName.Size = new Size(260, 26);
             txtName.TabIndex = 82;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Silver;
             label3.Location = new Point(43, 151);
             label3.Name = "label3";
-            label3.Size = new Size(46, 19);
+            label3.Size = new Size(46, 20);
             label3.TabIndex = 81;
             label3.Text = "Email";
             // 
             // txtEmail
             // 
-            txtEmail.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEmail.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtEmail.Location = new Point(43, 171);
             txtEmail.Margin = new Padding(3, 2, 3, 2);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(260, 24);
+            txtEmail.Size = new Size(260, 26);
             txtEmail.TabIndex = 80;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Silver;
             label2.Location = new Point(43, 205);
             label2.Name = "label2";
-            label2.Size = new Size(90, 19);
+            label2.Size = new Size(95, 20);
             label2.TabIndex = 79;
             label2.Text = "Contraseña";
             // 
             // txtPassword
             // 
-            txtPassword.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPassword.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtPassword.Location = new Point(43, 226);
             txtPassword.Margin = new Padding(3, 2, 3, 2);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(260, 24);
+            txtPassword.Size = new Size(260, 26);
             txtPassword.TabIndex = 78;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Silver;
             label1.Location = new Point(43, 47);
             label1.Name = "label1";
-            label1.Size = new Size(61, 19);
+            label1.Size = new Size(63, 20);
             label1.TabIndex = 77;
             label1.Text = "Cédula";
             // 
             // txtIdCard
             // 
-            txtIdCard.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txtIdCard.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtIdCard.Location = new Point(43, 67);
             txtIdCard.Margin = new Padding(3, 2, 3, 2);
             txtIdCard.Name = "txtIdCard";
-            txtIdCard.Size = new Size(260, 24);
+            txtIdCard.Size = new Size(260, 26);
             txtIdCard.TabIndex = 76;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.Silver;
             label4.Location = new Point(43, 318);
             label4.Name = "label4";
-            label4.Size = new Size(160, 19);
+            label4.Size = new Size(167, 20);
             label4.TabIndex = 84;
             label4.Text = "Fecha de Nacimiento";
             // 
             // dtpFechaNacimiento
             // 
+            dtpFechaNacimiento.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             dtpFechaNacimiento.Location = new Point(43, 340);
             dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            dtpFechaNacimiento.Size = new Size(260, 23);
+            dtpFechaNacimiento.Size = new Size(260, 26);
             dtpFechaNacimiento.TabIndex = 85;
             dtpFechaNacimiento.Value = new DateTime(2000, 2, 1, 0, 0, 0, 0);
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.Silver;
             label6.Location = new Point(43, 264);
             label6.Name = "label6";
-            label6.Size = new Size(66, 19);
+            label6.Size = new Size(71, 20);
             label6.TabIndex = 87;
             label6.Text = "Telefono";
             // 
             // txtTelefono
             // 
-            txtTelefono.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTelefono.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtTelefono.Location = new Point(43, 285);
             txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(260, 24);
+            txtTelefono.Size = new Size(260, 26);
             txtTelefono.TabIndex = 86;
             // 
             // frmRegistro

@@ -102,6 +102,7 @@
             txtContraseña.Size = new Size(244, 27);
             txtContraseña.TabIndex = 21;
             txtContraseña.TextAlign = HorizontalAlignment.Center;
+            txtContraseña.TextChanged += txtContraseña_TextChanged;
             // 
             // label1
             // 

@@ -1,6 +1,6 @@
 ﻿namespace Tarea_Final
 {
-    partial class frmPerfiles
+    partial class frmConsultProfiles
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPerfiles));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsultProfiles));
             cmbTipoUsuario = new ComboBox();
             label4 = new Label();
             label3 = new Label();

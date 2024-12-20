@@ -23,7 +23,7 @@ namespace Tarea_Final
 
                 User user = await User.ValidateUser("yordimorenoarias.11@gmail.com", "2001892zZ@");
 
-                frmUsuario frmUser = new frmUsuario(user);
+                frmUser frmUser = new frmUser(user);
                 frmUser.Show();
 
                 //if (user.IsAdmin)
@@ -86,6 +86,11 @@ namespace Tarea_Final
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

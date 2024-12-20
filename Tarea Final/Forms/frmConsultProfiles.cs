@@ -12,9 +12,9 @@ using Tarea_Final.Models;
 
 namespace Tarea_Final
 {
-    public partial class frmPerfiles : Form
+    public partial class frmConsultProfiles : Form
     {
-        public frmPerfiles()
+        public frmConsultProfiles()
         {
             InitializeComponent();
         }

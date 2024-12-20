@@ -105,47 +105,47 @@ namespace Tarea_Final
         {
             HideLabelsAndLogo();
             AbrirForm(form);
-            TogglePanelVisibility(null);
+            TogglePanelVisibility(null!);
         }
 
         private void button6_Click_1(object sender, EventArgs e)
         {
-            OpenForm(new frmHistorial());
+            OpenForm(new frmHistory());
         }
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            OpenForm(new frmPerfiles());
+            OpenForm(new frmConsultProfiles());
         }
 
         private void btnAñadirCitas_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmNuevoCliente());
+            OpenForm(new frmNewUser());
         }
 
         private void btnConsultarCitas_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmConsultarCliente());
+            OpenForm(new frmConsultUser(user));
         }
 
         private void btnNuevoEmpleado_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmNuevoEmpleado());
+            OpenForm(new frmNewEmployee());
         }
 
         private void btnConsultarEmpleado_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmConsultarEmpleado());
+            OpenForm(new frmConsultEmployee());
         }
 
         private void btnNuevoCitas_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmNuevaCita(user));
+            OpenForm(new frmNewAppointment(user));
         }
 
         private void btnConsultarCitas_Click_1(object sender, EventArgs e)
         {
-            OpenForm(new frmConsulatarCita());
+            OpenForm(new frmConsultAppointment(user));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -165,7 +165,7 @@ namespace Tarea_Final
             if (this.panelContenedor.Controls.Count > 0)
                 this.panelContenedor.Controls.RemoveAt(0);
 
-            Form fh = frm as Form;
+            Form? fh = frm as Form;
             fh.TopLevel = false;
             fh.Dock = DockStyle.Fill;
             this.panelContenedor.Controls.Add(fh);

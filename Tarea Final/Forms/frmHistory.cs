@@ -12,9 +12,9 @@ using Tarea_Final.Models;
 
 namespace Tarea_Final
 {
-    public partial class frmHistorial : Form
+    public partial class frmHistory : Form
     {
-        public frmHistorial()
+        public frmHistory()
         {
             InitializeComponent();
         }

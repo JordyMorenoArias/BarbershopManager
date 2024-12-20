@@ -28,11 +28,41 @@ namespace Tarea_Final.Models
         {
             using (SqlConnection connection = Connection.Connect())
             {
-                connection.OpenAsync();
+                await connection.OpenAsync();
                 string query = "SELECT * FROM Services WHERE ServiceId = @ServiceId";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@ServiceId", idService);
+                    using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                    {
+                        if (reader.Read())
+                        {
+                            return new Service(
+                                idService: (int)reader["ServiceId"],
+                                name: reader["Name"].ToString(),
+                                description: reader["Description"].ToString(),
+                                price: (decimal)reader["Price"],
+                                duration: (TimeSpan)reader["Duration"]
+                            );
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+            }
+        }
+
+        public static async Task<Service> GetServiceByName(string name)
+        {
+            using (SqlConnection connection = Connection.Connect())
+            {
+                await connection.OpenAsync();
+                string query = "SELECT * FROM Services WHERE Name = @Name";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", name);
                     using (SqlDataReader reader = await command.ExecuteReaderAsync())
                     {
                         if (reader.Read())
