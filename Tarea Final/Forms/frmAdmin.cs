@@ -110,32 +110,32 @@ namespace Tarea_Final
 
         private void button6_Click_1(object sender, EventArgs e)
         {
-            OpenForm(new frmHistory());
+            OpenForm(new frmHistory(user));
         }
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            OpenForm(new frmConsultProfiles());
+            OpenForm(new frmConsultProfilesAdmin());
         }
 
         private void btnAñadirCitas_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmNewUser());
+            OpenForm(new frmDataUser());
         }
 
         private void btnConsultarCitas_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmConsultUser(user));
+            OpenForm(new frmConsultProfile(user));
         }
 
         private void btnNuevoEmpleado_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmNewEmployee());
+            OpenForm(new frmNewEmployeeAdmin());
         }
 
         private void btnConsultarEmpleado_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmConsultEmployee());
+            OpenForm(new frmConsultEmployeeAdmin());
         }
 
         private void btnNuevoCitas_Click(object sender, EventArgs e)

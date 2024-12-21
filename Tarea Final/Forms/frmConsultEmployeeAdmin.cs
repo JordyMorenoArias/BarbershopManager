@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -12,11 +13,20 @@ using Tarea_Final.Models;
 
 namespace Tarea_Final
 {
-    public partial class frmNewUser : Form
+    public partial class frmConsultEmployeeAdmin : Form
     {
-        public frmNewUser()
+
+        public frmConsultEmployeeAdmin()
         {
             InitializeComponent();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -24,5 +34,9 @@ namespace Tarea_Final
             this.Close();
         }
 
+        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

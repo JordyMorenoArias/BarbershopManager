@@ -1,6 +1,6 @@
 ﻿namespace Tarea_Final
 {
-    partial class frmNewUser
+    partial class frmDataUser
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewUser));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDataUser));
             label9 = new Label();
             btnCerrar = new Button();
             label1 = new Label();

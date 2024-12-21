@@ -12,10 +12,10 @@ using Tarea_Final.Models;
 
 namespace Tarea_Final
 {
-    public partial class frmConsultUser : Form
+    public partial class frmConsultProfile : Form
     {
         private Models.User user { get; set; }
-        public frmConsultUser(Models.User user)
+        public frmConsultProfile(Models.User user)
         {
             InitializeComponent();
             this.user = user;
@@ -43,13 +43,21 @@ namespace Tarea_Final
 
         private async void btnModificar_Click(object sender, EventArgs e)
         {
-            user.IdCard = txtIdCard.Text;
-            user.Name = txtName.Text;
-            user.Email = txtEmail.Text;
-            user.PhoneNumber = txtPhoneNumber.Text;
-            user.BirthDate = dtpFechaNacimiento.Value;
+            try
+            {
+                user.IdCard = txtIdCard.Text;
+                user.Name = txtName.Text;
+                user.Email = txtEmail.Text;
+                user.PhoneNumber = txtPhoneNumber.Text;
+                user.BirthDate = dtpFechaNacimiento.Value;
 
-            await User.ModifyUser(user);
+                await User.ModifyUser(user);
+                MessageBox.Show("Tus datos fueron modificados exitosamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al modificar los datos: {ex.Message}");
+            }
         }
     }
 }

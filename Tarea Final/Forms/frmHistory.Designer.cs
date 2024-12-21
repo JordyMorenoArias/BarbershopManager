@@ -29,28 +29,81 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHistory));
-            dgvDatos = new DataGridView();
+            dgvHistory = new DataGridView();
+            ColumnIdHistory = new DataGridViewTextBoxColumn();
+            ColumnUserId = new DataGridViewTextBoxColumn();
+            ColumnTableName = new DataGridViewTextBoxColumn();
+            ColumnAction = new DataGridViewTextBoxColumn();
+            ColumnActionDate = new DataGridViewTextBoxColumn();
+            ColumnDetails = new DataGridViewTextBoxColumn();
             label9 = new Label();
             btnBuscar = new Button();
             txtcedula = new TextBox();
             label10 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHistory).BeginInit();
             SuspendLayout();
             // 
-            // dgvDatos
+            // dgvHistory
             // 
-            dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvDatos.BackgroundColor = Color.FromArgb(30, 38, 70);
-            dgvDatos.BorderStyle = BorderStyle.None;
-            dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDatos.Location = new Point(18, 134);
-            dgvDatos.Margin = new Padding(3, 2, 3, 2);
-            dgvDatos.Name = "dgvDatos";
-            dgvDatos.RowHeadersVisible = false;
-            dgvDatos.RowHeadersWidth = 51;
-            dgvDatos.RowTemplate.Height = 29;
-            dgvDatos.Size = new Size(616, 319);
-            dgvDatos.TabIndex = 0;
+            dgvHistory.AllowUserToAddRows = false;
+            dgvHistory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvHistory.BackgroundColor = Color.FromArgb(30, 38, 70);
+            dgvHistory.BorderStyle = BorderStyle.None;
+            dgvHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHistory.Columns.AddRange(new DataGridViewColumn[] { ColumnIdHistory, ColumnUserId, ColumnTableName, ColumnAction, ColumnActionDate, ColumnDetails });
+            dgvHistory.Location = new Point(18, 134);
+            dgvHistory.Margin = new Padding(3, 2, 3, 2);
+            dgvHistory.Name = "dgvHistory";
+            dgvHistory.ReadOnly = true;
+            dgvHistory.RowHeadersVisible = false;
+            dgvHistory.RowHeadersWidth = 51;
+            dgvHistory.RowTemplate.Height = 29;
+            dgvHistory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvHistory.Size = new Size(616, 319);
+            dgvHistory.TabIndex = 0;
+            // 
+            // ColumnIdHistory
+            // 
+            ColumnIdHistory.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            ColumnIdHistory.Frozen = true;
+            ColumnIdHistory.HeaderText = "IdHistory";
+            ColumnIdHistory.Name = "ColumnIdHistory";
+            ColumnIdHistory.ReadOnly = true;
+            ColumnIdHistory.Visible = false;
+            ColumnIdHistory.Width = 154;
+            // 
+            // ColumnUserId
+            // 
+            ColumnUserId.HeaderText = "UserId";
+            ColumnUserId.Name = "ColumnUserId";
+            ColumnUserId.ReadOnly = true;
+            ColumnUserId.Resizable = DataGridViewTriState.False;
+            ColumnUserId.Visible = false;
+            // 
+            // ColumnTableName
+            // 
+            ColumnTableName.HeaderText = "TableName";
+            ColumnTableName.Name = "ColumnTableName";
+            ColumnTableName.ReadOnly = true;
+            ColumnTableName.Visible = false;
+            // 
+            // ColumnAction
+            // 
+            ColumnAction.HeaderText = "Action";
+            ColumnAction.Name = "ColumnAction";
+            ColumnAction.ReadOnly = true;
+            // 
+            // ColumnActionDate
+            // 
+            ColumnActionDate.HeaderText = "Date";
+            ColumnActionDate.Name = "ColumnActionDate";
+            ColumnActionDate.ReadOnly = true;
+            // 
+            // ColumnDetails
+            // 
+            ColumnDetails.HeaderText = "Details";
+            ColumnDetails.Name = "ColumnDetails";
+            ColumnDetails.ReadOnly = true;
             // 
             // label9
             // 
@@ -111,24 +164,30 @@
             Controls.Add(txtcedula);
             Controls.Add(label10);
             Controls.Add(label9);
-            Controls.Add(dgvDatos);
+            Controls.Add(dgvHistory);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmHistory";
             Text = "Historial";
             Load += Historial_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHistory).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dgvDatos;
+        private DataGridView dgvHistory;
         private Label label9;
         private Button btnBuscar;
         private TextBox txtcedula;
         private Label label10;
+        private DataGridViewTextBoxColumn ColumnIdHistory;
+        private DataGridViewTextBoxColumn ColumnUserId;
+        private DataGridViewTextBoxColumn ColumnTableName;
+        private DataGridViewTextBoxColumn ColumnAction;
+        private DataGridViewTextBoxColumn ColumnActionDate;
+        private DataGridViewTextBoxColumn ColumnDetails;
     }
 }

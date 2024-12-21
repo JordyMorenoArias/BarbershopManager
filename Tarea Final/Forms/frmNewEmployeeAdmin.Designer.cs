@@ -1,6 +1,6 @@
 ﻿namespace Tarea_Final
 {
-    partial class frmNewEmployee
+    partial class frmNewEmployeeAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewEmployee));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewEmployeeAdmin));
             btnNuevo = new Button();
             btnCerrar = new Button();
             btnGuardar = new Button();

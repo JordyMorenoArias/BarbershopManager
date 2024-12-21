@@ -14,7 +14,7 @@ namespace Tarea_Final
 {
     public partial class frmNewAppointment : Form
     {
-        private Employee employee { get; set; }
+        private Employee employee { get; set; } = null;
         private User user { get; set; }
         private Service service { get; set; }
 
@@ -119,7 +119,12 @@ namespace Tarea_Final
                     return;
                 }
 
-                if (employee.IdEmployee == 0)
+                if (employee == null || employee.IdEmployee == 0)
+                {
+                    MessageBox.Show("Por favor, seleccione un empleado.");
+                    return;
+                }
+                if (employee.IdEmployee == 0 || employee == null)
                 {
                     MessageBox.Show("Por favor, seleccione un empleado.");
                     return;

@@ -1,6 +1,6 @@
 ﻿namespace Tarea_Final
 {
-    partial class frmConsultUser
+    partial class frmConsultProfile
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsultUser));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsultProfile));
             label6 = new Label();
             dtpFechaNacimiento = new DateTimePicker();
             label4 = new Label();
@@ -61,7 +61,7 @@
             dtpFechaNacimiento.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dtpFechaNacimiento.Location = new Point(74, 365);
             dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            dtpFechaNacimiento.Size = new Size(285, 27);
+            dtpFechaNacimiento.Size = new Size(316, 27);
             dtpFechaNacimiento.TabIndex = 97;
             dtpFechaNacimiento.Value = new DateTime(2000, 2, 1, 0, 0, 0, 0);
             // 
@@ -70,7 +70,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.Silver;
-            label4.Location = new Point(72, 330);
+            label4.Location = new Point(72, 340);
             label4.Name = "label4";
             label4.Size = new Size(208, 22);
             label4.TabIndex = 96;
@@ -93,7 +93,7 @@
             txtName.Location = new Point(72, 149);
             txtName.Margin = new Padding(3, 2, 3, 2);
             txtName.Name = "txtName";
-            txtName.Size = new Size(285, 27);
+            txtName.Size = new Size(316, 27);
             txtName.TabIndex = 94;
             // 
             // label3
@@ -113,7 +113,7 @@
             txtEmail.Location = new Point(72, 215);
             txtEmail.Margin = new Padding(3, 2, 3, 2);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(285, 27);
+            txtEmail.Size = new Size(316, 27);
             txtEmail.TabIndex = 92;
             // 
             // txtPhoneNumber
@@ -122,7 +122,7 @@
             txtPhoneNumber.Location = new Point(74, 285);
             txtPhoneNumber.Margin = new Padding(3, 2, 3, 2);
             txtPhoneNumber.Name = "txtPhoneNumber";
-            txtPhoneNumber.Size = new Size(285, 27);
+            txtPhoneNumber.Size = new Size(316, 27);
             txtPhoneNumber.TabIndex = 90;
             // 
             // label1
@@ -142,7 +142,7 @@
             txtIdCard.Location = new Point(72, 82);
             txtIdCard.Margin = new Padding(3, 2, 3, 2);
             txtIdCard.Name = "txtIdCard";
-            txtIdCard.Size = new Size(285, 27);
+            txtIdCard.Size = new Size(316, 27);
             txtIdCard.TabIndex = 88;
             // 
             // btnCerrar
@@ -152,13 +152,13 @@
             btnCerrar.FlatAppearance.BorderSize = 0;
             btnCerrar.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
             btnCerrar.FlatStyle = FlatStyle.Flat;
-            btnCerrar.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCerrar.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnCerrar.ForeColor = Color.White;
             btnCerrar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCerrar.Location = new Point(535, 422);
+            btnCerrar.Location = new Point(525, 425);
             btnCerrar.Margin = new Padding(3, 2, 3, 2);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(105, 27);
+            btnCerrar.Size = new Size(115, 33);
             btnCerrar.TabIndex = 101;
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = false;
@@ -171,13 +171,13 @@
             btnModificar.FlatAppearance.BorderSize = 0;
             btnModificar.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
             btnModificar.FlatStyle = FlatStyle.Flat;
-            btnModificar.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btnModificar.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnModificar.ForeColor = Color.White;
             btnModificar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnModificar.Location = new Point(424, 422);
+            btnModificar.Location = new Point(404, 425);
             btnModificar.Margin = new Padding(3, 2, 3, 2);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(105, 27);
+            btnModificar.Size = new Size(115, 33);
             btnModificar.TabIndex = 100;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = false;
@@ -188,7 +188,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Silver;
-            label2.Location = new Point(396, 330);
+            label2.Location = new Point(404, 341);
             label2.Name = "label2";
             label2.Size = new Size(213, 22);
             label2.TabIndex = 103;
@@ -196,12 +196,12 @@
             // 
             // txtPassword
             // 
-            txtPassword.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPassword.Location = new Point(396, 365);
+            txtPassword.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPassword.Location = new Point(404, 365);
             txtPassword.Margin = new Padding(3, 2, 3, 2);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
-            txtPassword.Size = new Size(244, 27);
+            txtPassword.Size = new Size(235, 26);
             txtPassword.TabIndex = 102;
             txtPassword.TextChanged += txtPassword_TextChanged;
             // 

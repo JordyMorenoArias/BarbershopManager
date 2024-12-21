@@ -84,7 +84,7 @@ namespace Tarea_Final
 
         private void btnHistorial_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmHistory());
+            OpenForm(new frmHistory(user));
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -136,7 +136,7 @@ namespace Tarea_Final
 
         private void btnConsultarClientes_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmConsultUser(user));
+            OpenForm(new frmConsultProfile(user));
         }
     }
 }

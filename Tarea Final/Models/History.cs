@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,6 +42,35 @@ namespace Tarea_Final.Models
             Action = action ?? throw new ArgumentNullException(nameof(action));
             ActionDate = actionDate;
             Details = details;
+        }
+
+        public static async Task<List<History>> GetHistoriesByUser(User user)
+        {
+            using (SqlConnection connection = Connection.Connect())
+            {
+                string query = "SELECT * FROM History WHERE UserId = @UserId";
+                await connection.OpenAsync();
+                using (SqlCommand command = new(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserId", user.UserId);
+                    using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                    {
+                        List<History> histories = new();
+                        while (await reader.ReadAsync())
+                        {
+                            histories.Add(new History(
+                                historyId: (int)reader["HistoryId"],
+                                userId: reader["UserId"] as int?,
+                                tableName: reader["TableName"].ToString(),
+                                action: reader["Action"].ToString(),
+                                actionDate: (DateTime)reader["ActionDate"],
+                                details: reader["Details"].ToString()
+                            ));
+                        }
+                        return histories;
+                    }
+                }
+            }
         }
     }
 }
