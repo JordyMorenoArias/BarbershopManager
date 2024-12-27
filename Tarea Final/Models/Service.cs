@@ -15,6 +15,7 @@ namespace Tarea_Final.Models
         public decimal Price { get; set; }
         public TimeSpan Duration { get; set; }
 
+        public Service() { }
         public Service(int idService, string name, string description, decimal price, TimeSpan duration)
         {
             IdService = idService;

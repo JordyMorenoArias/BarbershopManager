@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUser));
             panel1 = new Panel();
+            btnHome = new FontAwesome.Sharp.IconButton();
+            panel9 = new Panel();
             panelClientes = new Panel();
             btnConsultarClientes = new Button();
             panel11 = new Panel();
@@ -44,8 +46,6 @@
             panel15 = new Panel();
             btnNuevoCitas = new Button();
             panel16 = new Panel();
-            btnPerfil = new Button();
-            panel8 = new Panel();
             btnHistorial = new Button();
             panel7 = new Panel();
             btnCliente = new Button();
@@ -77,13 +77,13 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(26, 32, 40);
+            panel1.Controls.Add(btnHome);
+            panel1.Controls.Add(panel9);
             panel1.Controls.Add(panelClientes);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(button5);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(panelCitas);
-            panel1.Controls.Add(btnPerfil);
-            panel1.Controls.Add(panel8);
             panel1.Controls.Add(btnHistorial);
             panel1.Controls.Add(panel7);
             panel1.Controls.Add(btnCliente);
@@ -97,13 +97,40 @@
             panel1.Size = new Size(233, 498);
             panel1.TabIndex = 35;
             // 
+            // btnHome
+            // 
+            btnHome.BackColor = Color.FromArgb(26, 32, 40);
+            btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnHome.ForeColor = Color.FromArgb(224, 224, 224);
+            btnHome.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
+            btnHome.IconColor = Color.FromArgb(224, 224, 224);
+            btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnHome.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHome.Location = new Point(13, 217);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(217, 34);
+            btnHome.TabIndex = 0;
+            btnHome.Text = "Inicio";
+            btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += btnHome_Click;
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.FromArgb(0, 80, 200);
+            panel9.Location = new Point(2, 217);
+            panel9.Margin = new Padding(3, 2, 3, 2);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(9, 34);
+            panel9.TabIndex = 44;
+            // 
             // panelClientes
             // 
             panelClientes.Controls.Add(btnConsultarClientes);
             panelClientes.Controls.Add(panel11);
             panelClientes.Controls.Add(btnAñadirClientes);
             panelClientes.Controls.Add(panel10);
-            panelClientes.Location = new Point(52, 283);
+            panelClientes.Location = new Point(54, 331);
             panelClientes.Margin = new Padding(3, 2, 3, 2);
             panelClientes.Name = "panelClientes";
             panelClientes.Size = new Size(175, 69);
@@ -206,7 +233,7 @@
             panelCitas.Controls.Add(panel15);
             panelCitas.Controls.Add(btnNuevoCitas);
             panelCitas.Controls.Add(panel16);
-            panelCitas.Location = new Point(53, 230);
+            panelCitas.Location = new Point(55, 282);
             panelCitas.Margin = new Padding(3, 2, 3, 2);
             panelCitas.Name = "panelCitas";
             panelCitas.Size = new Size(174, 69);
@@ -267,33 +294,6 @@
             panel16.Size = new Size(9, 25);
             panel16.TabIndex = 36;
             // 
-            // btnPerfil
-            // 
-            btnPerfil.BackColor = Color.FromArgb(26, 32, 40);
-            btnPerfil.FlatAppearance.BorderSize = 0;
-            btnPerfil.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
-            btnPerfil.FlatStyle = FlatStyle.Flat;
-            btnPerfil.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPerfil.ForeColor = Color.White;
-            btnPerfil.Image = (Image)resources.GetObject("btnPerfil.Image");
-            btnPerfil.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPerfil.Location = new Point(10, 337);
-            btnPerfil.Margin = new Padding(3, 2, 3, 2);
-            btnPerfil.Name = "btnPerfil";
-            btnPerfil.Size = new Size(217, 34);
-            btnPerfil.TabIndex = 32;
-            btnPerfil.Text = "Perfil";
-            btnPerfil.UseVisualStyleBackColor = false;
-            // 
-            // panel8
-            // 
-            panel8.BackColor = Color.FromArgb(0, 80, 200);
-            panel8.Location = new Point(0, 337);
-            panel8.Margin = new Padding(3, 2, 3, 2);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(9, 34);
-            panel8.TabIndex = 35;
-            // 
             // btnHistorial
             // 
             btnHistorial.BackColor = Color.FromArgb(26, 32, 40);
@@ -304,7 +304,7 @@
             btnHistorial.ForeColor = Color.White;
             btnHistorial.Image = (Image)resources.GetObject("btnHistorial.Image");
             btnHistorial.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHistorial.Location = new Point(14, 290);
+            btnHistorial.Location = new Point(16, 331);
             btnHistorial.Margin = new Padding(3, 2, 3, 2);
             btnHistorial.Name = "btnHistorial";
             btnHistorial.Size = new Size(214, 34);
@@ -316,7 +316,7 @@
             // panel7
             // 
             panel7.BackColor = Color.FromArgb(0, 80, 200);
-            panel7.Location = new Point(0, 290);
+            panel7.Location = new Point(2, 331);
             panel7.Margin = new Padding(3, 2, 3, 2);
             panel7.Name = "panel7";
             panel7.Size = new Size(9, 34);
@@ -332,7 +332,7 @@
             btnCliente.ForeColor = Color.White;
             btnCliente.Image = (Image)resources.GetObject("btnCliente.Image");
             btnCliente.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCliente.Location = new Point(10, 245);
+            btnCliente.Location = new Point(12, 293);
             btnCliente.Margin = new Padding(3, 2, 3, 2);
             btnCliente.Name = "btnCliente";
             btnCliente.Size = new Size(217, 34);
@@ -344,7 +344,7 @@
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(0, 80, 200);
-            panel6.Location = new Point(0, 245);
+            panel6.Location = new Point(2, 293);
             panel6.Margin = new Padding(3, 2, 3, 2);
             panel6.Name = "panel6";
             panel6.Size = new Size(9, 34);
@@ -361,7 +361,7 @@
             btnCitas.ForeColor = Color.White;
             btnCitas.Image = (Image)resources.GetObject("btnCitas.Image");
             btnCitas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCitas.Location = new Point(10, 200);
+            btnCitas.Location = new Point(12, 255);
             btnCitas.Margin = new Padding(3, 2, 3, 2);
             btnCitas.Name = "btnCitas";
             btnCitas.RightToLeft = RightToLeft.No;
@@ -374,7 +374,7 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(0, 80, 200);
-            panel3.Location = new Point(0, 200);
+            panel3.Location = new Point(2, 255);
             panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
             panel3.Size = new Size(9, 34);
@@ -644,12 +644,12 @@
         private Panel panel14;
         private Panel panel4;
         private Panel panel2;
-        private Button btnPerfil;
-        private Panel panel8;
         private Panel panelClientes;
         private Button btnConsultarClientes;
         private Panel panel11;
         private Button btnAñadirClientes;
         private Panel panel10;
+        private Panel panel9;
+        private FontAwesome.Sharp.IconButton btnHome;
     }
 }

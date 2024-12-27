@@ -292,7 +292,7 @@
             dvgColumnEmployee.Name = "dvgColumnEmployee";
             dvgColumnEmployee.ReadOnly = true;
             // 
-            // frmConsultarCita
+            // frmConsultAppointment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -317,7 +317,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
-            Name = "frmConsultarCita";
+            Name = "frmConsultAppointment";
             Text = "ConsulatarCita";
             ((System.ComponentModel.ISupportInitialize)dgvCitas).EndInit();
             ResumeLayout(false);

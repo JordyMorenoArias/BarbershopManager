@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewAppointment));
-            btnCerrar = new Button();
             btnCrear = new Button();
             label9 = new Label();
             dtpFecha = new DateTimePicker();
@@ -44,24 +43,6 @@
             cmbEmpleados = new ComboBox();
             SuspendLayout();
             // 
-            // btnCerrar
-            // 
-            btnCerrar.BackColor = Color.FromArgb(26, 32, 40);
-            btnCerrar.FlatAppearance.BorderSize = 0;
-            btnCerrar.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
-            btnCerrar.FlatStyle = FlatStyle.Flat;
-            btnCerrar.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCerrar.ForeColor = Color.White;
-            btnCerrar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCerrar.Location = new Point(392, 420);
-            btnCerrar.Margin = new Padding(3, 2, 3, 2);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(88, 27);
-            btnCerrar.TabIndex = 78;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = false;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
             // btnCrear
             // 
             btnCrear.BackColor = Color.FromArgb(26, 32, 40);
@@ -71,7 +52,7 @@
             btnCrear.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             btnCrear.ForeColor = Color.White;
             btnCrear.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCrear.Location = new Point(298, 420);
+            btnCrear.Location = new Point(394, 420);
             btnCrear.Margin = new Padding(3, 2, 3, 2);
             btnCrear.Name = "btnCrear";
             btnCrear.Size = new Size(88, 27);
@@ -204,7 +185,7 @@
             cmbEmpleados.TabIndex = 85;
             cmbEmpleados.SelectedIndexChanged += cmbEmpleados_SelectedIndexChanged;
             // 
-            // frmNuevaCita
+            // frmNewAppointment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -220,13 +201,12 @@
             Controls.Add(label5);
             Controls.Add(dtpHora);
             Controls.Add(dtpFecha);
-            Controls.Add(btnCerrar);
             Controls.Add(btnCrear);
             Controls.Add(label9);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
-            Name = "frmNuevaCita";
+            Name = "frmNewAppointment";
             Text = "NuevaCita";
             Load += NuevaCita_Load;
             ResumeLayout(false);
@@ -234,7 +214,6 @@
         }
 
         #endregion
-        private Button btnCerrar;
         private Button btnCrear;
         private Label label9;
         private TextBox textBox1;

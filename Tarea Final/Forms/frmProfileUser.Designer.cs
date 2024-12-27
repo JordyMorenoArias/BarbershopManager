@@ -181,7 +181,7 @@
             label9.TabIndex = 48;
             label9.Text = "Perfil";
             // 
-            // frmPerfil
+            // frmProfileUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -201,7 +201,7 @@
             Controls.Add(label9);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
-            Name = "frmPerfil";
+            Name = "frmProfileUser";
             Text = "Perfil";
             Load += Perfil_Load;
             ResumeLayout(false);

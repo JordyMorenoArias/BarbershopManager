@@ -106,10 +106,10 @@ namespace Tarea_Final
 
                 foreach (Appointment appointment in appointments)
                 {
-                    if(appointment.Status == "Cancelada") 
+                    if (appointment.Status == "Cancelada")
                         continue;
 
-                    Employee employee = await Employee.GetEmployee(appointment.IdEmployee);
+                    Employee employee = await Employee.GetEmployeeById(appointment.Employee.IdEmployee);
                     dgvCitas.Rows.Add(appointment.IdAppointment, appointment.Service.Name, appointment.Service.Price, appointment.Date, appointment.Hour, employee.Name);
                 }
             }
@@ -136,7 +136,7 @@ namespace Tarea_Final
                     cmbEmpleados.Text = "";
                     dtpFecha.Value = DateTime.Today;
                     dtpHora.Value = DateTime.Today;
-                    cmbStatus.Text = "";    
+                    cmbStatus.Text = "";
 
                     await Appointment.ModifyAppointment(appointment);
                     await LoadAppointmentsDataGridView();
@@ -163,13 +163,13 @@ namespace Tarea_Final
             {
                 try
                 {
-                    int idCita = int.Parse(dgvCitas.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    int idCita = int.Parse(dgvCitas.Rows[e.RowIndex].Cells[0].Value.ToString()!);
                     this.appointment = await Appointment.GetAppointment(idCita);
 
                     cmbServicios.Text = appointment.Service.Name;
                     txtDescripcion.Text = appointment.Service.Description;
                     lblPrecio.Text = appointment.Service.Price.ToString();
-                    Employee employee = await Employee.GetEmployee(appointment.IdEmployee);
+                    Employee employee = await Employee.GetEmployeeById(appointment.Employee.IdEmployee);
                     cmbEmpleados.Text = employee.Name;
                     dtpFecha.Value = appointment.Date;
                     dtpHora.Value = DateTime.Today.Add(appointment.Hour);
@@ -241,7 +241,7 @@ namespace Tarea_Final
                         {
                             if (await reader.ReadAsync())
                             {
-                                this.employee = await Employee.GetEmployee((int)reader["UserId"]);
+                                this.employee = await Employee.GetEmployeeById((int)reader["UserId"]);
                             }
                             else
                             {

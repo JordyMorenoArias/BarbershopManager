@@ -121,17 +121,17 @@ namespace Tarea_Final.Models
             }
         }
 
-        internal static async Task<User> GetUser(int id)
+        internal static async Task<User> GetUserById(int id)
         {
             try
             {
                 using (SqlConnection connection = Connection.Connect())
                 {
                     await connection.OpenAsync();
-                    string query = "SELECT * FROM Users WHERE Id = @Id";
+                    string query = "SELECT * FROM Users WHERE UserId = @UserId";
                     using (SqlCommand command = new(query, connection))
                     {
-                        command.Parameters.AddWithValue("@Id", id);
+                        command.Parameters.AddWithValue("@UserId", id);
                         using (SqlDataReader reader = await command.ExecuteReaderAsync())
                         {
                             if (await reader.ReadAsync())

@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tarea_Final.Forms;
 using Tarea_Final.Models;
 
 namespace Tarea_Final
@@ -21,6 +22,8 @@ namespace Tarea_Final
             StartPosition = FormStartPosition.CenterScreen;
 
             this.user = user;
+            OpenForm(new frmStartUser(user));
+            btnHome.FlatAppearance.BorderSize = 0;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -75,13 +78,6 @@ namespace Tarea_Final
         {
         }
 
-        private void OpenForm(Form form)
-        {
-            HideLabelsAndLogo();
-            AbrirForm(form);
-            TogglePanelVisibility(null!);
-        }
-
         private void btnHistorial_Click(object sender, EventArgs e)
         {
             OpenForm(new frmHistory(user));
@@ -105,18 +101,18 @@ namespace Tarea_Final
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
-        private void AbrirForm(object frm)
+        private void OpenForm(Form form)
         {
             if (this.panelContener.Controls.Count > 0)
                 this.panelContener.Controls.RemoveAt(0);
 
-            Form fh = frm as Form;
-            fh.TopLevel = false;
-            fh.Dock = DockStyle.Fill;
-            this.panelContener.Controls.Add(fh);
-            this.panelContener.Tag = fh;
-            fh.Show();
+            HideLabelsAndLogo();
+            form.TopLevel = false;
+            form.Dock = DockStyle.Fill;
+            this.panelContener.Controls.Add(form);
+            this.panelContener.Tag = form;
+            form.Show();
+            TogglePanelVisibility(null!);
         }
 
         private void btnNuevoCitas_Click(object sender, EventArgs e)
@@ -137,6 +133,11 @@ namespace Tarea_Final
         private void btnConsultarClientes_Click(object sender, EventArgs e)
         {
             OpenForm(new frmConsultProfile(user));
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            OpenForm(new frmStartUser(user));
         }
     }
 }

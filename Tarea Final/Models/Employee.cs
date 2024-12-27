@@ -27,7 +27,7 @@ namespace Tarea_Final.Models
             this.status = status;
         }
 
-        internal static async Task<Employee> GetEmployee(int employeeId)
+        internal static async Task<Employee> GetEmployeeById(int employeeId)
         {
             using (SqlConnection connection = Connection.Connect())
             {
@@ -64,6 +64,7 @@ namespace Tarea_Final.Models
                     }
                 }
             }
+
         }
 
         internal static List<Employee> GetEmployees()

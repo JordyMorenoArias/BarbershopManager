@@ -205,7 +205,7 @@
             txtPassword.TabIndex = 102;
             txtPassword.TextChanged += txtPassword_TextChanged;
             // 
-            // frmConsultUser
+            // frmConsultProfile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -228,7 +228,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
-            Name = "frmConsultUser";
+            Name = "frmConsultProfile";
             Text = "ConsultarCliente";
             ResumeLayout(false);
             PerformLayout();

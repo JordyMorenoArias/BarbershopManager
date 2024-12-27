@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tarea_Final.Forms;
 using Tarea_Final.Models;
 
 namespace Tarea_Final
 {
     public partial class frmNewAppointment : Form
     {
-        private Employee employee { get; set; } = null;
+        private Employee employee { get; set; } = null!;
         private User user { get; set; }
         private Service service { get; set; }
 
@@ -86,14 +87,9 @@ namespace Tarea_Final
             // Código para manejar el evento de carga del formulario
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            // Código para manejar el evento de clic en el botón Buscar
-        }
-
         internal async Task<bool> CheckEmployeeAvailability(int employeeId, DateTime date, TimeSpan hour)
         {
-            Employee employee = await Employee.GetEmployee(employeeId);
+            Employee employee = await Employee.GetEmployeeById(employeeId);
 
             var busySchedules = await Schedule.GetSchedulesbyEmployee(employee.IdEmployee);
 
@@ -113,6 +109,11 @@ namespace Tarea_Final
             try
             {
                 // Validar que se haya seleccionado un servicio y un empleado
+                if (service == null || service.IdService == 0)
+                {
+                    MessageBox.Show("Por favor, seleccione un servicio.");
+                    return;
+                }
                 if (service.IdService == 0)
                 {
                     MessageBox.Show("Por favor, seleccione un servicio.");
@@ -147,8 +148,8 @@ namespace Tarea_Final
                 {
                     Appointment appointment = new Appointment
                     (
-                        employee.IdEmployee,
-                        user.UserId,
+                        employee,
+                        user,
                         dtpFecha.Value.Date,
                         dtpHora.Value.TimeOfDay,
                         service,
@@ -157,8 +158,12 @@ namespace Tarea_Final
 
                     await Appointment.CreateAppointment(appointment);
                     MessageBox.Show("Cita creada exitosamente.");
-                }
 
+                    this.Owner?.Close();
+
+                    Form frmUser = new frmUser(user);
+                    frmUser.Show();
+                }
             }
             catch (SqlException sqlEx)
             {
@@ -234,7 +239,7 @@ namespace Tarea_Final
                         {
                             if (await reader.ReadAsync())
                             {
-                                this.employee = await Employee.GetEmployee((int)reader["UserId"]);
+                                this.employee = await Employee.GetEmployeeById((int)reader["UserId"]);
                             }
                             else
                             {
@@ -252,6 +257,25 @@ namespace Tarea_Final
 
         private void dtpHora_ValueChanged(object sender, EventArgs e)
         {
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            // Cerrar el formulario actual
+            this.Close();
+
+            // Recorrer la jerarquía de formularios padres y cerrarlos
+            Form parentForm = this.Owner;
+            while (parentForm != null)
+            {
+                Form tempForm = parentForm.Owner;
+                parentForm.Close();
+                parentForm = tempForm;
+            }
+
+            // Abrir el nuevo formulario
+            Form frmUser = new frmUser(user);
+            frmUser.Show();
         }
     }
 }
