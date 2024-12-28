@@ -23,21 +23,18 @@ namespace Tarea_Final
 
                 User user = await User.ValidateUser("yordimorenoarias.1@gmail.com", "2001892zZ@");
 
-                frmUser frmUser = new frmUser(user);
-                frmUser.Show();
-
-                //if (user.IsAdmin)
-                //{
-                //    frmAdmin frmAdmin = new frmAdmin(user);
-                //    frmAdmin.Show();
-                //    this.Hide();
-                //}
-                //else
-                //{
-                //    frmUsuario frmUser = new frmUsuario(user);
-                //    frmUser.Show();
-                //    this.Hide();
-                //}
+                if (user.IsAdmin)
+                {
+                    frmAdmin frmAdmin = new frmAdmin(user);
+                    frmAdmin.Show();
+                    // this.Hide();
+                }
+                else
+                {
+                    frmUser frmUser = new frmUser(user);
+                    frmUser.Show();
+                    this.Hide();
+                }
             }
             catch (ApplicationException ex)
             {

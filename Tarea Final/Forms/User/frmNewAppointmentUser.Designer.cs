@@ -1,6 +1,6 @@
 ﻿namespace Tarea_Final
 {
-    partial class frmNewAppointment
+    partial class frmNewAppointmentUser
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewAppointment));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewAppointmentUser));
             btnCrear = new Button();
             label9 = new Label();
             dtpFecha = new DateTimePicker();
@@ -66,7 +66,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Century Gothic", 19.8F, FontStyle.Regular, GraphicsUnit.Point);
             label9.ForeColor = Color.Silver;
-            label9.Location = new Point(96, 58);
+            label9.Location = new Point(106, 59);
             label9.Name = "label9";
             label9.Size = new Size(162, 33);
             label9.TabIndex = 76;
@@ -185,7 +185,7 @@
             cmbEmpleados.TabIndex = 85;
             cmbEmpleados.SelectedIndexChanged += cmbEmpleados_SelectedIndexChanged;
             // 
-            // frmNewAppointment
+            // frmNewAppointmentUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -206,7 +206,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
-            Name = "frmNewAppointment";
+            Name = "frmNewAppointmentUser";
             Text = "NuevaCita";
             Load += NuevaCita_Load;
             ResumeLayout(false);

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Tarea_Final.Models;
+using Tarea_Final.Forms;
+using Tarea_Final.Forms.Admin;
 
 namespace Tarea_Final
 {
@@ -20,7 +22,35 @@ namespace Tarea_Final
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+
             this.user = user;
+            OpenForm(new frmStartAdmin());
+            btnHome.FlatAppearance.BorderSize = 0;
+        }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+
+        private extern static void SendMessage(System.IntPtr hwnd, int wMsg, int wParam, int iParam);
+
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void OpenForm(Form form)
+        {
+            if (this.panelContenedor.Controls.Count > 0)
+                this.panelContenedor.Controls.RemoveAt(0);
+
+            form.TopLevel = false;
+            form.Dock = DockStyle.Fill;
+            this.panelContenedor.Controls.Add(form);
+            this.panelContenedor.Tag = form;
+            form.Show();
+            TogglePanelVisibility(null!);
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -45,18 +75,6 @@ namespace Tarea_Final
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-
-        private extern static void SendMessage(System.IntPtr hwnd, int wMsg, int wParam, int iParam);
-
-        private void panel2_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         private void TogglePanelVisibility(Panel panelToShow)
@@ -97,57 +115,6 @@ namespace Tarea_Final
             TogglePanelVisibility(panelEmpleado);
         }
 
-        private void HideLabelsAndLogo()
-        {
-        }
-
-        private void OpenForm(Form form)
-        {
-            HideLabelsAndLogo();
-            AbrirForm(form);
-            TogglePanelVisibility(null!);
-        }
-
-        private void button6_Click_1(object sender, EventArgs e)
-        {
-            OpenForm(new frmHistory(user));
-        }
-
-        private void button5_Click_1(object sender, EventArgs e)
-        {
-            OpenForm(new frmConsultProfilesAdmin());
-        }
-
-        private void btnAñadirCitas_Click(object sender, EventArgs e)
-        {
-            OpenForm(new frmDataUser());
-        }
-
-        private void btnConsultarCitas_Click(object sender, EventArgs e)
-        {
-            OpenForm(new frmConsultProfile(user));
-        }
-
-        private void btnNuevoEmpleado_Click(object sender, EventArgs e)
-        {
-            OpenForm(new frmNewEmployeeAdmin());
-        }
-
-        private void btnConsultarEmpleado_Click(object sender, EventArgs e)
-        {
-            OpenForm(new frmConsultEmployeeAdmin());
-        }
-
-        private void btnNuevoCitas_Click(object sender, EventArgs e)
-        {
-            OpenForm(new frmNewAppointment(user));
-        }
-
-        private void btnConsultarCitas_Click_1(object sender, EventArgs e)
-        {
-            OpenForm(new frmConsultAppointment(user));
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Form formulario = new frmIniciarSeccion();
@@ -155,22 +122,14 @@ namespace Tarea_Final
             this.Close();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void btnHome_Click(object sender, EventArgs e)
         {
-
+            OpenForm(new frmStartAdmin());
         }
 
-        private void AbrirForm(object frm)
+        private void btnNuevoCitas_Click(object sender, EventArgs e)
         {
-            if (this.panelContenedor.Controls.Count > 0)
-                this.panelContenedor.Controls.RemoveAt(0);
-
-            Form? fh = frm as Form;
-            fh.TopLevel = false;
-            fh.Dock = DockStyle.Fill;
-            this.panelContenedor.Controls.Add(fh);
-            this.panelContenedor.Tag = fh;
-            fh.Show();
+            OpenForm(new frmNewAppointmentAdmin(user));
         }
     }
 }

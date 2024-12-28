@@ -161,6 +161,45 @@ namespace Tarea_Final.Models
             return null!;
         }
 
+        internal static async Task<User> GetUserByIdCard(string idCard)
+        {
+            try
+            {
+                using (SqlConnection connection = Connection.Connect())
+                {
+                    await connection.OpenAsync();
+                    string query = "SELECT * FROM Users WHERE IdCard = @IdCard";
+                    using (SqlCommand command = new(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@IdCard", idCard);
+                        using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                return new User
+                                {
+                                    UserId = reader.GetInt32(0),
+                                    Name = reader.GetString(1),
+                                    Email = reader.GetString(2),
+                                    IdCard = reader.GetString(3),
+                                    Password = reader.GetString(4),
+                                    BirthDate = reader.GetDateTime(5),
+                                    PhoneNumber = reader.GetString(6)
+                                };
+                            }
+                        }
+                    }
+                    await connection.CloseAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception as needed
+                throw new ApplicationException("Se ha producido un error al obtener el usuario.", ex);
+            }
+            return null!;
+        }
+
         internal static async Task ModifyUser(User user)
         {
             try

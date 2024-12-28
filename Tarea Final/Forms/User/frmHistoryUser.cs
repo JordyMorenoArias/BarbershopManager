@@ -12,11 +12,11 @@ using Tarea_Final.Models;
 
 namespace Tarea_Final
 {
-    public partial class frmHistory : Form
+    public partial class frmHistoryUser : Form
     {
         private User user { get; set; }
 
-        public frmHistory(User user)
+        public frmHistoryUser(User user)
         {
             InitializeComponent();
             this.user = user;

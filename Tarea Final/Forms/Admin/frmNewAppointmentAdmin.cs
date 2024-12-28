@@ -8,24 +8,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tarea_Final.Forms;
 using Tarea_Final.Models;
 
-namespace Tarea_Final
+namespace Tarea_Final.Forms.Admin
 {
-    public partial class frmNewAppointment : Form
+    public partial class frmNewAppointmentAdmin : Form
     {
+        private Models.User user { get; set; }
         private Employee employee { get; set; } = null!;
-        private User user { get; set; }
         private Service service { get; set; }
 
-        public frmNewAppointment(User user)
+        public frmNewAppointmentAdmin(Models.User user)
         {
             InitializeComponent();
 
+            this.user = user;
             LoadCmbServicios();
             LoadCmbEmpleados();
-            this.user = user;
+            PerfilLoad();
         }
 
         private async void LoadCmbServicios()
@@ -82,26 +82,38 @@ namespace Tarea_Final
             }
         }
 
-        private void NuevaCita_Load(object sender, EventArgs e)
+        private async void LoadCmbUsers()
         {
-            // Código para manejar el evento de carga del formulario
-        }
-
-        internal async Task<bool> CheckEmployeeAvailability(int employeeId, DateTime date, TimeSpan hour)
-        {
-            Employee employee = await Employee.GetEmployeeById(employeeId);
-
-            var busySchedules = await Schedule.GetSchedulesbyEmployee(employee.IdEmployee);
-
-            foreach (var schedule in busySchedules)
+            string query = "SELECT IdCard FROM Users";
+            try
             {
-                if (schedule.Date.Date == date.Date && schedule.StartHour <= hour && schedule.FinalHour >= hour)
+                using (SqlConnection connection = Connection.Connect())
                 {
-                    MessageBox.Show($"{employee.Name} ya tiene una cita programada a esa hora. Estará disponible a partir de las {DateTime.Today.Add(schedule.FinalHour).ToString("hh:mm tt")}.");
-                    return false;
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                cmbCedula.Items.Add(reader["IdCard"].ToString());
+                            }
+                        }
+                    }
                 }
             }
-            return true;
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar usuarios: {ex.Message}");
+            }
+        }
+
+        private void PerfilLoad()
+        {
+            cmbCedula.Text = user.IdCard;
+            lblName.Text = user.Name;
+            lblEmail.Text = user.Email;
+            lblPhoneNumber.Text = user.PhoneNumber;
         }
 
         private async void btnCrear_Click(object sender, EventArgs e)
@@ -160,9 +172,6 @@ namespace Tarea_Final
                     MessageBox.Show("Cita creada exitosamente.");
 
                     this.Owner?.Close();
-
-                    Form frmUser = new frmUser(user);
-                    frmUser.Show();
                 }
             }
             catch (SqlException sqlEx)
@@ -174,50 +183,21 @@ namespace Tarea_Final
                 MessageBox.Show($"Error al crear la cita: {ex.Message}");
             }
         }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
+        internal async Task<bool> CheckEmployeeAvailability(int employeeId, DateTime date, TimeSpan hour)
         {
-            this.Close();
-        }
+            Employee employee = await Employee.GetEmployeeById(employeeId);
 
-        private async void cmbServicios_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            await LoadServiceDetails(cmbServicios.Text);
-        }
+            var busySchedules = await Schedule.GetSchedulesbyEmployee(employee.IdEmployee);
 
-        private async Task LoadServiceDetails(string serviceName)
-        {
-            string query = "SELECT ServiceId, Price, Description FROM Services WHERE Name = @Name";
-
-            try
+            foreach (var schedule in busySchedules)
             {
-                using (SqlConnection connection = Connection.Connect())
+                if (schedule.Date.Date == date.Date && schedule.StartHour <= hour && schedule.FinalHour >= hour)
                 {
-                    await connection.OpenAsync(); // Asegúrate de que la conexión esté completamente abierta
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@Name", serviceName);
-                        using (SqlDataReader reader = await command.ExecuteReaderAsync())
-                        {
-                            if (await reader.ReadAsync())
-                            {
-                                int serviceId = (int)reader["ServiceId"];
-                                this.service = await Service.GetServiceById(serviceId);
-                                lblPrecio.Text = reader["Price"].ToString() + "$";
-                                txtDescripcion.Text = reader["Description"].ToString();
-                            }
-                            else
-                            {
-                                lblPrecio.Text = "No se encontraron datos";
-                            }
-                        }
-                    }
+                    MessageBox.Show($"{employee.Name} ya tiene una cita programada a esa hora. Estará disponible a partir de las {DateTime.Today.Add(schedule.FinalHour).ToString("hh:mm tt")}.");
+                    return false;
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar detalles del servicio: {ex.Message}");
-            }
+            return true;
         }
 
         private async void cmbEmpleados_SelectedIndexChanged(object sender, EventArgs e)
@@ -255,27 +235,39 @@ namespace Tarea_Final
             }
         }
 
-        private void dtpHora_ValueChanged(object sender, EventArgs e)
+        private async void cmbServicios_SelectedIndexChanged(object sender, EventArgs e)
         {
-        }
+            string query = "SELECT ServiceId, Price, Description FROM Services WHERE Name = @Name";
 
-        private void btnInicio_Click(object sender, EventArgs e)
-        {
-            // Cerrar el formulario actual
-            this.Close();
-
-            // Recorrer la jerarquía de formularios padres y cerrarlos
-            Form parentForm = this.Owner;
-            while (parentForm != null)
+            try
             {
-                Form tempForm = parentForm.Owner;
-                parentForm.Close();
-                parentForm = tempForm;
+                using (SqlConnection connection = Connection.Connect())
+                {
+                    await connection.OpenAsync(); // Asegúrate de que la conexión esté completamente abierta
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Name", cmbServicios.Text);
+                        using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                int serviceId = (int)reader["ServiceId"];
+                                this.service = await Service.GetServiceById(serviceId);
+                                lblPrecio.Text = reader["Price"].ToString() + "$";
+                                txtDescripcion.Text = reader["Description"].ToString();
+                            }
+                            else
+                            {
+                                lblPrecio.Text = "No se encontraron datos";
+                            }
+                        }
+                    }
+                }
             }
-
-            // Abrir el nuevo formulario
-            Form frmUser = new frmUser(user);
-            frmUser.Show();
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar detalles del servicio: {ex.Message}");
+            }
         }
     }
 }

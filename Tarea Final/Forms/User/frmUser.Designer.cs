@@ -588,7 +588,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(885, 29);
             panel2.TabIndex = 28;
-            panel2.MouseDown += panel2_MouseDown_1;
+            panel2.MouseDown += panel2_MouseDown;
             // 
             // frmUser
             // 

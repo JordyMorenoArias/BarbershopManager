@@ -42,6 +42,8 @@
             btnCliente = new Button();
             button5 = new Button();
             panel1 = new Panel();
+            btnHome = new FontAwesome.Sharp.IconButton();
+            panel9 = new Panel();
             label1 = new Label();
             button1 = new Button();
             pictureBox1 = new PictureBox();
@@ -51,9 +53,9 @@
             btnNuevoCitas = new Button();
             panel16 = new Panel();
             panelClientes = new Panel();
-            btnConsultarClientes = new Button();
+            btnConsultar = new Button();
             panel11 = new Panel();
-            btnAñadirClientes = new Button();
+            btnPerfil = new Button();
             panel10 = new Panel();
             panelEmpleado = new Panel();
             btnConsultarEmpleado = new Button();
@@ -66,9 +68,9 @@
             panel7 = new Panel();
             panel6 = new Panel();
             panel3 = new Panel();
-            panelContenedor = new Panel();
             lblHoraActual = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            panelContenedor = new Panel();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -90,7 +92,7 @@
             panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(885, 29);
+            panel2.Size = new Size(1070, 29);
             panel2.TabIndex = 27;
             panel2.MouseDown += panel2_MouseDown;
             // 
@@ -120,7 +122,7 @@
             btnRestaurar.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnRestaurar.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnRestaurar.FlatStyle = FlatStyle.Flat;
-            btnRestaurar.Location = new Point(842, 4);
+            btnRestaurar.Location = new Point(1027, 4);
             btnRestaurar.Margin = new Padding(3, 2, 3, 2);
             btnRestaurar.Name = "btnRestaurar";
             btnRestaurar.Size = new Size(18, 20);
@@ -139,7 +141,7 @@
             btnMinimizar.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnMinimizar.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnMinimizar.FlatStyle = FlatStyle.Flat;
-            btnMinimizar.Location = new Point(819, 4);
+            btnMinimizar.Location = new Point(1004, 4);
             btnMinimizar.Margin = new Padding(3, 2, 3, 2);
             btnMinimizar.Name = "btnMinimizar";
             btnMinimizar.Size = new Size(18, 20);
@@ -157,7 +159,7 @@
             btnMaximizar.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnMaximizar.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnMaximizar.FlatStyle = FlatStyle.Flat;
-            btnMaximizar.Location = new Point(842, 4);
+            btnMaximizar.Location = new Point(1027, 4);
             btnMaximizar.Margin = new Padding(3, 2, 3, 2);
             btnMaximizar.Name = "btnMaximizar";
             btnMaximizar.Size = new Size(18, 20);
@@ -175,7 +177,7 @@
             btnCerrar.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnCerrar.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnCerrar.FlatStyle = FlatStyle.Flat;
-            btnCerrar.Location = new Point(864, 4);
+            btnCerrar.Location = new Point(1049, 4);
             btnCerrar.Margin = new Padding(3, 2, 3, 2);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(18, 20);
@@ -193,14 +195,13 @@
             btnHistorial.ForeColor = Color.White;
             btnHistorial.Image = (Image)resources.GetObject("btnHistorial.Image");
             btnHistorial.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHistorial.Location = new Point(17, 331);
+            btnHistorial.Location = new Point(16, 367);
             btnHistorial.Margin = new Padding(3, 2, 3, 2);
             btnHistorial.Name = "btnHistorial";
             btnHistorial.Size = new Size(214, 34);
             btnHistorial.TabIndex = 33;
             btnHistorial.Text = "Historial";
             btnHistorial.UseVisualStyleBackColor = false;
-            btnHistorial.Click += button6_Click_1;
             // 
             // btnCitas
             // 
@@ -213,7 +214,7 @@
             btnCitas.ForeColor = Color.White;
             btnCitas.Image = (Image)resources.GetObject("btnCitas.Image");
             btnCitas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCitas.Location = new Point(13, 200);
+            btnCitas.Location = new Point(12, 236);
             btnCitas.Margin = new Padding(3, 2, 3, 2);
             btnCitas.Name = "btnCitas";
             btnCitas.RightToLeft = RightToLeft.No;
@@ -233,7 +234,7 @@
             btnCliente.ForeColor = Color.White;
             btnCliente.Image = (Image)resources.GetObject("btnCliente.Image");
             btnCliente.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCliente.Location = new Point(13, 286);
+            btnCliente.Location = new Point(12, 322);
             btnCliente.Margin = new Padding(3, 2, 3, 2);
             btnCliente.Name = "btnCliente";
             btnCliente.Size = new Size(217, 34);
@@ -252,18 +253,19 @@
             button5.ForeColor = Color.White;
             button5.Image = (Image)resources.GetObject("button5.Image");
             button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(13, 377);
+            button5.Location = new Point(12, 413);
             button5.Margin = new Padding(3, 2, 3, 2);
             button5.Name = "button5";
             button5.Size = new Size(217, 34);
             button5.TabIndex = 32;
             button5.Text = "Perfiles";
             button5.UseVisualStyleBackColor = false;
-            button5.Click += button5_Click_1;
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(26, 32, 40);
+            panel1.Controls.Add(btnHome);
+            panel1.Controls.Add(panel9);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(pictureBox1);
@@ -284,15 +286,42 @@
             panel1.Location = new Point(0, 29);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(233, 498);
+            panel1.Size = new Size(232, 554);
             panel1.TabIndex = 34;
+            // 
+            // btnHome
+            // 
+            btnHome.BackColor = Color.FromArgb(26, 32, 40);
+            btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnHome.ForeColor = Color.FromArgb(224, 224, 224);
+            btnHome.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
+            btnHome.IconColor = Color.FromArgb(224, 224, 224);
+            btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnHome.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHome.Location = new Point(13, 197);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(217, 34);
+            btnHome.TabIndex = 45;
+            btnHome.Text = "Inicio";
+            btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += btnHome_Click;
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.FromArgb(0, 80, 200);
+            panel9.Location = new Point(2, 197);
+            panel9.Margin = new Padding(3, 2, 3, 2);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(9, 34);
+            panel9.TabIndex = 46;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(100, 474);
+            label1.Location = new Point(101, 533);
             label1.Name = "label1";
             label1.Size = new Size(120, 21);
             label1.TabIndex = 42;
@@ -304,7 +333,7 @@
             button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
             button1.BackgroundImageLayout = ImageLayout.Zoom;
             button1.Cursor = Cursors.Hand;
-            button1.Location = new Point(0, 456);
+            button1.Location = new Point(1, 515);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
             button1.Size = new Size(52, 40);
@@ -329,7 +358,7 @@
             panelCitas.Controls.Add(panel15);
             panelCitas.Controls.Add(btnNuevoCitas);
             panelCitas.Controls.Add(panel16);
-            panelCitas.Location = new Point(62, 236);
+            panelCitas.Location = new Point(61, 272);
             panelCitas.Margin = new Padding(3, 2, 3, 2);
             panelCitas.Name = "panelCitas";
             panelCitas.Size = new Size(168, 69);
@@ -352,7 +381,6 @@
             btnConsultarCitas.TabIndex = 37;
             btnConsultarCitas.Text = "Consultar";
             btnConsultarCitas.UseVisualStyleBackColor = false;
-            btnConsultarCitas.Click += btnConsultarCitas_Click_1;
             // 
             // panel15
             // 
@@ -392,61 +420,59 @@
             // 
             // panelClientes
             // 
-            panelClientes.Controls.Add(btnConsultarClientes);
+            panelClientes.Controls.Add(btnConsultar);
             panelClientes.Controls.Add(panel11);
-            panelClientes.Controls.Add(btnAñadirClientes);
+            panelClientes.Controls.Add(btnPerfil);
             panelClientes.Controls.Add(panel10);
-            panelClientes.Location = new Point(63, 324);
+            panelClientes.Location = new Point(62, 360);
             panelClientes.Margin = new Padding(3, 2, 3, 2);
             panelClientes.Name = "panelClientes";
-            panelClientes.Size = new Size(167, 69);
+            panelClientes.Size = new Size(168, 72);
             panelClientes.TabIndex = 36;
             panelClientes.Visible = false;
             // 
-            // btnConsultarClientes
+            // btnConsultar
             // 
-            btnConsultarClientes.BackColor = Color.FromArgb(26, 32, 40);
-            btnConsultarClientes.FlatAppearance.BorderSize = 0;
-            btnConsultarClientes.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
-            btnConsultarClientes.FlatStyle = FlatStyle.Flat;
-            btnConsultarClientes.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            btnConsultarClientes.ForeColor = Color.White;
-            btnConsultarClientes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnConsultarClientes.Location = new Point(10, 34);
-            btnConsultarClientes.Margin = new Padding(3, 2, 3, 2);
-            btnConsultarClientes.Name = "btnConsultarClientes";
-            btnConsultarClientes.Size = new Size(127, 25);
-            btnConsultarClientes.TabIndex = 37;
-            btnConsultarClientes.Text = "Consultar";
-            btnConsultarClientes.UseVisualStyleBackColor = false;
-            btnConsultarClientes.Click += btnConsultarCitas_Click;
+            btnConsultar.BackColor = Color.FromArgb(26, 32, 40);
+            btnConsultar.FlatAppearance.BorderSize = 0;
+            btnConsultar.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
+            btnConsultar.FlatStyle = FlatStyle.Flat;
+            btnConsultar.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btnConsultar.ForeColor = Color.White;
+            btnConsultar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnConsultar.Location = new Point(9, 31);
+            btnConsultar.Margin = new Padding(3, 2, 3, 2);
+            btnConsultar.Name = "btnConsultar";
+            btnConsultar.Size = new Size(127, 25);
+            btnConsultar.TabIndex = 39;
+            btnConsultar.Text = "Consultar";
+            btnConsultar.UseVisualStyleBackColor = false;
             // 
             // panel11
             // 
             panel11.BackColor = Color.FromArgb(0, 80, 200);
-            panel11.Location = new Point(-1, 34);
+            panel11.Location = new Point(0, 31);
             panel11.Margin = new Padding(3, 2, 3, 2);
             panel11.Name = "panel11";
             panel11.Size = new Size(9, 25);
             panel11.TabIndex = 38;
             // 
-            // btnAñadirClientes
+            // btnPerfil
             // 
-            btnAñadirClientes.BackColor = Color.FromArgb(26, 32, 40);
-            btnAñadirClientes.FlatAppearance.BorderSize = 0;
-            btnAñadirClientes.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
-            btnAñadirClientes.FlatStyle = FlatStyle.Flat;
-            btnAñadirClientes.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAñadirClientes.ForeColor = Color.White;
-            btnAñadirClientes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAñadirClientes.Location = new Point(10, 2);
-            btnAñadirClientes.Margin = new Padding(3, 2, 3, 2);
-            btnAñadirClientes.Name = "btnAñadirClientes";
-            btnAñadirClientes.Size = new Size(127, 25);
-            btnAñadirClientes.TabIndex = 35;
-            btnAñadirClientes.Text = "Añadir";
-            btnAñadirClientes.UseVisualStyleBackColor = false;
-            btnAñadirClientes.Click += btnAñadirCitas_Click;
+            btnPerfil.BackColor = Color.FromArgb(26, 32, 40);
+            btnPerfil.FlatAppearance.BorderSize = 0;
+            btnPerfil.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
+            btnPerfil.FlatStyle = FlatStyle.Flat;
+            btnPerfil.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPerfil.ForeColor = Color.White;
+            btnPerfil.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPerfil.Location = new Point(9, 2);
+            btnPerfil.Margin = new Padding(3, 2, 3, 2);
+            btnPerfil.Name = "btnPerfil";
+            btnPerfil.Size = new Size(127, 25);
+            btnPerfil.TabIndex = 37;
+            btnPerfil.Text = "Perfil";
+            btnPerfil.UseVisualStyleBackColor = false;
             // 
             // panel10
             // 
@@ -463,7 +489,7 @@
             panelEmpleado.Controls.Add(panel12);
             panelEmpleado.Controls.Add(btnNuevoEmpleado);
             panelEmpleado.Controls.Add(panel13);
-            panelEmpleado.Location = new Point(64, 280);
+            panelEmpleado.Location = new Point(63, 316);
             panelEmpleado.Margin = new Padding(3, 2, 3, 2);
             panelEmpleado.Name = "panelEmpleado";
             panelEmpleado.Size = new Size(166, 69);
@@ -486,7 +512,6 @@
             btnConsultarEmpleado.TabIndex = 37;
             btnConsultarEmpleado.Text = "Consultar";
             btnConsultarEmpleado.UseVisualStyleBackColor = false;
-            btnConsultarEmpleado.Click += btnConsultarEmpleado_Click;
             // 
             // panel12
             // 
@@ -513,7 +538,6 @@
             btnNuevoEmpleado.TabIndex = 35;
             btnNuevoEmpleado.Text = "Nuevo";
             btnNuevoEmpleado.UseVisualStyleBackColor = false;
-            btnNuevoEmpleado.Click += btnNuevoEmpleado_Click;
             // 
             // panel13
             // 
@@ -534,7 +558,7 @@
             btnEmpleados.ForeColor = Color.White;
             btnEmpleados.Image = (Image)resources.GetObject("btnEmpleados.Image");
             btnEmpleados.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEmpleados.Location = new Point(13, 243);
+            btnEmpleados.Location = new Point(12, 279);
             btnEmpleados.Margin = new Padding(3, 2, 3, 2);
             btnEmpleados.Name = "btnEmpleados";
             btnEmpleados.Size = new Size(217, 34);
@@ -546,7 +570,7 @@
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(0, 80, 200);
-            panel4.Location = new Point(3, 243);
+            panel4.Location = new Point(2, 279);
             panel4.Margin = new Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
             panel4.Size = new Size(9, 34);
@@ -555,7 +579,7 @@
             // panel8
             // 
             panel8.BackColor = Color.FromArgb(0, 80, 200);
-            panel8.Location = new Point(3, 377);
+            panel8.Location = new Point(2, 413);
             panel8.Margin = new Padding(3, 2, 3, 2);
             panel8.Name = "panel8";
             panel8.Size = new Size(9, 34);
@@ -564,7 +588,7 @@
             // panel7
             // 
             panel7.BackColor = Color.FromArgb(0, 80, 200);
-            panel7.Location = new Point(3, 331);
+            panel7.Location = new Point(2, 367);
             panel7.Margin = new Padding(3, 2, 3, 2);
             panel7.Name = "panel7";
             panel7.Size = new Size(9, 34);
@@ -573,7 +597,7 @@
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(0, 80, 200);
-            panel6.Location = new Point(3, 286);
+            panel6.Location = new Point(2, 322);
             panel6.Margin = new Padding(3, 2, 3, 2);
             panel6.Name = "panel6";
             panel6.Size = new Size(9, 34);
@@ -582,20 +606,11 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(0, 80, 200);
-            panel3.Location = new Point(3, 200);
+            panel3.Location = new Point(2, 236);
             panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
             panel3.Size = new Size(9, 34);
             panel3.TabIndex = 34;
-            // 
-            // panelContenedor
-            // 
-            panelContenedor.Dock = DockStyle.Right;
-            panelContenedor.Location = new Point(231, 29);
-            panelContenedor.Margin = new Padding(3, 2, 3, 2);
-            panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(654, 498);
-            panelContenedor.TabIndex = 40;
             // 
             // lblHoraActual
             // 
@@ -609,16 +624,23 @@
             // 
             timer1.Enabled = true;
             timer1.Interval = 1000;
-            timer1.Tick += timer1_Tick;
+            // 
+            // panelContenedor
+            // 
+            panelContenedor.Dock = DockStyle.Right;
+            panelContenedor.Location = new Point(231, 29);
+            panelContenedor.Name = "panelContenedor";
+            panelContenedor.Size = new Size(839, 554);
+            panelContenedor.TabIndex = 36;
             // 
             // frmAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 59, 100);
-            ClientSize = new Size(885, 527);
-            Controls.Add(panel1);
+            ClientSize = new Size(1070, 583);
             Controls.Add(panelContenedor);
+            Controls.Add(panel1);
             Controls.Add(lblHoraActual);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
@@ -654,9 +676,7 @@
         private Button btnMaximizar;
         private Button btnRestaurar;
         private Panel panelClientes;
-        private Button btnConsultarClientes;
-        private Panel panel11;
-        private Button btnAñadirClientes;
+        private Button btnPerfil;
         private Panel panel10;
         private Button btnEmpleados;
         private Panel panel4;
@@ -675,8 +695,12 @@
         private Label lblHoraActual;
         private Panel panel5;
         private Panel panelContener;
-        private Panel panelContenedor;
         private System.Windows.Forms.Timer timer1;
         private Label label1;
+        private FontAwesome.Sharp.IconButton btnHome;
+        private Panel panel9;
+        private Button btnConsultar;
+        private Panel panel11;
+        private Panel panelContenedor;
     }
 }

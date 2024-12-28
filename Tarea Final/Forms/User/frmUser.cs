@@ -26,6 +26,31 @@ namespace Tarea_Final
             btnHome.FlatAppearance.BorderSize = 0;
         }
 
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+
+        private extern static void SendMessage(System.IntPtr hwnd, int wMsg, int wParam, int iParam);
+
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void OpenForm(Form form)
+        {
+            if (this.panelContener.Controls.Count > 0)
+                this.panelContener.Controls.RemoveAt(0);
+
+            form.TopLevel = false;
+            form.Dock = DockStyle.Fill;
+            this.panelContener.Controls.Add(form);
+            this.panelContener.Tag = form;
+            form.Show();
+            TogglePanelVisibility(null!);
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -74,13 +99,9 @@ namespace Tarea_Final
             TogglePanelVisibility(panelClientes);
         }
 
-        private void HideLabelsAndLogo()
-        {
-        }
-
         private void btnHistorial_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmHistory(user));
+            OpenForm(new frmHistoryUser(user));
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -90,34 +111,9 @@ namespace Tarea_Final
             this.Close();
         }
 
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-
-        private extern static void SendMessage(System.IntPtr hwnd, int wMsg, int wParam, int iParam);
-
-        private void panel2_MouseDown_1(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-        private void OpenForm(Form form)
-        {
-            if (this.panelContener.Controls.Count > 0)
-                this.panelContener.Controls.RemoveAt(0);
-
-            HideLabelsAndLogo();
-            form.TopLevel = false;
-            form.Dock = DockStyle.Fill;
-            this.panelContener.Controls.Add(form);
-            this.panelContener.Tag = form;
-            form.Show();
-            TogglePanelVisibility(null!);
-        }
-
         private void btnNuevoCitas_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmNewAppointment(user));
+            OpenForm(new frmNewAppointmentUser(user));
         }
 
         private void btnConsultarCitas_Click(object sender, EventArgs e)

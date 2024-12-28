@@ -1,6 +1,6 @@
 ﻿namespace Tarea_Final
 {
-    partial class frmHistory
+    partial class frmHistoryUser
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHistory));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHistoryUser));
             dgvHistory = new DataGridView();
             ColumnIdHistory = new DataGridViewTextBoxColumn();
             ColumnUserId = new DataGridViewTextBoxColumn();
