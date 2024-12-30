@@ -25,6 +25,7 @@ namespace Tarea_Final.Forms.Admin
             this.user = user;
             LoadCmbServicios();
             LoadCmbEmpleados();
+            LoadCmbUsersIdCard();
             PerfilLoad();
         }
 
@@ -82,7 +83,7 @@ namespace Tarea_Final.Forms.Admin
             }
         }
 
-        private async void LoadCmbUsers()
+        private async void LoadCmbUsersIdCard()
         {
             string query = "SELECT IdCard FROM Users";
             try
@@ -158,6 +159,7 @@ namespace Tarea_Final.Forms.Admin
 
                 if (await CheckEmployeeAvailability(employee.IdEmployee, dtpFecha.Value.Date, dtpHora.Value.TimeOfDay))
                 {
+                    User user = await User.GetUserByIdCard(cmbCedula.Text);
                     Appointment appointment = new Appointment
                     (
                         employee,
@@ -169,7 +171,7 @@ namespace Tarea_Final.Forms.Admin
                     );
 
                     await Appointment.CreateAppointment(appointment);
-                    MessageBox.Show("Cita creada exitosamente.");
+                    MessageBox.Show($"La cita del usuario {user.Name} fue creada exitosamente.");
 
                     this.Owner?.Close();
                 }
@@ -267,6 +269,39 @@ namespace Tarea_Final.Forms.Admin
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al cargar detalles del servicio: {ex.Message}");
+            }
+        }
+
+        private async void cmbCedula_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = Connection.Connect())
+            {
+                string query = "SELECT Name, Email, PhoneNumber FROM Users WHERE IdCard = @IdCard";
+
+                try
+                {
+                    await connection.OpenAsync();
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@IdCard", cmbCedula.Text);
+
+                        using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                lblName.Text = reader["Name"].ToString();
+                                lblEmail.Text = reader["Email"].ToString();
+                                lblPhoneNumber.Text = reader["PhoneNumber"].ToString();
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al cargar detalles del Usuario Seleccionado {ex.Message}");
+                }
+
             }
         }
     }

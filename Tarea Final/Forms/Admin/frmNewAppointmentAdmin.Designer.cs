@@ -207,7 +207,7 @@
             lblEmail.AutoSize = true;
             lblEmail.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             lblEmail.ForeColor = Color.Silver;
-            lblEmail.Location = new Point(137, 224);
+            lblEmail.Location = new Point(132, 224);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(64, 24);
             lblEmail.TabIndex = 110;
@@ -218,7 +218,7 @@
             lblName.AutoSize = true;
             lblName.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             lblName.ForeColor = Color.Silver;
-            lblName.Location = new Point(612, 159);
+            lblName.Location = new Point(609, 159);
             lblName.Name = "lblName";
             lblName.Size = new Size(75, 24);
             lblName.TabIndex = 109;
@@ -240,7 +240,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             label7.ForeColor = Color.Silver;
-            label7.Location = new Point(59, 156);
+            label7.Location = new Point(57, 156);
             label7.Name = "label7";
             label7.Size = new Size(92, 24);
             label7.TabIndex = 106;
@@ -251,7 +251,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             label8.ForeColor = Color.Silver;
-            label8.Location = new Point(62, 224);
+            label8.Location = new Point(57, 224);
             label8.Name = "label8";
             label8.Size = new Size(69, 24);
             label8.TabIndex = 105;
@@ -277,6 +277,7 @@
             cmbCedula.Name = "cmbCedula";
             cmbCedula.Size = new Size(274, 27);
             cmbCedula.TabIndex = 114;
+            cmbCedula.SelectedIndexChanged += cmbCedula_SelectedIndexChanged;
             // 
             // frmNewAppointmentAdmin
             // 
