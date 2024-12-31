@@ -19,20 +19,71 @@ namespace Tarea_Final.Forms
         private Service service { get; set; }
         private Employee employee { get; set; }
 
-        public frmConsultAppointmentAdmin()
+        public frmConsultAppointmentAdmin(User user)
         {
             InitializeComponent();
+            this.user = user;
+            cmbCedula.Text = user.IdCard;
+            LoadCmbServicios();
+            LoadCmbEmpleados();
+            LoadCmbUsersIdCard();
+            this.Load += async (sender, e) => await LoadAppointmentsDataGridView();
+        }
+
+        private async Task LoadAppointmentsDataGridView()
+        {
+            try
+            {
+                if (user != null)
+                {
+                    lblName.Text = user.Name;
+                    lblEmail.Text = user.Email;
+                    lblPhoneNumber.Text = user.PhoneNumber;
+                }
+
+                List<Appointment> appointments = await Appointment.GetAppointmentsByUser(user);
+                dgvCitas.Rows.Clear();
+
+                if (appointments == null || !appointments.Any())
+                {
+                    MessageBox.Show("No se encontraron citas para el usuario.");
+                    return;
+                }
+
+                appointments = appointments.OrderBy(a => a.Date).ToList();
+
+                foreach (Appointment appointment in appointments)
+                {
+
+                    if (appointment.Status == "Cancelada")
+                        continue;
+
+                    dgvCitas.Rows.Add(appointment.IdAppointment,
+                                    appointment.Service.Name,
+                                    appointment.Service.Price,
+                                    appointment.Date,
+                                    appointment.Hour,
+                                    appointment.Employee.Name
+                                    );
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al cargar las citas: {ex.Message}");
+            }
         }
 
         private async void LoadCmbServicios()
         {
-            string query = "SELECT Name FROM Services";
 
             try
             {
                 using (SqlConnection connection = Connection.Connect())
                 {
+                    string query = "SELECT Name FROM Services";
                     await connection.OpenAsync();
+
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         using (SqlDataReader reader = await command.ExecuteReaderAsync())
@@ -53,13 +104,13 @@ namespace Tarea_Final.Forms
 
         private async void LoadCmbEmpleados()
         {
-            string query = @"SELECT u.Name FROM Employees e JOIN Users u ON e.UserId = u.UserId";
-
             try
             {
                 using (SqlConnection connection = Connection.Connect())
                 {
+                    string query = @"SELECT u.Name FROM Employees e JOIN Users u ON e.UserId = u.UserId";
                     await connection.OpenAsync();
+
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         using (SqlDataReader reader = await command.ExecuteReaderAsync())
@@ -78,6 +129,170 @@ namespace Tarea_Final.Forms
             }
         }
 
+        private async void LoadCmbUsersIdCard()
+        {
+            string query = "SELECT IdCard FROM Users";
+            try
+            {
+                using (SqlConnection connection = Connection.Connect())
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                cmbCedula.Items.Add(reader["IdCard"].ToString());
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar usuarios: {ex.Message}");
+            }
+        }
+
+        internal async Task<bool> CheckEmployeeAvailability(Employee employee, Appointment appointment)
+        {
+            List<Schedule> busySchedules = await Schedule.GetSchedulesbyEmployee(employee.IdEmployee);
+            busySchedules = busySchedules.Where(s => s.Appointment.IdAppointment != appointment.IdAppointment).ToList();
+
+            foreach (var schedule in busySchedules)
+            {
+                if (schedule.Date.Date == appointment.Date &&
+                    schedule.StartHour <= appointment.Hour &&
+                    schedule.FinalHour > appointment.Hour)
+                {
+                    if (appointment.Employee.IdEmployee == employee.IdEmployee && appointment.User.UserId != schedule.Appointment.User.UserId)
+                    {
+                        MessageBox.Show($"{employee.Name} ya tiene una cita programada a esa hora. Estará disponible a partir de las {DateTime.Today.Add(schedule.FinalHour):hh:mm tt}.");
+                        return false;
+                    } 
+                    else if (schedule.Appointment.IdAppointment != appointment.IdAppointment)
+                    {
+                        MessageBox.Show($"Ya tienes una cita programada a esta hora.");
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        private async void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (appointment != null)
+            {
+                try
+                {
+                    appointment.Service = await Service.GetServiceByName(cmbServicios.Text);
+                    appointment.Date = dtpFecha.Value;
+                    appointment.Hour = dtpHora.Value.TimeOfDay;
+                    appointment.Status = cmbStatus.Text == "Cancelar" ? "Cancelada" : cmbStatus.Text;
+
+                    if(appointment.Status == "Cancelada")
+                    {
+                        MessageBox.Show("La cita fue cancelada exitosamente");
+                    }
+                    else
+                    {
+                        bool isEmployeeAvailable = await CheckEmployeeAvailability(employee, appointment);
+                        if (!isEmployeeAvailable)
+                        {
+                            return;
+                        }
+
+                        MessageBox.Show("La cita fue modificada exitosamente");
+                    }
+
+                    CleanTextBox();
+                    await Appointment.ModifyAppointment(appointment);
+                    await LoadAppointmentsDataGridView();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ocurrió un error al modificar la cita: {ex.Message}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una cita para modificar");
+            }
+        }
+
+        private void CleanTextBox()
+        {
+            cmbServicios.Text = "";
+            txtDescripcion.Text = "";
+            lblPrecio.Text = "Price";
+            cmbEmpleados.Text = "";
+            dtpFecha.Value = DateTime.Today;
+            dtpHora.Value = DateTime.Today;
+            cmbStatus.Text = "";
+        }
+
+        private async void cmbCedula_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CleanTextBox();
+
+            User user = await User.GetUserByIdCard(cmbCedula.Text);
+            this.user = user;
+            await LoadAppointmentsDataGridView();
+        }
+
+        private async void dgvCitas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                try
+                {
+                    int idCita = int.Parse(dgvCitas.Rows[e.RowIndex].Cells[0].Value.ToString()!);
+                    this.appointment = await Appointment.GetAppointmentById(idCita);
+
+                    cmbServicios.Text = appointment.Service.Name;
+                    txtDescripcion.Text = appointment.Service.Description;
+                    lblPrecio.Text = appointment.Service.Price.ToString();
+                    Employee employee = await Employee.GetEmployeeById(appointment.Employee.IdEmployee);
+                    cmbEmpleados.Text = employee.Name;
+                    dtpFecha.Value = appointment.Date;
+                    dtpHora.Value = DateTime.Today.Add(appointment.Hour);
+                    cmbStatus.Text = appointment.Status;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ocurrió un error al cargar los detalles de la cita: {ex.Message}");
+                }
+            }
+        }
+
+        private async void cmbEmpleados_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var employee = await Employee.GetEmployeeByName(cmbEmpleados.Text);
+                if (employee != null)
+                {
+                    this.employee = employee;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el empleado seleccionado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar detalles del empleado: {ex.Message}");
+            }
+        }
+
+        private void dgvCitas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 }

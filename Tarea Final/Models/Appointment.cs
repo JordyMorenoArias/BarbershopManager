@@ -102,7 +102,7 @@ namespace Tarea_Final.Models
             }
         }
 
-        public static async Task<Appointment> GetAppointment(int appointmentId)
+        public static async Task<Appointment> GetAppointmentById(int appointmentId)
         {
             try
             {

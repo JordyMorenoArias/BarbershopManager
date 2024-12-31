@@ -87,15 +87,15 @@ namespace Tarea_Final
             // Código para manejar el evento de carga del formulario
         }
 
-        internal async Task<bool> CheckEmployeeAvailability(int employeeId, DateTime date, TimeSpan hour)
+        internal async Task<bool> CheckEmployeeAvailability(Employee employee, DateTime date, TimeSpan hour)
         {
-            Employee employee = await Employee.GetEmployeeById(employeeId);
-
             var busySchedules = await Schedule.GetSchedulesbyEmployee(employee.IdEmployee);
 
             foreach (var schedule in busySchedules)
             {
-                if (schedule.Date.Date == date.Date && schedule.StartHour <= hour && schedule.FinalHour >= hour)
+                if (schedule.Date.Date == date.Date && 
+                    schedule.StartHour < hour && 
+                    schedule.FinalHour > hour)
                 {
                     MessageBox.Show($"{employee.Name} ya tiene una cita programada a esa hora. Estará disponible a partir de las {DateTime.Today.Add(schedule.FinalHour).ToString("hh:mm tt")}.");
                     return false;
@@ -144,7 +144,7 @@ namespace Tarea_Final
                     return;
                 }
 
-                if (await CheckEmployeeAvailability(employee.IdEmployee, dtpFecha.Value.Date, dtpHora.Value.TimeOfDay))
+                if (await CheckEmployeeAvailability(employee, dtpFecha.Value.Date, dtpHora.Value.TimeOfDay))
                 {
                     Appointment appointment = new Appointment
                     (

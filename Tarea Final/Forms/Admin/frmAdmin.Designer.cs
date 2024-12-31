@@ -381,6 +381,7 @@
             btnConsultarCitas.TabIndex = 37;
             btnConsultarCitas.Text = "Consultar";
             btnConsultarCitas.UseVisualStyleBackColor = false;
+            btnConsultarCitas.Click += btnConsultarCitas_Click;
             // 
             // panel15
             // 

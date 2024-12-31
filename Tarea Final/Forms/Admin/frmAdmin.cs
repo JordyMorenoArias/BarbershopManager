@@ -131,5 +131,10 @@ namespace Tarea_Final
         {
             OpenForm(new frmNewAppointmentAdmin(user));
         }
+
+        private void btnConsultarCitas_Click(object sender, EventArgs e)
+        {
+            OpenForm(new frmConsultAppointmentAdmin(user));
+        }
     }
 }

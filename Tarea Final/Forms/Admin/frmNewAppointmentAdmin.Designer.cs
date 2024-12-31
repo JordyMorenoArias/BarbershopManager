@@ -53,7 +53,7 @@
             // txtDescripcion
             // 
             txtDescripcion.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDescripcion.Location = new Point(461, 306);
+            txtDescripcion.Location = new Point(461, 311);
             txtDescripcion.Margin = new Padding(3, 2, 3, 2);
             txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
@@ -66,7 +66,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Silver;
-            label3.Location = new Point(461, 285);
+            label3.Location = new Point(461, 290);
             label3.Name = "label3";
             label3.Size = new Size(89, 19);
             label3.TabIndex = 102;
@@ -77,7 +77,7 @@
             lblPrecio.AutoSize = true;
             lblPrecio.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             lblPrecio.ForeColor = Color.Silver;
-            lblPrecio.Location = new Point(370, 309);
+            lblPrecio.Location = new Point(370, 314);
             lblPrecio.Name = "lblPrecio";
             lblPrecio.Size = new Size(61, 24);
             lblPrecio.TabIndex = 101;
@@ -88,7 +88,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Silver;
-            label2.Location = new Point(57, 285);
+            label2.Location = new Point(57, 290);
             label2.Name = "label2";
             label2.Size = new Size(61, 19);
             label2.TabIndex = 100;
@@ -98,7 +98,7 @@
             // 
             cmbServicios.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             cmbServicios.FormattingEnabled = true;
-            cmbServicios.Location = new Point(57, 306);
+            cmbServicios.Location = new Point(57, 311);
             cmbServicios.Margin = new Padding(3, 2, 3, 2);
             cmbServicios.Name = "cmbServicios";
             cmbServicios.Size = new Size(307, 27);
@@ -110,7 +110,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.Silver;
-            label6.Location = new Point(461, 376);
+            label6.Location = new Point(461, 398);
             label6.Name = "label6";
             label6.Size = new Size(148, 19);
             label6.TabIndex = 98;
@@ -120,7 +120,7 @@
             // 
             cmbEmpleados.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             cmbEmpleados.FormattingEnabled = true;
-            cmbEmpleados.Location = new Point(461, 397);
+            cmbEmpleados.Location = new Point(461, 419);
             cmbEmpleados.Margin = new Padding(3, 2, 3, 2);
             cmbEmpleados.Name = "cmbEmpleados";
             cmbEmpleados.Size = new Size(340, 27);
@@ -132,7 +132,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.Silver;
-            label5.Location = new Point(58, 377);
+            label5.Location = new Point(58, 399);
             label5.Name = "label5";
             label5.Size = new Size(175, 19);
             label5.TabIndex = 96;
@@ -144,7 +144,7 @@
             dtpHora.CustomFormat = "HH:mm";
             dtpHora.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             dtpHora.Format = DateTimePickerFormat.Time;
-            dtpHora.Location = new Point(329, 398);
+            dtpHora.Location = new Point(329, 420);
             dtpHora.Margin = new Padding(3, 2, 3, 2);
             dtpHora.Name = "dtpHora";
             dtpHora.ShowUpDown = true;
@@ -156,7 +156,7 @@
             // 
             dtpFecha.CalendarFont = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             dtpFecha.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpFecha.Location = new Point(58, 398);
+            dtpFecha.Location = new Point(58, 420);
             dtpFecha.Margin = new Padding(3, 2, 3, 2);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(265, 26);
@@ -171,7 +171,7 @@
             btnCrear.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnCrear.ForeColor = Color.White;
             btnCrear.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCrear.Location = new Point(704, 447);
+            btnCrear.Location = new Point(704, 469);
             btnCrear.Margin = new Padding(3, 2, 3, 2);
             btnCrear.Name = "btnCrear";
             btnCrear.Size = new Size(97, 33);

@@ -64,6 +64,45 @@ namespace Tarea_Final.Models
                     }
                 }
             }
+        }
+
+        internal static async Task<Employee> GetEmployeeByName(string name)
+        {
+            using (SqlConnection connection = Connection.Connect())
+            {
+                string query = @"SELECT * FROM Employees e JOIN Users u ON e.UserId = u.UserId WHERE u.Name = @Name";
+
+                await connection.OpenAsync();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", name);
+                    using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                    {
+                        if (reader.Read())
+                        {
+                            return new Employee(
+                                name: reader["Name"].ToString()!,
+                                email: reader["Email"].ToString()!,
+                                IdCard: reader["IdCard"].ToString()!,
+                                password: reader["Password"].ToString()!,
+                                birthdate: (DateTime)reader["Birthdate"],
+                                phonenumber: reader["Phonenumber"].ToString()!,
+                                UserId: reader["UserId"].ToString()!,
+                                idEmployee: (int)reader["EmployeeId"],
+                                schedule: null!,
+                                position: reader["Position"].ToString()!,
+                                hiredate: (DateTime)reader["Hiredate"],
+                                salary: (decimal)reader["Salary"],
+                                status: reader["Status"].ToString()!
+                            );
+                        }
+                        else
+                        {
+                            throw new InvalidOperationException("No se encontró un empleado con el ID dado.");
+                        }
+                    }
+                }
+            }
 
         }
 

@@ -109,8 +109,12 @@ namespace Tarea_Final
                     if (appointment.Status == "Cancelada")
                         continue;
 
-                    Employee employee = await Employee.GetEmployeeById(appointment.Employee.IdEmployee);
-                    dgvCitas.Rows.Add(appointment.IdAppointment, appointment.Service.Name, appointment.Service.Price, appointment.Date, appointment.Hour, employee.Name);
+                    dgvCitas.Rows.Add(appointment.IdAppointment,
+                                    appointment.Service.Name,
+                                    appointment.Service.Price,
+                                    appointment.Date,
+                                    appointment.Hour,
+                                    appointment.Employee.Name);
                 }
             }
             catch (Exception ex)
@@ -125,6 +129,7 @@ namespace Tarea_Final
             {
                 try
                 {
+
                     appointment.Service = await Service.GetServiceByName(cmbServicios.Text);
                     appointment.Date = dtpFecha.Value;
                     appointment.Hour = dtpHora.Value.TimeOfDay;
@@ -164,7 +169,7 @@ namespace Tarea_Final
                 try
                 {
                     int idCita = int.Parse(dgvCitas.Rows[e.RowIndex].Cells[0].Value.ToString()!);
-                    this.appointment = await Appointment.GetAppointment(idCita);
+                    this.appointment = await Appointment.GetAppointmentById(idCita);
 
                     cmbServicios.Text = appointment.Service.Name;
                     txtDescripcion.Text = appointment.Service.Description;
@@ -224,31 +229,16 @@ namespace Tarea_Final
 
         private async void cmbEmpleados_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string query = @"SELECT e.UserId 
-                             FROM Employees e 
-                             JOIN Users u ON e.UserId = u.UserId 
-                             WHERE u.Name = @Name";
-
             try
             {
-                using (SqlConnection connection = Connection.Connect())
+                var employee = await Employee.GetEmployeeByName(cmbEmpleados.Text);
+                if (employee != null)
                 {
-                    await connection.OpenAsync();
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@Name", cmbEmpleados.Text);
-                        using (SqlDataReader reader = await command.ExecuteReaderAsync())
-                        {
-                            if (await reader.ReadAsync())
-                            {
-                                this.employee = await Employee.GetEmployeeById((int)reader["UserId"]);
-                            }
-                            else
-                            {
-                                MessageBox.Show("No se encontró el empleado seleccionado.");
-                            }
-                        }
-                    }
+                    this.employee = employee;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el empleado seleccionado.");
                 }
             }
             catch (Exception ex)
