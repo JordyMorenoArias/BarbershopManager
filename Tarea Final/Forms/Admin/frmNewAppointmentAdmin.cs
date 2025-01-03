@@ -58,7 +58,7 @@ namespace Tarea_Final.Forms.Admin
 
         private async void LoadCmbEmpleados()
         {
-            string query = @"SELECT u.Name FROM Employees e JOIN Users u ON e.UserId = u.UserId";
+            string query = @"SELECT u.Name FROM Employees e JOIN Users u ON e.UserId = u.UserId WHERE e.Position = 'Barbero/a'";
 
             try
             {
@@ -204,7 +204,7 @@ namespace Tarea_Final.Forms.Admin
 
         private async void cmbEmpleados_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string query = @"SELECT e.UserId 
+            string query = @"SELECT e.EmployeeId 
                              FROM Employees e 
                              JOIN Users u ON e.UserId = u.UserId 
                              WHERE u.Name = @Name";
@@ -221,7 +221,7 @@ namespace Tarea_Final.Forms.Admin
                         {
                             if (await reader.ReadAsync())
                             {
-                                this.employee = await Employee.GetEmployeeById((int)reader["UserId"]);
+                                this.employee = await Employee.GetEmployeeById((int)reader["EmployeeId"]);
                             }
                             else
                             {

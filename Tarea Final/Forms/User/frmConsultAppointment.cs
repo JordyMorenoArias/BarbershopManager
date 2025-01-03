@@ -58,7 +58,7 @@ namespace Tarea_Final
 
         private async void LoadCmbEmpleados()
         {
-            string query = @"SELECT u.Name FROM Employees e JOIN Users u ON e.UserId = u.UserId";
+            string query = @"SELECT u.Name FROM Employees e JOIN Users u ON e.UserId = u.UserId WHERE e.Position = 'Barbero/a'";
 
             try
             {
@@ -123,6 +123,33 @@ namespace Tarea_Final
             }
         }
 
+        internal async Task<bool> CheckEmployeeAvailability(Employee employee, Appointment appointment)
+        {
+            List<Schedule> busySchedules = await Schedule.GetSchedulesbyEmployee(employee.IdEmployee);
+            busySchedules = busySchedules.Where(s => s.Appointment.IdAppointment != appointment.IdAppointment).ToList();
+
+            foreach (var schedule in busySchedules)
+            {
+                if (schedule.Date.Date == appointment.Date &&
+                    schedule.StartHour <= appointment.Hour &&
+                    schedule.FinalHour > appointment.Hour)
+                {
+                    if (appointment.Employee.IdEmployee == employee.IdEmployee && appointment.User.UserId != schedule.Appointment.User.UserId)
+                    {
+                        MessageBox.Show($"{employee.Name} ya tiene una cita programada a esa hora. Estará disponible a partir de las {DateTime.Today.Add(schedule.FinalHour):hh:mm tt}.");
+                        return false;
+                    }
+                    else if (schedule.Appointment.IdAppointment != appointment.IdAppointment)
+                    {
+                        MessageBox.Show($"Ya tienes una cita programada a esta hora.");
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
         private async void btnModificar_Click(object sender, EventArgs e)
         {
             if (appointment != null)
@@ -135,16 +162,24 @@ namespace Tarea_Final
                     appointment.Hour = dtpHora.Value.TimeOfDay;
                     appointment.Status = cmbStatus.Text == "Cancelar" ? "Cancelada" : cmbStatus.Text;
 
-                    cmbServicios.Text = "";
-                    txtDescripcion.Text = "";
-                    lblPrecio.Text = "Price";
-                    cmbEmpleados.Text = "";
-                    dtpFecha.Value = DateTime.Today;
-                    dtpHora.Value = DateTime.Today;
-                    cmbStatus.Text = "";
+                    if (appointment.Status == "Cancelada")
+                    {
+                        MessageBox.Show("La cita fue cancelada exitosamente");
+                    }
+                    else
+                    {
+                        bool isEmployeeAvailable = await CheckEmployeeAvailability(employee, appointment);
+                        if (!isEmployeeAvailable)
+                        {
+                            return;
+                        }
 
+                    }
+
+                    CleanTextBox();
                     await Appointment.ModifyAppointment(appointment);
                     await LoadAppointmentsDataGridView();
+                    MessageBox.Show("La cita fue modificada exitosamente");
                 }
                 catch (Exception ex)
                 {
@@ -155,6 +190,17 @@ namespace Tarea_Final
             {
                 MessageBox.Show("Seleccione una cita para modificar");
             }
+        }
+
+        private void CleanTextBox()
+        {
+            cmbServicios.Text = "";
+            txtDescripcion.Text = "";
+            lblPrecio.Text = "Price";
+            cmbEmpleados.Text = "";
+            dtpFecha.Value = DateTime.Today;
+            dtpHora.Value = DateTime.Today;
+            cmbStatus.Text = "";
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

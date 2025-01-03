@@ -94,7 +94,7 @@ namespace Tarea_Final.Models
 
                 // Verificar si el correo electrónico ya existe
                 string checkQuery = "SELECT COUNT(*) FROM Users WHERE Email = @Email";
-                using (SqlCommand checkCommand = new(checkQuery, connection))
+                using (SqlCommand checkCommand = new (checkQuery, connection))
                 {
                     checkCommand.Parameters.AddWithValue("@Email", user.Email);
                     int emailCount = (int)(await checkCommand.ExecuteScalarAsync() ?? 0);
@@ -116,8 +116,6 @@ namespace Tarea_Final.Models
                     command.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
                     await command.ExecuteNonQueryAsync();
                 }
-
-                await connection.CloseAsync();
             }
         }
 
@@ -149,7 +147,6 @@ namespace Tarea_Final.Models
                             }
                         }
                     }
-                    await connection.CloseAsync();
                 }
             }
             catch (Exception ex)
@@ -189,7 +186,6 @@ namespace Tarea_Final.Models
                             }
                         }
                     }
-                    await connection.CloseAsync();
                 }
             }
             catch (Exception ex)
@@ -220,8 +216,6 @@ namespace Tarea_Final.Models
                         command.Parameters.AddWithValue("@UserId", user.UserId);
                         command.ExecuteNonQuery();
                     }
-
-                    await connection.CloseAsync();
                 }
             }
             catch (Exception ex)

@@ -30,10 +30,5 @@ namespace Tarea_Final
             lblPhoneNumber.Text = user.PhoneNumber;
             lblBirthDate.Text = user.BirthDate.ToString("dd/MM/yyyy");
         }
-
-        private void btnCerrar_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }

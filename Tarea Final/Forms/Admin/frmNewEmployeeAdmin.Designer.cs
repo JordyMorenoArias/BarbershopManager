@@ -29,286 +29,256 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewEmployeeAdmin));
-            btnNuevo = new Button();
-            btnCerrar = new Button();
-            btnGuardar = new Button();
-            label9 = new Label();
-            cmbSexo = new ComboBox();
-            dtmNacimiento = new DateTimePicker();
-            txtcedula = new TextBox();
+            cmbCedula = new ComboBox();
             label8 = new Label();
-            txtEdad = new TextBox();
-            label7 = new Label();
-            label6 = new Label();
+            lblBirthDate = new Label();
+            lblPhoneNumber = new Label();
+            lblEmail = new Label();
+            lblName = new Label();
             label5 = new Label();
-            txtTelefono = new TextBox();
             label4 = new Label();
-            txtCorreo = new TextBox();
-            label3 = new Label();
-            txtNombreCompleto = new TextBox();
+            label2 = new Label();
             label1 = new Label();
+            label9 = new Label();
+            label3 = new Label();
+            label6 = new Label();
+            cmbPosition = new ComboBox();
+            lblSalary = new Label();
+            btnContrarar = new Button();
             SuspendLayout();
             // 
-            // btnNuevo
+            // cmbCedula
             // 
-            btnNuevo.BackColor = Color.FromArgb(26, 32, 40);
-            btnNuevo.FlatAppearance.BorderSize = 0;
-            btnNuevo.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
-            btnNuevo.FlatStyle = FlatStyle.Flat;
-            btnNuevo.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNuevo.ForeColor = Color.White;
-            btnNuevo.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNuevo.Location = new Point(330, 343);
-            btnNuevo.Margin = new Padding(3, 2, 3, 2);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(82, 25);
-            btnNuevo.TabIndex = 58;
-            btnNuevo.Text = "Nuevo";
-            btnNuevo.UseVisualStyleBackColor = false;
-            btnNuevo.Click += btnNuevo_Click;
+            cmbCedula.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbCedula.FormattingEnabled = true;
+            cmbCedula.Location = new Point(147, 114);
+            cmbCedula.Margin = new Padding(3, 2, 3, 2);
+            cmbCedula.Name = "cmbCedula";
+            cmbCedula.Size = new Size(274, 30);
+            cmbCedula.TabIndex = 154;
+            cmbCedula.SelectedIndexChanged += cmbCedula_SelectedIndexChanged;
             // 
-            // btnCerrar
+            // label8
             // 
-            btnCerrar.BackColor = Color.FromArgb(26, 32, 40);
-            btnCerrar.FlatAppearance.BorderSize = 0;
-            btnCerrar.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
-            btnCerrar.FlatStyle = FlatStyle.Flat;
-            btnCerrar.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCerrar.ForeColor = Color.White;
-            btnCerrar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCerrar.Location = new Point(499, 343);
-            btnCerrar.Margin = new Padding(3, 2, 3, 2);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(82, 25);
-            btnCerrar.TabIndex = 57;
-            btnCerrar.Text = "Cerrar";
-            btnCerrar.UseVisualStyleBackColor = false;
-            btnCerrar.Click += btnCerrar_Click;
+            label8.AutoSize = true;
+            label8.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.ForeColor = Color.Silver;
+            label8.Location = new Point(58, 119);
+            label8.Name = "label8";
+            label8.Size = new Size(86, 25);
+            label8.TabIndex = 150;
+            label8.Text = "Cedula:";
             // 
-            // btnGuardar
+            // lblBirthDate
             // 
-            btnGuardar.BackColor = Color.FromArgb(26, 32, 40);
-            btnGuardar.FlatAppearance.BorderSize = 0;
-            btnGuardar.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
-            btnGuardar.FlatStyle = FlatStyle.Flat;
-            btnGuardar.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            btnGuardar.ForeColor = Color.White;
-            btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGuardar.Location = new Point(415, 343);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(82, 25);
-            btnGuardar.TabIndex = 56;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = false;
-            btnGuardar.Click += btnGuardar_Click;
+            lblBirthDate.AutoSize = true;
+            lblBirthDate.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblBirthDate.ForeColor = Color.Silver;
+            lblBirthDate.Location = new Point(171, 347);
+            lblBirthDate.Name = "lblBirthDate";
+            lblBirthDate.Size = new Size(102, 24);
+            lblBirthDate.TabIndex = 164;
+            lblBirthDate.Text = "BirthDate";
+            // 
+            // lblPhoneNumber
+            // 
+            lblPhoneNumber.AutoSize = true;
+            lblPhoneNumber.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPhoneNumber.ForeColor = Color.Silver;
+            lblPhoneNumber.Location = new Point(157, 285);
+            lblPhoneNumber.Name = "lblPhoneNumber";
+            lblPhoneNumber.Size = new Size(160, 24);
+            lblPhoneNumber.TabIndex = 163;
+            lblPhoneNumber.Text = "PhoneNumber";
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblEmail.ForeColor = Color.Silver;
+            lblEmail.Location = new Point(126, 226);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(64, 24);
+            lblEmail.TabIndex = 161;
+            lblEmail.Text = "Email";
+            // 
+            // lblName
+            // 
+            lblName.AutoSize = true;
+            lblName.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblName.ForeColor = Color.Silver;
+            lblName.Location = new Point(147, 171);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(75, 24);
+            lblName.TabIndex = 160;
+            lblName.Text = "Name";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = Color.Silver;
+            label5.Location = new Point(62, 347);
+            label5.Name = "label5";
+            label5.Size = new Size(113, 25);
+            label5.TabIndex = 159;
+            label5.Text = "Birth Date:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.Silver;
+            label4.Location = new Point(58, 285);
+            label4.Name = "label4";
+            label4.Size = new Size(102, 25);
+            label4.TabIndex = 158;
+            label4.Text = "Telefono:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Silver;
+            label2.Location = new Point(58, 226);
+            label2.Name = "label2";
+            label2.Size = new Size(71, 25);
+            label2.TabIndex = 156;
+            label2.Text = "Email:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.Silver;
+            label1.Location = new Point(58, 170);
+            label1.Name = "label1";
+            label1.Size = new Size(93, 25);
+            label1.TabIndex = 155;
+            label1.Text = "Nombre:";
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Century Gothic", 19.8F, FontStyle.Regular, GraphicsUnit.Point);
             label9.ForeColor = Color.Silver;
-            label9.Location = new Point(46, 61);
+            label9.Location = new Point(58, 29);
             label9.Name = "label9";
-            label9.Size = new Size(248, 33);
-            label9.TabIndex = 55;
-            label9.Text = "Nuevo Empleado";
-            // 
-            // cmbSexo
-            // 
-            cmbSexo.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            cmbSexo.FormattingEnabled = true;
-            cmbSexo.Items.AddRange(new object[] { "Masculino", "Femenino" });
-            cmbSexo.Location = new Point(330, 218);
-            cmbSexo.Margin = new Padding(3, 2, 3, 2);
-            cmbSexo.Name = "cmbSexo";
-            cmbSexo.Size = new Size(252, 27);
-            cmbSexo.TabIndex = 54;
-            // 
-            // dtmNacimiento
-            // 
-            dtmNacimiento.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            dtmNacimiento.Format = DateTimePickerFormat.Custom;
-            dtmNacimiento.Location = new Point(330, 156);
-            dtmNacimiento.Margin = new Padding(3, 2, 3, 2);
-            dtmNacimiento.Name = "dtmNacimiento";
-            dtmNacimiento.Size = new Size(252, 24);
-            dtmNacimiento.TabIndex = 53;
-            // 
-            // txtcedula
-            // 
-            txtcedula.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            txtcedula.Location = new Point(55, 156);
-            txtcedula.Margin = new Padding(3, 2, 3, 2);
-            txtcedula.Name = "txtcedula";
-            txtcedula.Size = new Size(252, 24);
-            txtcedula.TabIndex = 52;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.ForeColor = Color.Silver;
-            label8.Location = new Point(55, 139);
-            label8.Name = "label8";
-            label8.Size = new Size(61, 19);
-            label8.TabIndex = 51;
-            label8.Text = "Cedula";
-            // 
-            // txtEdad
-            // 
-            txtEdad.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            txtEdad.Location = new Point(330, 281);
-            txtEdad.Margin = new Padding(3, 2, 3, 2);
-            txtEdad.Name = "txtEdad";
-            txtEdad.Size = new Size(252, 24);
-            txtEdad.TabIndex = 50;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.ForeColor = Color.Silver;
-            label7.Location = new Point(330, 264);
-            label7.Name = "label7";
-            label7.Size = new Size(47, 19);
-            label7.TabIndex = 49;
-            label7.Text = "Edad";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.ForeColor = Color.Silver;
-            label6.Location = new Point(330, 200);
-            label6.Name = "label6";
-            label6.Size = new Size(41, 19);
-            label6.TabIndex = 48;
-            label6.Text = "Sexo";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.ForeColor = Color.Silver;
-            label5.Location = new Point(330, 136);
-            label5.Name = "label5";
-            label5.Size = new Size(160, 19);
-            label5.TabIndex = 47;
-            label5.Text = "Fecha de Nacimiento";
-            // 
-            // txtTelefono
-            // 
-            txtTelefono.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTelefono.Location = new Point(55, 345);
-            txtTelefono.Margin = new Padding(3, 2, 3, 2);
-            txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(252, 24);
-            txtTelefono.TabIndex = 46;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.ForeColor = Color.Silver;
-            label4.Location = new Point(55, 328);
-            label4.Name = "label4";
-            label4.Size = new Size(66, 19);
-            label4.TabIndex = 45;
-            label4.Text = "Telefono";
-            // 
-            // txtCorreo
-            // 
-            txtCorreo.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCorreo.Location = new Point(55, 281);
-            txtCorreo.Margin = new Padding(3, 2, 3, 2);
-            txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(252, 24);
-            txtCorreo.TabIndex = 44;
+            label9.Size = new Size(287, 33);
+            label9.TabIndex = 165;
+            label9.Text = "Contratar Empleado";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Silver;
-            label3.Location = new Point(55, 264);
+            label3.Location = new Point(62, 471);
             label3.Name = "label3";
-            label3.Size = new Size(55, 19);
-            label3.TabIndex = 43;
-            label3.Text = "Correo";
+            label3.Size = new Size(79, 25);
+            label3.TabIndex = 166;
+            label3.Text = "Salary:";
             // 
-            // txtNombreCompleto
+            // label6
             // 
-            txtNombreCompleto.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNombreCompleto.Location = new Point(55, 218);
-            txtNombreCompleto.Margin = new Padding(3, 2, 3, 2);
-            txtNombreCompleto.Name = "txtNombreCompleto";
-            txtNombreCompleto.Size = new Size(252, 24);
-            txtNombreCompleto.TabIndex = 40;
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.ForeColor = Color.Silver;
+            label6.Location = new Point(62, 411);
+            label6.Name = "label6";
+            label6.Size = new Size(95, 25);
+            label6.TabIndex = 167;
+            label6.Text = "Position:";
             // 
-            // label1
+            // cmbPosition
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = Color.Silver;
-            label1.Location = new Point(55, 201);
-            label1.Name = "label1";
-            label1.Size = new Size(137, 19);
-            label1.TabIndex = 39;
-            label1.Text = "Nombre Completo";
+            cmbPosition.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbPosition.FormattingEnabled = true;
+            cmbPosition.Items.AddRange(new object[] { "Recepcionista", "Barbero/a" });
+            cmbPosition.Location = new Point(161, 406);
+            cmbPosition.Margin = new Padding(3, 2, 3, 2);
+            cmbPosition.Name = "cmbPosition";
+            cmbPosition.Size = new Size(205, 30);
+            cmbPosition.TabIndex = 168;
+            cmbPosition.SelectedIndexChanged += cmbPosition_SelectedIndexChanged;
             // 
-            // NuevoEmpleado
+            // lblSalary
+            // 
+            lblSalary.AutoSize = true;
+            lblSalary.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblSalary.ForeColor = Color.Silver;
+            lblSalary.Location = new Point(147, 471);
+            lblSalary.Name = "lblSalary";
+            lblSalary.Size = new Size(73, 25);
+            lblSalary.TabIndex = 169;
+            lblSalary.Text = "Salary";
+            // 
+            // btnContrarar
+            // 
+            btnContrarar.BackColor = Color.FromArgb(26, 32, 40);
+            btnContrarar.FlatAppearance.BorderSize = 0;
+            btnContrarar.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
+            btnContrarar.FlatStyle = FlatStyle.Flat;
+            btnContrarar.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnContrarar.ForeColor = Color.White;
+            btnContrarar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnContrarar.Location = new Point(647, 459);
+            btnContrarar.Margin = new Padding(3, 2, 3, 2);
+            btnContrarar.Name = "btnContrarar";
+            btnContrarar.Size = new Size(122, 37);
+            btnContrarar.TabIndex = 170;
+            btnContrarar.Text = "Contratar";
+            btnContrarar.UseVisualStyleBackColor = false;
+            btnContrarar.Click += btnContratar_Click;
+            // 
+            // frmNewEmployeeAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 59, 100);
-            ClientSize = new Size(654, 498);
-            Controls.Add(btnNuevo);
-            Controls.Add(btnCerrar);
-            Controls.Add(btnGuardar);
-            Controls.Add(label9);
-            Controls.Add(cmbSexo);
-            Controls.Add(dtmNacimiento);
-            Controls.Add(txtcedula);
-            Controls.Add(label8);
-            Controls.Add(txtEdad);
-            Controls.Add(label7);
+            ClientSize = new Size(839, 554);
+            Controls.Add(btnContrarar);
+            Controls.Add(lblSalary);
+            Controls.Add(cmbPosition);
             Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(txtTelefono);
-            Controls.Add(label4);
-            Controls.Add(txtCorreo);
             Controls.Add(label3);
-            Controls.Add(txtNombreCompleto);
+            Controls.Add(label9);
+            Controls.Add(lblBirthDate);
+            Controls.Add(lblPhoneNumber);
+            Controls.Add(lblEmail);
+            Controls.Add(lblName);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(cmbCedula);
+            Controls.Add(label8);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
-            Name = "NuevoEmpleado";
+            Name = "frmNewEmployeeAdmin";
             Text = "NuevoEmpleado";
+            Load += frmNewEmployeeAdmin_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button btnNuevo;
-        private Button btnCerrar;
-        private Button btnGuardar;
-        private Label label9;
-        private ComboBox cmbSexo;
-        private DateTimePicker dtmNacimiento;
-        private TextBox txtcedula;
+        private ComboBox cmbCedula;
         private Label label8;
-        private TextBox txtEdad;
-        private Label label7;
-        private Label label6;
+        private Label lblBirthDate;
+        private Label lblPhoneNumber;
+        private Label lblEmail;
+        private Label lblName;
         private Label label5;
-        private TextBox txtTelefono;
         private Label label4;
-        private TextBox txtCorreo;
-        private Label label3;
-        private TextBox txtNombreCompleto;
+        private Label label2;
         private Label label1;
+        private Label label9;
+        private Label label3;
+        private Label label6;
+        private ComboBox cmbPosition;
+        private Label lblSalary;
+        private Button btnContrarar;
     }
 }

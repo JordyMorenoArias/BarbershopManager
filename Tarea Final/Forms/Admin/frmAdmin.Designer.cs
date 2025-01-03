@@ -42,6 +42,11 @@
             btnCliente = new Button();
             button5 = new Button();
             panel1 = new Panel();
+            panelEmpleado = new Panel();
+            btnConsultarEmpleado = new Button();
+            panel12 = new Panel();
+            btnNuevoEmpleado = new Button();
+            panel13 = new Panel();
             btnHome = new FontAwesome.Sharp.IconButton();
             panel9 = new Panel();
             label1 = new Label();
@@ -57,11 +62,6 @@
             panel11 = new Panel();
             btnPerfil = new Button();
             panel10 = new Panel();
-            panelEmpleado = new Panel();
-            btnConsultarEmpleado = new Button();
-            panel12 = new Panel();
-            btnNuevoEmpleado = new Button();
-            panel13 = new Panel();
             btnEmpleados = new Button();
             panel4 = new Panel();
             panel8 = new Panel();
@@ -73,10 +73,10 @@
             panelContenedor = new Panel();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
+            panelEmpleado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelCitas.SuspendLayout();
             panelClientes.SuspendLayout();
-            panelEmpleado.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -264,6 +264,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(26, 32, 40);
+            panel1.Controls.Add(panelEmpleado);
             panel1.Controls.Add(btnHome);
             panel1.Controls.Add(panel9);
             panel1.Controls.Add(label1);
@@ -271,7 +272,6 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(panelCitas);
             panel1.Controls.Add(panelClientes);
-            panel1.Controls.Add(panelEmpleado);
             panel1.Controls.Add(btnEmpleados);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel8);
@@ -288,6 +288,72 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(232, 554);
             panel1.TabIndex = 34;
+            // 
+            // panelEmpleado
+            // 
+            panelEmpleado.Controls.Add(btnConsultarEmpleado);
+            panelEmpleado.Controls.Add(panel12);
+            panelEmpleado.Controls.Add(btnNuevoEmpleado);
+            panelEmpleado.Controls.Add(panel13);
+            panelEmpleado.Location = new Point(60, 316);
+            panelEmpleado.Margin = new Padding(3, 2, 3, 2);
+            panelEmpleado.Name = "panelEmpleado";
+            panelEmpleado.Size = new Size(169, 69);
+            panelEmpleado.TabIndex = 37;
+            panelEmpleado.Visible = false;
+            // 
+            // btnConsultarEmpleado
+            // 
+            btnConsultarEmpleado.BackColor = Color.FromArgb(26, 32, 40);
+            btnConsultarEmpleado.FlatAppearance.BorderSize = 0;
+            btnConsultarEmpleado.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
+            btnConsultarEmpleado.FlatStyle = FlatStyle.Flat;
+            btnConsultarEmpleado.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btnConsultarEmpleado.ForeColor = Color.White;
+            btnConsultarEmpleado.ImageAlign = ContentAlignment.MiddleLeft;
+            btnConsultarEmpleado.Location = new Point(10, 34);
+            btnConsultarEmpleado.Margin = new Padding(3, 2, 3, 2);
+            btnConsultarEmpleado.Name = "btnConsultarEmpleado";
+            btnConsultarEmpleado.Size = new Size(151, 25);
+            btnConsultarEmpleado.TabIndex = 37;
+            btnConsultarEmpleado.Text = "Consul Empleados";
+            btnConsultarEmpleado.UseVisualStyleBackColor = false;
+            // 
+            // panel12
+            // 
+            panel12.BackColor = Color.FromArgb(0, 80, 200);
+            panel12.Location = new Point(-1, 34);
+            panel12.Margin = new Padding(3, 2, 3, 2);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(9, 25);
+            panel12.TabIndex = 38;
+            // 
+            // btnNuevoEmpleado
+            // 
+            btnNuevoEmpleado.BackColor = Color.FromArgb(26, 32, 40);
+            btnNuevoEmpleado.FlatAppearance.BorderSize = 0;
+            btnNuevoEmpleado.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
+            btnNuevoEmpleado.FlatStyle = FlatStyle.Flat;
+            btnNuevoEmpleado.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btnNuevoEmpleado.ForeColor = Color.White;
+            btnNuevoEmpleado.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNuevoEmpleado.Location = new Point(10, 2);
+            btnNuevoEmpleado.Margin = new Padding(3, 2, 3, 2);
+            btnNuevoEmpleado.Name = "btnNuevoEmpleado";
+            btnNuevoEmpleado.Size = new Size(151, 25);
+            btnNuevoEmpleado.TabIndex = 35;
+            btnNuevoEmpleado.Text = "Contr Empleado";
+            btnNuevoEmpleado.UseVisualStyleBackColor = false;
+            btnNuevoEmpleado.Click += btnNuevoEmpleado_Click;
+            // 
+            // panel13
+            // 
+            panel13.BackColor = Color.FromArgb(0, 80, 200);
+            panel13.Location = new Point(0, 2);
+            panel13.Margin = new Padding(3, 2, 3, 2);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(9, 25);
+            panel13.TabIndex = 36;
             // 
             // btnHome
             // 
@@ -377,9 +443,9 @@
             btnConsultarCitas.Location = new Point(10, 34);
             btnConsultarCitas.Margin = new Padding(3, 2, 3, 2);
             btnConsultarCitas.Name = "btnConsultarCitas";
-            btnConsultarCitas.Size = new Size(127, 25);
+            btnConsultarCitas.Size = new Size(150, 25);
             btnConsultarCitas.TabIndex = 37;
-            btnConsultarCitas.Text = "Consultar";
+            btnConsultarCitas.Text = "Consultar Citas";
             btnConsultarCitas.UseVisualStyleBackColor = false;
             btnConsultarCitas.Click += btnConsultarCitas_Click;
             // 
@@ -404,9 +470,9 @@
             btnNuevoCitas.Location = new Point(10, 2);
             btnNuevoCitas.Margin = new Padding(3, 2, 3, 2);
             btnNuevoCitas.Name = "btnNuevoCitas";
-            btnNuevoCitas.Size = new Size(127, 25);
+            btnNuevoCitas.Size = new Size(150, 25);
             btnNuevoCitas.TabIndex = 35;
-            btnNuevoCitas.Text = "Nuevo";
+            btnNuevoCitas.Text = "Crear Cita";
             btnNuevoCitas.UseVisualStyleBackColor = false;
             btnNuevoCitas.Click += btnNuevoCitas_Click;
             // 
@@ -425,7 +491,7 @@
             panelClientes.Controls.Add(panel11);
             panelClientes.Controls.Add(btnPerfil);
             panelClientes.Controls.Add(panel10);
-            panelClientes.Location = new Point(62, 360);
+            panelClientes.Location = new Point(59, 360);
             panelClientes.Margin = new Padding(3, 2, 3, 2);
             panelClientes.Name = "panelClientes";
             panelClientes.Size = new Size(168, 72);
@@ -444,7 +510,7 @@
             btnConsultar.Location = new Point(9, 31);
             btnConsultar.Margin = new Padding(3, 2, 3, 2);
             btnConsultar.Name = "btnConsultar";
-            btnConsultar.Size = new Size(127, 25);
+            btnConsultar.Size = new Size(153, 25);
             btnConsultar.TabIndex = 39;
             btnConsultar.Text = "Consultar";
             btnConsultar.UseVisualStyleBackColor = false;
@@ -470,7 +536,7 @@
             btnPerfil.Location = new Point(9, 2);
             btnPerfil.Margin = new Padding(3, 2, 3, 2);
             btnPerfil.Name = "btnPerfil";
-            btnPerfil.Size = new Size(127, 25);
+            btnPerfil.Size = new Size(153, 25);
             btnPerfil.TabIndex = 37;
             btnPerfil.Text = "Perfil";
             btnPerfil.UseVisualStyleBackColor = false;
@@ -483,71 +549,6 @@
             panel10.Name = "panel10";
             panel10.Size = new Size(9, 25);
             panel10.TabIndex = 36;
-            // 
-            // panelEmpleado
-            // 
-            panelEmpleado.Controls.Add(btnConsultarEmpleado);
-            panelEmpleado.Controls.Add(panel12);
-            panelEmpleado.Controls.Add(btnNuevoEmpleado);
-            panelEmpleado.Controls.Add(panel13);
-            panelEmpleado.Location = new Point(63, 316);
-            panelEmpleado.Margin = new Padding(3, 2, 3, 2);
-            panelEmpleado.Name = "panelEmpleado";
-            panelEmpleado.Size = new Size(166, 69);
-            panelEmpleado.TabIndex = 37;
-            panelEmpleado.Visible = false;
-            // 
-            // btnConsultarEmpleado
-            // 
-            btnConsultarEmpleado.BackColor = Color.FromArgb(26, 32, 40);
-            btnConsultarEmpleado.FlatAppearance.BorderSize = 0;
-            btnConsultarEmpleado.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
-            btnConsultarEmpleado.FlatStyle = FlatStyle.Flat;
-            btnConsultarEmpleado.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            btnConsultarEmpleado.ForeColor = Color.White;
-            btnConsultarEmpleado.ImageAlign = ContentAlignment.MiddleLeft;
-            btnConsultarEmpleado.Location = new Point(10, 34);
-            btnConsultarEmpleado.Margin = new Padding(3, 2, 3, 2);
-            btnConsultarEmpleado.Name = "btnConsultarEmpleado";
-            btnConsultarEmpleado.Size = new Size(127, 25);
-            btnConsultarEmpleado.TabIndex = 37;
-            btnConsultarEmpleado.Text = "Consultar";
-            btnConsultarEmpleado.UseVisualStyleBackColor = false;
-            // 
-            // panel12
-            // 
-            panel12.BackColor = Color.FromArgb(0, 80, 200);
-            panel12.Location = new Point(-1, 34);
-            panel12.Margin = new Padding(3, 2, 3, 2);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(9, 25);
-            panel12.TabIndex = 38;
-            // 
-            // btnNuevoEmpleado
-            // 
-            btnNuevoEmpleado.BackColor = Color.FromArgb(26, 32, 40);
-            btnNuevoEmpleado.FlatAppearance.BorderSize = 0;
-            btnNuevoEmpleado.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
-            btnNuevoEmpleado.FlatStyle = FlatStyle.Flat;
-            btnNuevoEmpleado.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNuevoEmpleado.ForeColor = Color.White;
-            btnNuevoEmpleado.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNuevoEmpleado.Location = new Point(10, 2);
-            btnNuevoEmpleado.Margin = new Padding(3, 2, 3, 2);
-            btnNuevoEmpleado.Name = "btnNuevoEmpleado";
-            btnNuevoEmpleado.Size = new Size(127, 25);
-            btnNuevoEmpleado.TabIndex = 35;
-            btnNuevoEmpleado.Text = "Nuevo";
-            btnNuevoEmpleado.UseVisualStyleBackColor = false;
-            // 
-            // panel13
-            // 
-            panel13.BackColor = Color.FromArgb(0, 80, 200);
-            panel13.Location = new Point(0, 2);
-            panel13.Margin = new Padding(3, 2, 3, 2);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(9, 25);
-            panel13.TabIndex = 36;
             // 
             // btnEmpleados
             // 
@@ -652,10 +653,10 @@
             panel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panelEmpleado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panelCitas.ResumeLayout(false);
             panelClientes.ResumeLayout(false);
-            panelEmpleado.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }

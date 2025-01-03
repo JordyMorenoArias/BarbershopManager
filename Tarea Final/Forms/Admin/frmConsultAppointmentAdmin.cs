@@ -108,7 +108,7 @@ namespace Tarea_Final.Forms
             {
                 using (SqlConnection connection = Connection.Connect())
                 {
-                    string query = @"SELECT u.Name FROM Employees e JOIN Users u ON e.UserId = u.UserId";
+                    string query = @"SELECT u.Name FROM Employees e JOIN Users u ON e.UserId = u.UserId WHERE e.Position = 'Barbero/a'";
                     await connection.OpenAsync();
 
                     using (SqlCommand command = new SqlCommand(query, connection))
@@ -204,13 +204,12 @@ namespace Tarea_Final.Forms
                         {
                             return;
                         }
-
-                        MessageBox.Show("La cita fue modificada exitosamente");
                     }
 
                     CleanTextBox();
                     await Appointment.ModifyAppointment(appointment);
                     await LoadAppointmentsDataGridView();
+                    MessageBox.Show("La cita fue modificada exitosamente");
 
                 }
                 catch (Exception ex)
