@@ -66,14 +66,14 @@ namespace Tarea_Final.Models
                         {
                             return new User
                             {
-                                UserId = reader.GetInt32(0),
-                                Name = reader.GetString(1),
-                                Email = reader.GetString(2),
-                                IdCard = reader.GetString(3),
-                                Password = reader.GetString(4),
-                                BirthDate = reader.GetDateTime(5),
-                                PhoneNumber = reader.GetString(6),
-                                IsAdmin = reader.GetBoolean(7)
+                                UserId = int.Parse(reader["UserId"].ToString()!),
+                                Name = reader["Name"].ToString()!,
+                                Email = reader["Email"].ToString()!,
+                                IdCard = reader["IdCard"].ToString()!,
+                                Password = reader["Password"].ToString()!,
+                                BirthDate = DateTime.Parse(reader["BirthDate"].ToString()!),
+                                PhoneNumber = reader["PhoneNumber"].ToString()!,
+                                IsAdmin = bool.Parse(reader["IsAdmin"].ToString()!)
                             };
                         }
                         else
@@ -100,7 +100,7 @@ namespace Tarea_Final.Models
                     int emailCount = (int)(await checkCommand.ExecuteScalarAsync() ?? 0);
                     if (emailCount > 0)
                     {
-                        throw new ApplicationException("El correo electrónico ya está registrado.");
+                        throw new ApplicationException("El Usuario ya está registrado.");
                     }
                 }
 
@@ -136,13 +136,13 @@ namespace Tarea_Final.Models
                             {
                                 return new User
                                 {
-                                    UserId = reader.GetInt32(0),
-                                    Name = reader.GetString(1),
-                                    Email = reader.GetString(2),
-                                    IdCard = reader.GetString(3),
-                                    Password = reader.GetString(4),
-                                    BirthDate = reader.GetDateTime(5),
-                                    PhoneNumber = reader.GetString(6)
+                                    UserId = int.Parse(reader["UserId"].ToString()!),
+                                    Name = reader["Name"].ToString()!,
+                                    Email = reader["Email"].ToString()!,
+                                    IdCard = reader["IdCard"].ToString()!,
+                                    Password = reader["Password"].ToString()!,
+                                    BirthDate = DateTime.Parse(reader["BirthDate"].ToString()!),
+                                    PhoneNumber = reader["PhoneNumber"].ToString()!
                                 };
                             }
                         }
@@ -151,7 +151,6 @@ namespace Tarea_Final.Models
             }
             catch (Exception ex)
             {
-                // Log or handle the exception as needed
                 throw new ApplicationException("Se ha producido un error al obtener el usuario.", ex);
             }
 
@@ -175,13 +174,13 @@ namespace Tarea_Final.Models
                             {
                                 return new User
                                 {
-                                    UserId = reader.GetInt32(0),
-                                    Name = reader.GetString(1),
-                                    Email = reader.GetString(2),
-                                    IdCard = reader.GetString(3),
-                                    Password = reader.GetString(4),
-                                    BirthDate = reader.GetDateTime(5),
-                                    PhoneNumber = reader.GetString(6)
+                                    UserId = int.Parse(reader["UserId"].ToString()!),
+                                    Name = reader["Name"].ToString()!,
+                                    Email = reader["Email"].ToString()!,
+                                    IdCard = reader["IdCard"].ToString()!,
+                                    Password = reader["Password"].ToString()!,
+                                    BirthDate = DateTime.Parse(reader["BirthDate"].ToString()!),
+                                    PhoneNumber = reader["PhoneNumber"].ToString()!
                                 };
                             }
                         }
@@ -190,7 +189,6 @@ namespace Tarea_Final.Models
             }
             catch (Exception ex)
             {
-                // Log or handle the exception as needed
                 throw new ApplicationException("Se ha producido un error al obtener el usuario.", ex);
             }
             return null!;
@@ -220,7 +218,6 @@ namespace Tarea_Final.Models
             }
             catch (Exception ex)
             {
-                // Log or handle the exception as needed
                 throw new ApplicationException("Se ha producido un error al modificar el usuario.", ex);
             }
         }

@@ -10,28 +10,17 @@ namespace Tarea_Final.Models
     internal class Appointment
     {
         internal int IdAppointment { get; set; }
-        internal Employee Employee { get; set; }
-        internal User User { get; set; }
+        internal Employee Employee { get; set; } = null!;
+        internal User User { get; set; } = null!;
         internal DateTime Date { get; set; }
         internal TimeSpan Hour { get; set; }
-        internal Service Service { get; set; }
-        internal string Status { get; set; }
+        internal Service Service { get; set; } = null!;
+        internal string Status { get; set; } = null!;
 
         public Appointment() { }
 
         public Appointment(Employee employee, User user, DateTime date, TimeSpan hour, Service service, string status)
         {
-            Employee = employee;
-            User = user;
-            Date = date;
-            Hour = hour;
-            Service = service;
-            Status = status;
-        }
-
-        public Appointment(int idAppointment, Employee employee, User user, DateTime date, TimeSpan hour, Service service, string status)
-        {
-            IdAppointment = idAppointment;
             Employee = employee;
             User = user;
             Date = date;
@@ -116,7 +105,7 @@ namespace Tarea_Final.Models
 
                     using (SqlDataReader reader = await command.ExecuteReaderAsync())
                     {
-                        while (reader.Read())
+                        while (await reader.ReadAsync())
                         {
                             appointments.Add(new Appointment()
                             {

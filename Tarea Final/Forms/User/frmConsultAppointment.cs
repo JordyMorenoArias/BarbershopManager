@@ -58,7 +58,7 @@ namespace Tarea_Final
 
         private async void LoadCmbEmpleados()
         {
-            string query = @"SELECT u.Name FROM Employees e JOIN Users u ON e.UserId = u.UserId WHERE e.Position = 'Barbero/a'";
+            string query = @"SELECT u.Name FROM Employees e JOIN Users u ON e.UserId = u.UserId WHERE e.Position = 'Barbero/a' AND e.Status = 1";
 
             try
             {

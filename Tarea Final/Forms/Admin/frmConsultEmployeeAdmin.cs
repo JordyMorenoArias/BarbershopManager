@@ -66,7 +66,9 @@ namespace Tarea_Final
         {
             if (employee is not null)
             {
+                employee.Salary += decimal.Parse(txtBono.Text); 
                 await Employee.ModifyEmployee(employee);
+                LoadDataUser(employee);
             }
             else
             {

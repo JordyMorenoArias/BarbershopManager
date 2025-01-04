@@ -57,7 +57,7 @@ namespace Tarea_Final
 
         private async void LoadCmbEmpleados()
         {
-            string query = @"SELECT u.Name FROM Employees e JOIN Users u ON e.UserId = u.UserId WHERE e.Position = 'Barbero/a'";
+            string query = @"SELECT u.Name FROM Employees e JOIN Users u ON e.UserId = u.UserId WHERE e.Position = 'Barbero/a' AND e.Status = 1";
 
             try
             {
@@ -80,11 +80,6 @@ namespace Tarea_Final
             {
                 MessageBox.Show($"Error al cargar empleados: {ex.Message}");
             }
-        }
-
-        private void NuevaCita_Load(object sender, EventArgs e)
-        {
-            // Código para manejar el evento de carga del formulario
         }
 
         internal async Task<bool> CheckEmployeeAvailability(Employee employee, DateTime date, TimeSpan hour)
@@ -170,11 +165,6 @@ namespace Tarea_Final
             {
                 MessageBox.Show($"Error al crear la cita: {ex.Message}");
             }
-        }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private async void cmbServicios_SelectedIndexChanged(object sender, EventArgs e)

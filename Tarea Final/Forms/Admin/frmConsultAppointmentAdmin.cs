@@ -117,7 +117,7 @@ namespace Tarea_Final.Forms
             {
                 using (SqlConnection connection = Connection.Connect())
                 {
-                    string query = @"SELECT u.Name FROM Employees e JOIN Users u ON e.UserId = u.UserId WHERE e.Position = 'Barbero/a'";
+                    string query = @"SELECT u.Name FROM Employees e JOIN Users u ON e.UserId = u.UserId WHERE e.Position = 'Barbero/a' AND e.Status = 1";
                     await connection.OpenAsync();
 
                     using (SqlCommand command = new SqlCommand(query, connection))

@@ -208,7 +208,6 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmNewAppointmentUser";
             Text = "NuevaCita";
-            Load += NuevaCita_Load;
             ResumeLayout(false);
             PerformLayout();
         }
