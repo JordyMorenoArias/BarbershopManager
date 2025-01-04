@@ -72,7 +72,7 @@ namespace Tarea_Final
             User user = await User.GetUserByIdCard(cmbCedula.Text);
             this.user = user;
             LoadDataUser(user);
-            cmbPosition.Items.Clear();
+            cmbPosition.Text = "";
             lblSalary.Text = "Salary";
         }
 
@@ -95,8 +95,6 @@ namespace Tarea_Final
                         break;
                     }
             }
-
-
         }
 
         private async void btnContratar_Click(object sender, EventArgs e)
@@ -108,6 +106,9 @@ namespace Tarea_Final
                 employee.Status = true;
 
                 await Employee.CreateEmployee(employee);
+                cmbPosition.Text = "";
+                lblSalary.Text = "Salary";
+                MessageBox.Show("El Usuario fue contratado exitosamente");
             }
             catch (Exception ex)
             {

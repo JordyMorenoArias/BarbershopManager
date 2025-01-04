@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
             panel2 = new Panel();
             panelContener = new Panel();
@@ -69,7 +68,6 @@
             panel6 = new Panel();
             panel3 = new Panel();
             lblHoraActual = new Label();
-            timer1 = new System.Windows.Forms.Timer(components);
             panelContenedor = new Panel();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -318,6 +316,7 @@
             btnConsultarEmpleado.TabIndex = 37;
             btnConsultarEmpleado.Text = "Consul Empleados";
             btnConsultarEmpleado.UseVisualStyleBackColor = false;
+            btnConsultarEmpleado.Click += btnConsultarEmpleado_Click;
             // 
             // panel12
             // 
@@ -622,11 +621,6 @@
             lblHoraActual.Size = new Size(0, 15);
             lblHoraActual.TabIndex = 35;
             // 
-            // timer1
-            // 
-            timer1.Enabled = true;
-            timer1.Interval = 1000;
-            // 
             // panelContenedor
             // 
             panelContenedor.Dock = DockStyle.Right;
@@ -697,7 +691,6 @@
         private Label lblHoraActual;
         private Panel panel5;
         private Panel panelContener;
-        private System.Windows.Forms.Timer timer1;
         private Label label1;
         private FontAwesome.Sharp.IconButton btnHome;
         private Panel panel9;

@@ -222,7 +222,7 @@
             btnContrarar.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnContrarar.ForeColor = Color.White;
             btnContrarar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnContrarar.Location = new Point(647, 459);
+            btnContrarar.Location = new Point(638, 466);
             btnContrarar.Margin = new Padding(3, 2, 3, 2);
             btnContrarar.Name = "btnContrarar";
             btnContrarar.Size = new Size(122, 37);

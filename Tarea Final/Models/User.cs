@@ -203,8 +203,8 @@ namespace Tarea_Final.Models
                 using (SqlConnection connection = Connection.Connect())
                 {
                     await connection.OpenAsync();
-
                     string query = "UPDATE Users SET Name = @Name, Email = @Email, IdCard = @IdCard, Password = @Password, BirthDate = @BirthDate, PhoneNumber = @PhoneNumber WHERE UserId = @UserId";
+
                     using (SqlCommand command = new(query, connection))
                     {
                         command.Parameters.AddWithValue("@Name", user.Name);
@@ -214,7 +214,7 @@ namespace Tarea_Final.Models
                         command.Parameters.AddWithValue("@BirthDate", user.BirthDate);
                         command.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
                         command.Parameters.AddWithValue("@UserId", user.UserId);
-                        command.ExecuteNonQuery();
+                        await command.ExecuteNonQueryAsync();
                     }
                 }
             }

@@ -10,13 +10,12 @@ namespace Tarea_Final.Models
     internal class Schedule
     {
         internal int IdSchedule { get; set; }
-        internal Appointment Appointment { get; set; }
-        internal Employee Employee { get; set; }
+        internal Appointment Appointment { get; set; } = null!;
+        internal Employee Employee { get; set; } = null!;
         internal DateTime Date { get; set; }
         internal TimeSpan StartHour { get; set; }
         internal TimeSpan FinalHour { get; set; }
-        internal List<DateTime> BlockedDates { get; set; }
-
+        internal List<DateTime> BlockedDates { get; set; } = new List<DateTime>();
         internal Schedule(Employee Employee, Appointment Appointment, DateTime day, TimeSpan Hour, TimeSpan duration)
         {
             this.Employee = Employee;
@@ -37,9 +36,9 @@ namespace Tarea_Final.Models
                     await connection.OpenAsync();
 
                     string query = @"SELECT a.AppointmentId, a.Date, a.Hour, s.Duration 
-                             FROM Appointments a 
-                             JOIN Services s ON a.ServiceId = s.ServiceId 
-                             WHERE EmployeeId = @EmployeeId AND a.Status = 'Pendiente'";
+                                 FROM Appointments a 
+                                 JOIN Services s ON a.ServiceId = s.ServiceId 
+                                 WHERE EmployeeId = @EmployeeId AND a.Status = 'Pendiente'";
 
                     using (SqlCommand command = new(query, connection))
                     {

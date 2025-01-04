@@ -46,7 +46,6 @@ namespace Tarea_Final.Forms
 
                 if (appointments == null || !appointments.Any())
                 {
-                    MessageBox.Show("No se encontraron citas para el usuario.");
                     return;
                 }
 

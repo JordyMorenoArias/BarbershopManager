@@ -29,351 +29,345 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsultEmployeeAdmin));
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cmbSexo = new System.Windows.Forms.ComboBox();
-            this.dtmNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.txtEdad = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtNombreCompleto = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cmbTipo = new System.Windows.Forms.ComboBox();
-            this.txtCedul = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cmbBuscar = new System.Windows.Forms.ComboBox();
-            this.SuspendLayout();
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(518, 218);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(143, 29);
-            this.btnBuscar.TabIndex = 81;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.Color.Silver;
-            this.label10.Location = new System.Drawing.Point(75, 194);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 21);
-            this.label10.TabIndex = 79;
-            this.label10.Text = "Cedula";
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrar.Location = new System.Drawing.Point(518, 556);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(143, 33);
-            this.btnCerrar.TabIndex = 78;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            btnModificar = new Button();
+            label9 = new Label();
+            lblSalary = new Label();
+            cmbPosition = new ComboBox();
+            label6 = new Label();
+            label3 = new Label();
+            lblBirthDate = new Label();
+            lblPhoneNumber = new Label();
+            lblEmail = new Label();
+            lblName = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            cmbCedula = new ComboBox();
+            label8 = new Label();
+            txtBono = new TextBox();
+            label7 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            lblStatus = new Label();
+            btnDepedirOrRecontratar = new Button();
+            SuspendLayout();
             // 
             // btnModificar
             // 
-            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnModificar.FlatAppearance.BorderSize = 0;
-            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(38)))), ((int)(((byte)(70)))));
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(374, 556);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(138, 33);
-            this.btnModificar.TabIndex = 77;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            btnModificar.BackColor = Color.FromArgb(26, 32, 40);
+            btnModificar.FlatAppearance.BorderSize = 0;
+            btnModificar.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
+            btnModificar.FlatStyle = FlatStyle.Flat;
+            btnModificar.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btnModificar.ForeColor = Color.White;
+            btnModificar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnModificar.Location = new Point(651, 469);
+            btnModificar.Margin = new Padding(3, 2, 3, 2);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(127, 30);
+            btnModificar.TabIndex = 77;
+            btnModificar.Text = "Update";
+            btnModificar.UseVisualStyleBackColor = false;
+            btnModificar.Click += btnModificar_Click;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.Color.Silver;
-            this.label9.Location = new System.Drawing.Point(75, 106);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(356, 40);
-            this.label9.TabIndex = 76;
-            this.label9.Text = "Consultar Empleados";
+            label9.AutoSize = true;
+            label9.Font = new Font("Century Gothic", 19.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.ForeColor = Color.Silver;
+            label9.Location = new Point(81, 33);
+            label9.Name = "label9";
+            label9.Size = new Size(293, 33);
+            label9.TabIndex = 76;
+            label9.Text = "Consultar Empleados";
             // 
-            // cmbSexo
+            // lblSalary
             // 
-            this.cmbSexo.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmbSexo.FormattingEnabled = true;
-            this.cmbSexo.Items.AddRange(new object[] {
-            "Masculino",
-            "Femenino"});
-            this.cmbSexo.Location = new System.Drawing.Point(374, 371);
-            this.cmbSexo.Name = "cmbSexo";
-            this.cmbSexo.Size = new System.Drawing.Size(287, 29);
-            this.cmbSexo.TabIndex = 75;
+            lblSalary.AutoSize = true;
+            lblSalary.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblSalary.ForeColor = Color.Silver;
+            lblSalary.Location = new Point(166, 469);
+            lblSalary.Name = "lblSalary";
+            lblSalary.Size = new Size(73, 25);
+            lblSalary.TabIndex = 183;
+            lblSalary.Text = "Salary";
             // 
-            // dtmNacimiento
+            // cmbPosition
             // 
-            this.dtmNacimiento.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtmNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtmNacimiento.Location = new System.Drawing.Point(374, 303);
-            this.dtmNacimiento.Name = "dtmNacimiento";
-            this.dtmNacimiento.Size = new System.Drawing.Size(287, 28);
-            this.dtmNacimiento.TabIndex = 74;
-            // 
-            // txtEdad
-            // 
-            this.txtEdad.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEdad.Location = new System.Drawing.Point(374, 446);
-            this.txtEdad.Name = "txtEdad";
-            this.txtEdad.Size = new System.Drawing.Size(287, 28);
-            this.txtEdad.TabIndex = 73;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.Color.Silver;
-            this.label7.Location = new System.Drawing.Point(374, 422);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 21);
-            this.label7.TabIndex = 72;
-            this.label7.Text = "Edad";
+            cmbPosition.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbPosition.FormattingEnabled = true;
+            cmbPosition.Items.AddRange(new object[] { "Recepcionista", "Barbero/a" });
+            cmbPosition.Location = new Point(185, 404);
+            cmbPosition.Margin = new Padding(3, 2, 3, 2);
+            cmbPosition.Name = "cmbPosition";
+            cmbPosition.Size = new Size(273, 30);
+            cmbPosition.TabIndex = 182;
+            cmbPosition.SelectedIndexChanged += cmbPosition_SelectedIndexChanged;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.Silver;
-            this.label6.Location = new System.Drawing.Point(374, 347);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 21);
-            this.label6.TabIndex = 71;
-            this.label6.Text = "Sexo";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.Silver;
-            this.label5.Location = new System.Drawing.Point(374, 279);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(191, 21);
-            this.label5.TabIndex = 70;
-            this.label5.Text = "Fecha de Nacimiento";
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTelefono.Location = new System.Drawing.Point(75, 520);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(287, 28);
-            this.txtTelefono.TabIndex = 69;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.Silver;
-            this.label4.Location = new System.Drawing.Point(75, 497);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 21);
-            this.label4.TabIndex = 68;
-            this.label4.Text = "Telefono";
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtCorreo.Location = new System.Drawing.Point(75, 446);
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(287, 28);
-            this.txtCorreo.TabIndex = 67;
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.ForeColor = Color.Silver;
+            label6.Location = new Point(86, 409);
+            label6.Name = "label6";
+            label6.Size = new Size(95, 25);
+            label6.TabIndex = 181;
+            label6.Text = "Position:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(75, 422);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 21);
-            this.label3.TabIndex = 66;
-            this.label3.Text = "Correo";
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.Silver;
+            label3.Location = new Point(86, 469);
+            label3.Name = "label3";
+            label3.Size = new Size(79, 25);
+            label3.TabIndex = 180;
+            label3.Text = "Salary:";
             // 
-            // txtNombreCompleto
+            // lblBirthDate
             // 
-            this.txtNombreCompleto.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtNombreCompleto.Location = new System.Drawing.Point(75, 374);
-            this.txtNombreCompleto.Name = "txtNombreCompleto";
-            this.txtNombreCompleto.Size = new System.Drawing.Size(287, 28);
-            this.txtNombreCompleto.TabIndex = 63;
+            lblBirthDate.AutoSize = true;
+            lblBirthDate.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblBirthDate.ForeColor = Color.Silver;
+            lblBirthDate.Location = new Point(195, 345);
+            lblBirthDate.Name = "lblBirthDate";
+            lblBirthDate.Size = new Size(102, 24);
+            lblBirthDate.TabIndex = 179;
+            lblBirthDate.Text = "BirthDate";
+            // 
+            // lblPhoneNumber
+            // 
+            lblPhoneNumber.AutoSize = true;
+            lblPhoneNumber.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPhoneNumber.ForeColor = Color.Silver;
+            lblPhoneNumber.Location = new Point(181, 283);
+            lblPhoneNumber.Name = "lblPhoneNumber";
+            lblPhoneNumber.Size = new Size(160, 24);
+            lblPhoneNumber.TabIndex = 178;
+            lblPhoneNumber.Text = "PhoneNumber";
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblEmail.ForeColor = Color.Silver;
+            lblEmail.Location = new Point(150, 224);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(64, 24);
+            lblEmail.TabIndex = 177;
+            lblEmail.Text = "Email";
+            // 
+            // lblName
+            // 
+            lblName.AutoSize = true;
+            lblName.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblName.ForeColor = Color.Silver;
+            lblName.Location = new Point(171, 169);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(75, 24);
+            lblName.TabIndex = 176;
+            lblName.Text = "Name";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = Color.Silver;
+            label5.Location = new Point(86, 345);
+            label5.Name = "label5";
+            label5.Size = new Size(113, 25);
+            label5.TabIndex = 175;
+            label5.Text = "Birth Date:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.Silver;
+            label4.Location = new Point(82, 283);
+            label4.Name = "label4";
+            label4.Size = new Size(102, 25);
+            label4.TabIndex = 174;
+            label4.Text = "Telefono:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Silver;
+            label2.Location = new Point(82, 224);
+            label2.Name = "label2";
+            label2.Size = new Size(71, 25);
+            label2.TabIndex = 173;
+            label2.Text = "Email:";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(75, 350);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 21);
-            this.label1.TabIndex = 62;
-            this.label1.Text = "Nombre Completo";
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.Silver;
+            label1.Location = new Point(82, 169);
+            label1.Name = "label1";
+            label1.Size = new Size(93, 25);
+            label1.TabIndex = 172;
+            label1.Text = "Nombre:";
             // 
-            // cmbStatus
+            // cmbCedula
             // 
-            this.cmbStatus.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
-            this.cmbStatus.Location = new System.Drawing.Point(374, 520);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(287, 29);
-            this.cmbStatus.TabIndex = 89;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.ForeColor = System.Drawing.Color.Silver;
-            this.label12.Location = new System.Drawing.Point(374, 496);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(61, 21);
-            this.label12.TabIndex = 88;
-            this.label12.Text = "Status";
-            // 
-            // cmbTipo
-            // 
-            this.cmbTipo.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmbTipo.FormattingEnabled = true;
-            this.cmbTipo.Items.AddRange(new object[] {
-            "Nombre",
-            "Cedula"});
-            this.cmbTipo.Location = new System.Drawing.Point(374, 218);
-            this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(138, 29);
-            this.cmbTipo.TabIndex = 91;
-            this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
-            // 
-            // txtCedul
-            // 
-            this.txtCedul.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtCedul.Location = new System.Drawing.Point(75, 303);
-            this.txtCedul.Name = "txtCedul";
-            this.txtCedul.Size = new System.Drawing.Size(287, 28);
-            this.txtCedul.TabIndex = 93;
+            cmbCedula.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbCedula.FormattingEnabled = true;
+            cmbCedula.Location = new Point(166, 104);
+            cmbCedula.Margin = new Padding(3, 2, 3, 2);
+            cmbCedula.Name = "cmbCedula";
+            cmbCedula.Size = new Size(292, 30);
+            cmbCedula.TabIndex = 171;
+            cmbCedula.SelectedIndexChanged += cmbCedula_SelectedIndexChanged;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.Color.Silver;
-            this.label8.Location = new System.Drawing.Point(75, 279);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 21);
-            this.label8.TabIndex = 92;
-            this.label8.Text = "Cedula";
+            label8.AutoSize = true;
+            label8.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.ForeColor = Color.Silver;
+            label8.Location = new Point(77, 109);
+            label8.Name = "label8";
+            label8.Size = new Size(86, 25);
+            label8.TabIndex = 170;
+            label8.Text = "Cedula:";
             // 
-            // cmbBuscar
+            // txtBono
             // 
-            this.cmbBuscar.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmbBuscar.FormattingEnabled = true;
-            this.cmbBuscar.Location = new System.Drawing.Point(75, 218);
-            this.cmbBuscar.Name = "cmbBuscar";
-            this.cmbBuscar.Size = new System.Drawing.Size(293, 29);
-            this.cmbBuscar.TabIndex = 94;
+            txtBono.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtBono.Location = new Point(382, 469);
+            txtBono.Name = "txtBono";
+            txtBono.Size = new Size(78, 27);
+            txtBono.TabIndex = 184;
+            txtBono.KeyPress += textBox1_KeyPress;
             // 
-            // ConsultarEmpleado
+            // label7
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(59)))), ((int)(((byte)(100)))));
-            this.ClientSize = new System.Drawing.Size(802, 686);
-            this.Controls.Add(this.cmbBuscar);
-            this.Controls.Add(this.txtCedul);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.cmbTipo);
-            this.Controls.Add(this.cmbStatus);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.cmbSexo);
-            this.Controls.Add(this.dtmNacimiento);
-            this.Controls.Add(this.txtEdad);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtTelefono);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtCorreo);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtNombreCompleto);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ConsultarEmpleado";
-            this.Text = "ConsultarEmpleado";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.ForeColor = Color.Silver;
+            label7.Location = new Point(327, 469);
+            label7.Name = "label7";
+            label7.Size = new Size(49, 25);
+            label7.TabIndex = 185;
+            label7.Text = "Ext:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.ForeColor = Color.Silver;
+            label10.Location = new Point(466, 469);
+            label10.Name = "label10";
+            label10.Size = new Size(56, 25);
+            label10.TabIndex = 186;
+            label10.Text = "USD";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label11.ForeColor = Color.Silver;
+            label11.Location = new Point(476, 109);
+            label11.Name = "label11";
+            label11.Size = new Size(79, 25);
+            label11.TabIndex = 187;
+            label11.Text = "Status:";
+            // 
+            // lblStatus
+            // 
+            lblStatus.AutoSize = true;
+            lblStatus.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblStatus.ForeColor = Color.Silver;
+            lblStatus.Location = new Point(550, 109);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(71, 25);
+            lblStatus.TabIndex = 188;
+            lblStatus.Text = "Activo";
+            // 
+            // btnDepedirOrRecontratar
+            // 
+            btnDepedirOrRecontratar.BackColor = Color.FromArgb(26, 32, 40);
+            btnDepedirOrRecontratar.FlatAppearance.BorderSize = 0;
+            btnDepedirOrRecontratar.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
+            btnDepedirOrRecontratar.FlatStyle = FlatStyle.Flat;
+            btnDepedirOrRecontratar.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDepedirOrRecontratar.ForeColor = Color.White;
+            btnDepedirOrRecontratar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDepedirOrRecontratar.Location = new Point(651, 104);
+            btnDepedirOrRecontratar.Margin = new Padding(3, 2, 3, 2);
+            btnDepedirOrRecontratar.Name = "btnDepedirOrRecontratar";
+            btnDepedirOrRecontratar.Size = new Size(127, 30);
+            btnDepedirOrRecontratar.TabIndex = 189;
+            btnDepedirOrRecontratar.Text = "Despedir";
+            btnDepedirOrRecontratar.UseVisualStyleBackColor = false;
+            btnDepedirOrRecontratar.Click += btnDepedirOrRecontratar_Click;
+            // 
+            // frmConsultEmployeeAdmin
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(46, 59, 100);
+            ClientSize = new Size(839, 554);
+            Controls.Add(btnDepedirOrRecontratar);
+            Controls.Add(lblStatus);
+            Controls.Add(label11);
+            Controls.Add(label10);
+            Controls.Add(label7);
+            Controls.Add(txtBono);
+            Controls.Add(lblSalary);
+            Controls.Add(cmbPosition);
+            Controls.Add(label6);
+            Controls.Add(label3);
+            Controls.Add(lblBirthDate);
+            Controls.Add(lblPhoneNumber);
+            Controls.Add(lblEmail);
+            Controls.Add(lblName);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(cmbCedula);
+            Controls.Add(label8);
+            Controls.Add(btnModificar);
+            Controls.Add(label9);
+            FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "frmConsultEmployeeAdmin";
+            Text = "ConsultarEmpleado";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private Button btnBuscar;
-        private Label label10;
-        private Button btnCerrar;
         private Button btnModificar;
         private Label label9;
-        private ComboBox cmbSexo;
-        private DateTimePicker dtmNacimiento;
-        private TextBox txtEdad;
-        private Label label7;
-        private Label label6;
-        private Label label5;
-        private TextBox txtTelefono;
-        private Label label4;
-        private TextBox txtCorreo;
-        private Label label3;
-        private TextBox txtNombreCompleto;
-        private Label label1;
-        private ComboBox cmbStatus;
-        private Label label12;
-        private ComboBox cmbTipo;
         private Label label2;
         private TextBox txtCedula;
-        private TextBox txtCedul;
+        private Label lblSalary;
+        private ComboBox cmbPosition;
+        private Label label6;
+        private Label label3;
+        private Label lblBirthDate;
+        private Label lblPhoneNumber;
+        private Label lblEmail;
+        private Label lblName;
+        private Label label5;
+        private Label label4;
+        private Label label1;
+        private ComboBox cmbCedula;
         private Label label8;
-        private ComboBox cmbBuscar;
+        private TextBox txtBono;
+        private Label label7;
+        private Label label10;
+        private Label label11;
+        private Label lblStatus;
+        private Button btnDepedirOrRecontratar;
     }
 }
