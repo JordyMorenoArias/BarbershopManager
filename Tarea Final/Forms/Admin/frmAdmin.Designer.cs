@@ -537,8 +537,9 @@
             btnPerfil.Name = "btnPerfil";
             btnPerfil.Size = new Size(153, 25);
             btnPerfil.TabIndex = 37;
-            btnPerfil.Text = "Perfil";
+            btnPerfil.Text = "Perfiles";
             btnPerfil.UseVisualStyleBackColor = false;
+            btnPerfil.Click += btnPerfil_Click;
             // 
             // panel10
             // 

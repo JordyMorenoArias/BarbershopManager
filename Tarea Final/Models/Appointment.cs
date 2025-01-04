@@ -102,6 +102,40 @@ namespace Tarea_Final.Models
             }
         }
 
+        internal static async Task<List<Appointment>> GetAppointments()
+        {
+            using (SqlConnection connection = Connection.Connect())
+            {
+                await connection.OpenAsync();
+
+                string query = @"SELECT * FROM Appointments WHERE Status = 'Pendiente'";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    List<Appointment> appointments = new List<Appointment>();
+
+                    using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                    {
+                        while (reader.Read())
+                        {
+                            appointments.Add(new Appointment()
+                            {
+                                IdAppointment = int.Parse(reader["AppointmentId"].ToString()!),
+                                Employee = await Employee.GetEmployeeById(int.Parse(reader["EmployeeId"].ToString()!)),
+                                User = await User.GetUserById(int.Parse(reader["UserId"].ToString()!)),
+                                Date = DateTime.Parse(reader["Date"].ToString()!),
+                                Hour = TimeSpan.Parse(reader["Hour"].ToString()!),
+                                Service = await Service.GetServiceById(int.Parse(reader["ServiceId"].ToString()!)),
+                                Status = reader["Status"].ToString()!
+                            });
+                        }
+
+                        return appointments;
+                    }
+                }
+            }
+        }
+
         public static async Task<Appointment> GetAppointmentById(int appointmentId)
         {
             try
@@ -116,15 +150,16 @@ namespace Tarea_Final.Models
                         SqlDataReader reader = await command.ExecuteReaderAsync();
                         if (reader.Read())
                         {
-                            return new Appointment(
-                                int.Parse(reader["AppointmentId"].ToString()!), // AppointmentId
-                                await Employee.GetEmployeeById(int.Parse(reader["EmployeeId"].ToString()!)), // EmployeeId
-                                await User.GetUserById(int.Parse(reader["UserId"].ToString()!)), // UserId
-                                DateTime.Parse(reader["Date"].ToString()!), // Date
-                                TimeSpan.Parse(reader["Hour"].ToString()!), // Hour
-                                await Service.GetServiceById(int.Parse(reader["ServiceId"].ToString()!)), // ServiceId
-                                reader["Status"].ToString()! // Status
-                            );
+                            return new Appointment()
+                            {
+                                IdAppointment = int.Parse(reader["AppointmentId"].ToString()!),
+                                Employee = await Employee.GetEmployeeById(int.Parse(reader["EmployeeId"].ToString()!)),
+                                User = await User.GetUserById(int.Parse(reader["UserId"].ToString()!)),
+                                Date = DateTime.Parse(reader["Date"].ToString()!),
+                                Hour = TimeSpan.Parse(reader["Hour"].ToString()!),
+                                Service = await Service.GetServiceById(int.Parse(reader["ServiceId"].ToString()!)),
+                                Status = reader["Status"].ToString()!
+                            };
                         }
                         return null!;
                     }
@@ -154,15 +189,16 @@ namespace Tarea_Final.Models
                             List<Appointment> appointments = new List<Appointment>();
                             while (await reader.ReadAsync())
                             {
-                                appointments.Add(new Appointment(
-                                    int.Parse(reader["AppointmentId"].ToString()!), // AppointmentId
-                                    await Employee.GetEmployeeById(int.Parse(reader["EmployeeId"].ToString()!)), // EmployeeId
-                                    await User.GetUserById(int.Parse(reader["UserId"].ToString()!)), // UserId
-                                    DateTime.Parse(reader["Date"].ToString()!), // Date
-                                    TimeSpan.Parse(reader["Hour"].ToString()!), // Hour
-                                    await Service.GetServiceById(int.Parse(reader["ServiceId"].ToString()!)), // ServiceId
-                                    reader["Status"].ToString()! // Status
-                                ));
+                                appointments.Add(new Appointment()
+                                {
+                                    IdAppointment = int.Parse(reader["AppointmentId"].ToString()!),
+                                    Employee = await Employee.GetEmployeeById(int.Parse(reader["EmployeeId"].ToString()!)),
+                                    User = await User.GetUserById(int.Parse(reader["UserId"].ToString()!)),
+                                    Date = DateTime.Parse(reader["Date"].ToString()!),
+                                    Hour = TimeSpan.Parse(reader["Hour"].ToString()!),
+                                    Service = await Service.GetServiceById(int.Parse(reader["ServiceId"].ToString()!)),
+                                    Status = reader["Status"].ToString()!
+                                });
                             }
                             return appointments;
                         }
@@ -192,16 +228,18 @@ namespace Tarea_Final.Models
                             List<Appointment> appointments = new List<Appointment>();
                             while (await reader.ReadAsync())
                             {
-                                appointments.Add(new Appointment(
-                                    int.Parse(reader["AppointmentId"].ToString()!), // AppointmentId
-                                    await Employee.GetEmployeeById(int.Parse(reader["EmployeeId"].ToString()!)), // EmployeeId
-                                    await User.GetUserById(int.Parse(reader["UserId"].ToString()!)), // UserId
-                                    DateTime.Parse(reader["Date"].ToString()!), // Date
-                                    TimeSpan.Parse(reader["Hour"].ToString()!), // Hour
-                                    await Service.GetServiceById(int.Parse(reader["ServiceId"].ToString()!)), // ServiceId
-                                    reader["Status"].ToString()! // Status
-                                ));
+                                appointments.Add(new Appointment()
+                                {
+                                    IdAppointment = int.Parse(reader["AppointmentId"].ToString()!),
+                                    Employee = await Employee.GetEmployeeById(int.Parse(reader["EmployeeId"].ToString()!)),
+                                    User = await User.GetUserById(int.Parse(reader["UserId"].ToString()!)),
+                                    Date = DateTime.Parse(reader["Date"].ToString()!),
+                                    Hour = TimeSpan.Parse(reader["Hour"].ToString()!),
+                                    Service = await Service.GetServiceById(int.Parse(reader["ServiceId"].ToString()!)),
+                                    Status = reader["Status"].ToString()!
+                                });
                             }
+
                             return appointments;
                         }
                     }

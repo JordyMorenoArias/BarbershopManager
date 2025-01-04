@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             dgvCitas = new DataGridView();
-            dvgColumnId = new DataGridViewTextBoxColumn();
-            dvgColumnService = new DataGridViewTextBoxColumn();
-            dvgColumnPrice = new DataGridViewTextBoxColumn();
-            dvgColumnDate = new DataGridViewTextBoxColumn();
-            dvgColumnHour = new DataGridViewTextBoxColumn();
-            dvgColumnEmployee = new DataGridViewTextBoxColumn();
             txtDescripcion = new TextBox();
             label3 = new Label();
             lblPrecio = new Label();
@@ -58,6 +52,13 @@
             label10 = new Label();
             label11 = new Label();
             lblPhoneNumber = new Label();
+            dvgColumnId = new DataGridViewTextBoxColumn();
+            ColumnIdUser = new DataGridViewTextBoxColumn();
+            dvgColumnService = new DataGridViewTextBoxColumn();
+            dvgColumnPrice = new DataGridViewTextBoxColumn();
+            dvgColumnDate = new DataGridViewTextBoxColumn();
+            dvgColumnHour = new DataGridViewTextBoxColumn();
+            dvgColumnEmployee = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvCitas).BeginInit();
             SuspendLayout();
             // 
@@ -65,7 +66,7 @@
             // 
             dgvCitas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCitas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCitas.Columns.AddRange(new DataGridViewColumn[] { dvgColumnId, dvgColumnService, dvgColumnPrice, dvgColumnDate, dvgColumnHour, dvgColumnEmployee });
+            dgvCitas.Columns.AddRange(new DataGridViewColumn[] { dvgColumnId, ColumnIdUser, dvgColumnService, dvgColumnPrice, dvgColumnDate, dvgColumnHour, dvgColumnEmployee });
             dgvCitas.Location = new Point(31, 269);
             dgvCitas.Name = "dgvCitas";
             dgvCitas.ReadOnly = true;
@@ -76,43 +77,6 @@
             dgvCitas.TabIndex = 138;
             dgvCitas.CellContentClick += dgvCitas_CellContentClick;
             dgvCitas.CellContentDoubleClick += dgvCitas_CellContentDoubleClick;
-            // 
-            // dvgColumnId
-            // 
-            dvgColumnId.HeaderText = "Id";
-            dvgColumnId.Name = "dvgColumnId";
-            dvgColumnId.ReadOnly = true;
-            dvgColumnId.Visible = false;
-            // 
-            // dvgColumnService
-            // 
-            dvgColumnService.HeaderText = "Service";
-            dvgColumnService.Name = "dvgColumnService";
-            dvgColumnService.ReadOnly = true;
-            // 
-            // dvgColumnPrice
-            // 
-            dvgColumnPrice.HeaderText = "Price";
-            dvgColumnPrice.Name = "dvgColumnPrice";
-            dvgColumnPrice.ReadOnly = true;
-            // 
-            // dvgColumnDate
-            // 
-            dvgColumnDate.HeaderText = "Date";
-            dvgColumnDate.Name = "dvgColumnDate";
-            dvgColumnDate.ReadOnly = true;
-            // 
-            // dvgColumnHour
-            // 
-            dvgColumnHour.HeaderText = "Hour";
-            dvgColumnHour.Name = "dvgColumnHour";
-            dvgColumnHour.ReadOnly = true;
-            // 
-            // dvgColumnEmployee
-            // 
-            dvgColumnEmployee.HeaderText = "Barber";
-            dvgColumnEmployee.Name = "dvgColumnEmployee";
-            dvgColumnEmployee.ReadOnly = true;
             // 
             // txtDescripcion
             // 
@@ -294,11 +258,14 @@
             // 
             cmbCedula.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             cmbCedula.FormattingEnabled = true;
+            cmbCedula.Items.AddRange(new object[] { "All" });
             cmbCedula.Location = new Point(119, 92);
             cmbCedula.Margin = new Padding(3, 2, 3, 2);
             cmbCedula.Name = "cmbCedula";
             cmbCedula.Size = new Size(274, 30);
             cmbCedula.TabIndex = 146;
+            cmbCedula.Tag = "";
+            cmbCedula.Text = "All";
             cmbCedula.SelectedIndexChanged += cmbCedula_SelectedIndexChanged;
             // 
             // lblEmail
@@ -378,6 +345,49 @@
             lblPhoneNumber.TabIndex = 147;
             lblPhoneNumber.Text = "PhoneNumber";
             // 
+            // dvgColumnId
+            // 
+            dvgColumnId.HeaderText = "Id";
+            dvgColumnId.Name = "dvgColumnId";
+            dvgColumnId.ReadOnly = true;
+            dvgColumnId.Visible = false;
+            // 
+            // ColumnIdUser
+            // 
+            ColumnIdUser.HeaderText = "Id Usuario";
+            ColumnIdUser.Name = "ColumnIdUser";
+            ColumnIdUser.ReadOnly = true;
+            // 
+            // dvgColumnService
+            // 
+            dvgColumnService.HeaderText = "Service";
+            dvgColumnService.Name = "dvgColumnService";
+            dvgColumnService.ReadOnly = true;
+            // 
+            // dvgColumnPrice
+            // 
+            dvgColumnPrice.HeaderText = "Price";
+            dvgColumnPrice.Name = "dvgColumnPrice";
+            dvgColumnPrice.ReadOnly = true;
+            // 
+            // dvgColumnDate
+            // 
+            dvgColumnDate.HeaderText = "Date";
+            dvgColumnDate.Name = "dvgColumnDate";
+            dvgColumnDate.ReadOnly = true;
+            // 
+            // dvgColumnHour
+            // 
+            dvgColumnHour.HeaderText = "Hour";
+            dvgColumnHour.Name = "dvgColumnHour";
+            dvgColumnHour.ReadOnly = true;
+            // 
+            // dvgColumnEmployee
+            // 
+            dvgColumnEmployee.HeaderText = "Barber";
+            dvgColumnEmployee.Name = "dvgColumnEmployee";
+            dvgColumnEmployee.ReadOnly = true;
+            // 
             // frmConsultAppointmentAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -443,6 +453,7 @@
         private Label label11;
         private Label lblPhoneNumber;
         private DataGridViewTextBoxColumn dvgColumnId;
+        private DataGridViewTextBoxColumn ColumnIdUser;
         private DataGridViewTextBoxColumn dvgColumnService;
         private DataGridViewTextBoxColumn dvgColumnPrice;
         private DataGridViewTextBoxColumn dvgColumnDate;

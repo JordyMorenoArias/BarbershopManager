@@ -14,16 +14,14 @@ namespace Tarea_Final.Forms
 {
     public partial class frmConsultAppointmentAdmin : Form
     {
-        private User user { get; set; }
-        private Appointment appointment { get; set; }
-        private Service service { get; set; }
-        private Employee employee { get; set; }
+        private User user { get; set; } = null!;
+        private Appointment appointment { get; set; } = null!;
+        private Employee employee { get; set; } = null!;
 
         public frmConsultAppointmentAdmin(User user)
         {
             InitializeComponent();
             this.user = user;
-            cmbCedula.Text = user.IdCard;
             LoadCmbServicios();
             LoadCmbEmpleados();
             LoadCmbUsersIdCard();
@@ -34,14 +32,18 @@ namespace Tarea_Final.Forms
         {
             try
             {
-                if (user != null)
+
+                List<Appointment> appointments = new List<Appointment>();
+
+                if (cmbCedula.Text == "All")
                 {
-                    lblName.Text = user.Name;
-                    lblEmail.Text = user.Email;
-                    lblPhoneNumber.Text = user.PhoneNumber;
+                    appointments = await Appointment.GetAppointments();
+                }
+                else
+                {
+                    appointments = await Appointment.GetAppointmentsByUser(user!);
                 }
 
-                List<Appointment> appointments = await Appointment.GetAppointmentsByUser(user);
                 dgvCitas.Rows.Clear();
 
                 if (appointments == null || !appointments.Any())
@@ -49,15 +51,13 @@ namespace Tarea_Final.Forms
                     return;
                 }
 
-                appointments = appointments.OrderBy(a => a.Date).ToList();
+                appointments = appointments.OrderBy(a => a.Date).Where(a => a.Status == "Pendiente").ToList();
 
                 foreach (Appointment appointment in appointments)
                 {
 
-                    if (appointment.Status == "Cancelada")
-                        continue;
-
                     dgvCitas.Rows.Add(appointment.IdAppointment,
+                                    appointment.User.UserId,
                                     appointment.Service.Name,
                                     appointment.Service.Price,
                                     appointment.Date,
@@ -70,6 +70,16 @@ namespace Tarea_Final.Forms
             catch (Exception ex)
             {
                 MessageBox.Show($"Ocurrió un error al cargar las citas: {ex.Message}");
+            }
+        }
+
+        private void LoadDataUser(User user)
+        {
+            if (user != null)
+            {
+                lblName.Text = user.Name;
+                lblEmail.Text = user.Email;
+                lblPhoneNumber.Text = user.PhoneNumber;
             }
         }
 
@@ -169,7 +179,7 @@ namespace Tarea_Final.Forms
                     {
                         MessageBox.Show($"{employee.Name} ya tiene una cita programada a esa hora. Estará disponible a partir de las {DateTime.Today.Add(schedule.FinalHour):hh:mm tt}.");
                         return false;
-                    } 
+                    }
                     else if (schedule.Appointment.IdAppointment != appointment.IdAppointment)
                     {
                         MessageBox.Show($"Ya tienes una cita programada a esta hora.");
@@ -192,7 +202,7 @@ namespace Tarea_Final.Forms
                     appointment.Hour = dtpHora.Value.TimeOfDay;
                     appointment.Status = cmbStatus.Text == "Cancelar" ? "Cancelada" : cmbStatus.Text;
 
-                    if(appointment.Status == "Cancelada")
+                    if (appointment.Status == "Cancelada")
                     {
                         MessageBox.Show("La cita fue cancelada exitosamente");
                     }
@@ -237,8 +247,13 @@ namespace Tarea_Final.Forms
         {
             CleanTextBox();
 
-            User user = await User.GetUserByIdCard(cmbCedula.Text);
-            this.user = user;
+            if (cmbServicios.Text != "All")
+            {
+                User selectedUser = await User.GetUserByIdCard(cmbCedula.Text);
+                this.user = selectedUser;
+                LoadDataUser(selectedUser);
+            }
+
             await LoadAppointmentsDataGridView();
         }
 
