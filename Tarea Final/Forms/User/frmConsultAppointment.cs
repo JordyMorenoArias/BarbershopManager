@@ -15,10 +15,10 @@ namespace Tarea_Final
 {
     public partial class frmConsultAppointment : Form
     {
-        private User user { get; set; }
-        private Appointment appointment { get; set; }
-        private Service service { get; set; }
-        private Employee employee { get; set; }
+        private User user { get; set; } = null!;
+        private Appointment appointment { get; set; } = null!;
+        private Service service { get; set; } = null!;
+        private Employee employee { get; set; } = null!;
 
         public frmConsultAppointment(User user)
         {

@@ -154,7 +154,7 @@
             label10.TabIndex = 62;
             label10.Text = "Cedula";
             // 
-            // frmHistory
+            // frmHistoryUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -168,7 +168,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
-            Name = "frmHistory";
+            Name = "frmHistoryUser";
             Text = "Historial";
             Load += Historial_Load;
             ((System.ComponentModel.ISupportInitialize)dgvHistory).EndInit();

@@ -61,10 +61,10 @@ namespace Tarea_Final.Models
                             histories.Add(new History(
                                 historyId: (int)reader["HistoryId"],
                                 userId: reader["UserId"] as int?,
-                                tableName: reader["TableName"].ToString(),
-                                action: reader["Action"].ToString(),
+                                tableName: reader["TableName"].ToString()!,
+                                action: reader["Action"].ToString()!,
                                 actionDate: (DateTime)reader["ActionDate"],
-                                details: reader["Details"].ToString()
+                                details: reader["Details"].ToString()!
                             ));
                         }
                         return histories;

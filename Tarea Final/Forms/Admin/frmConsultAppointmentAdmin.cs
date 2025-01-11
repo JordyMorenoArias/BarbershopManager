@@ -69,7 +69,7 @@ namespace Tarea_Final.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrió un error al cargar las citas: {ex.Message}");
+                MessageBox.Show($"Ocurrió un error al cargar las citas: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -134,7 +134,7 @@ namespace Tarea_Final.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar empleados: {ex.Message}");
+                MessageBox.Show($"Error al cargar empleados: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -300,11 +300,6 @@ namespace Tarea_Final.Forms
             {
                 MessageBox.Show($"Error al cargar detalles del empleado: {ex.Message}");
             }
-        }
-
-        private void dgvCitas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 

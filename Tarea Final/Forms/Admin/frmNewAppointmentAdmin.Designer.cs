@@ -40,14 +40,14 @@
             dtpFecha = new DateTimePicker();
             btnCrear = new Button();
             label9 = new Label();
-            lblPhoneNumber = new Label();
-            lblEmail = new Label();
+            label7 = new Label();
+            cmbCedula = new ComboBox();
             lblName = new Label();
             label4 = new Label();
-            label7 = new Label();
-            label8 = new Label();
             label10 = new Label();
-            cmbCedula = new ComboBox();
+            lblPhoneNumber = new Label();
+            label8 = new Label();
+            lblEmail = new Label();
             SuspendLayout();
             // 
             // txtDescripcion
@@ -171,10 +171,10 @@
             btnCrear.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnCrear.ForeColor = Color.White;
             btnCrear.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCrear.Location = new Point(704, 469);
+            btnCrear.Location = new Point(698, 469);
             btnCrear.Margin = new Padding(3, 2, 3, 2);
             btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(97, 33);
+            btnCrear.Size = new Size(103, 33);
             btnCrear.TabIndex = 93;
             btnCrear.Text = "Crear";
             btnCrear.UseVisualStyleBackColor = false;
@@ -191,27 +191,27 @@
             label9.TabIndex = 92;
             label9.Text = "Crear Citas";
             // 
-            // lblPhoneNumber
+            // label7
             // 
-            lblPhoneNumber.AutoSize = true;
-            lblPhoneNumber.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPhoneNumber.ForeColor = Color.Silver;
-            lblPhoneNumber.Location = new Point(622, 224);
-            lblPhoneNumber.Name = "lblPhoneNumber";
-            lblPhoneNumber.Size = new Size(160, 24);
-            lblPhoneNumber.TabIndex = 112;
-            lblPhoneNumber.Text = "PhoneNumber";
+            label7.AutoSize = true;
+            label7.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.ForeColor = Color.Silver;
+            label7.Location = new Point(57, 156);
+            label7.Name = "label7";
+            label7.Size = new Size(92, 24);
+            label7.TabIndex = 106;
+            label7.Text = "Cedula:";
             // 
-            // lblEmail
+            // cmbCedula
             // 
-            lblEmail.AutoSize = true;
-            lblEmail.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEmail.ForeColor = Color.Silver;
-            lblEmail.Location = new Point(132, 224);
-            lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(64, 24);
-            lblEmail.TabIndex = 110;
-            lblEmail.Text = "Email";
+            cmbCedula.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbCedula.FormattingEnabled = true;
+            cmbCedula.Location = new Point(157, 156);
+            cmbCedula.Margin = new Padding(3, 2, 3, 2);
+            cmbCedula.Name = "cmbCedula";
+            cmbCedula.Size = new Size(274, 27);
+            cmbCedula.TabIndex = 114;
+            cmbCedula.SelectedIndexChanged += cmbCedula_SelectedIndexChanged;
             // 
             // lblName
             // 
@@ -235,16 +235,27 @@
             label4.TabIndex = 107;
             label4.Text = "Telefono:";
             // 
-            // label7
+            // label10
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.ForeColor = Color.Silver;
-            label7.Location = new Point(57, 156);
-            label7.Name = "label7";
-            label7.Size = new Size(92, 24);
-            label7.TabIndex = 106;
-            label7.Text = "Cedula:";
+            label10.AutoSize = true;
+            label10.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.ForeColor = Color.Silver;
+            label10.Location = new Point(503, 159);
+            label10.Name = "label10";
+            label10.Size = new Size(100, 24);
+            label10.TabIndex = 104;
+            label10.Text = "Nombre:";
+            // 
+            // lblPhoneNumber
+            // 
+            lblPhoneNumber.AutoSize = true;
+            lblPhoneNumber.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPhoneNumber.ForeColor = Color.Silver;
+            lblPhoneNumber.Location = new Point(622, 224);
+            lblPhoneNumber.Name = "lblPhoneNumber";
+            lblPhoneNumber.Size = new Size(160, 24);
+            lblPhoneNumber.TabIndex = 112;
+            lblPhoneNumber.Text = "PhoneNumber";
             // 
             // label8
             // 
@@ -257,27 +268,16 @@
             label8.TabIndex = 105;
             label8.Text = "Email:";
             // 
-            // label10
+            // lblEmail
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.ForeColor = Color.Silver;
-            label10.Location = new Point(503, 159);
-            label10.Name = "label10";
-            label10.Size = new Size(100, 24);
-            label10.TabIndex = 104;
-            label10.Text = "Nombre:";
-            // 
-            // cmbCedula
-            // 
-            cmbCedula.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            cmbCedula.FormattingEnabled = true;
-            cmbCedula.Location = new Point(157, 156);
-            cmbCedula.Margin = new Padding(3, 2, 3, 2);
-            cmbCedula.Name = "cmbCedula";
-            cmbCedula.Size = new Size(274, 27);
-            cmbCedula.TabIndex = 114;
-            cmbCedula.SelectedIndexChanged += cmbCedula_SelectedIndexChanged;
+            lblEmail.AutoSize = true;
+            lblEmail.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblEmail.ForeColor = Color.Silver;
+            lblEmail.Location = new Point(132, 224);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(64, 24);
+            lblEmail.TabIndex = 110;
+            lblEmail.Text = "Email";
             // 
             // frmNewAppointmentAdmin
             // 
@@ -326,13 +326,13 @@
         private DateTimePicker dtpFecha;
         private Button btnCrear;
         private Label label9;
-        private Label lblPhoneNumber;
-        private Label lblEmail;
+        private Label label7;
+        private ComboBox cmbCedula;
         private Label lblName;
         private Label label4;
-        private Label label7;
-        private Label label8;
         private Label label10;
-        private ComboBox cmbCedula;
+        private Label lblPhoneNumber;
+        private Label label8;
+        private Label lblEmail;
     }
 }

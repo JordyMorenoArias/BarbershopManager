@@ -151,5 +151,10 @@ namespace Tarea_Final
         {
             OpenForm(new frmProfilesAdmin(user));
         }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            OpenForm(new frmConsultUsers());
+        }
     }
 }

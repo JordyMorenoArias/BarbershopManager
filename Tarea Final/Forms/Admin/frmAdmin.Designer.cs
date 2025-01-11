@@ -36,7 +36,6 @@
             btnMinimizar = new Button();
             btnMaximizar = new Button();
             btnCerrar = new Button();
-            btnHistorial = new Button();
             btnCitas = new Button();
             btnCliente = new Button();
             button5 = new Button();
@@ -64,7 +63,6 @@
             btnEmpleados = new Button();
             panel4 = new Panel();
             panel8 = new Panel();
-            panel7 = new Panel();
             panel6 = new Panel();
             panel3 = new Panel();
             lblHoraActual = new Label();
@@ -183,24 +181,6 @@
             btnCerrar.UseVisualStyleBackColor = true;
             btnCerrar.Click += btnCerrar_Click;
             // 
-            // btnHistorial
-            // 
-            btnHistorial.BackColor = Color.FromArgb(26, 32, 40);
-            btnHistorial.FlatAppearance.BorderSize = 0;
-            btnHistorial.FlatAppearance.MouseOverBackColor = Color.FromArgb(30, 38, 70);
-            btnHistorial.FlatStyle = FlatStyle.Flat;
-            btnHistorial.Font = new Font("Century Gothic", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            btnHistorial.ForeColor = Color.White;
-            btnHistorial.Image = (Image)resources.GetObject("btnHistorial.Image");
-            btnHistorial.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHistorial.Location = new Point(16, 367);
-            btnHistorial.Margin = new Padding(3, 2, 3, 2);
-            btnHistorial.Name = "btnHistorial";
-            btnHistorial.Size = new Size(214, 34);
-            btnHistorial.TabIndex = 33;
-            btnHistorial.Text = "Historial";
-            btnHistorial.UseVisualStyleBackColor = false;
-            // 
             // btnCitas
             // 
             btnCitas.BackColor = Color.FromArgb(26, 32, 40);
@@ -251,7 +231,7 @@
             button5.ForeColor = Color.White;
             button5.Image = (Image)resources.GetObject("button5.Image");
             button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(12, 413);
+            button5.Location = new Point(10, 364);
             button5.Margin = new Padding(3, 2, 3, 2);
             button5.Name = "button5";
             button5.Size = new Size(217, 34);
@@ -273,8 +253,6 @@
             panel1.Controls.Add(btnEmpleados);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel8);
-            panel1.Controls.Add(btnHistorial);
-            panel1.Controls.Add(panel7);
             panel1.Controls.Add(btnCliente);
             panel1.Controls.Add(panel6);
             panel1.Controls.Add(button5);
@@ -513,6 +491,7 @@
             btnConsultar.TabIndex = 39;
             btnConsultar.Text = "Consultar";
             btnConsultar.UseVisualStyleBackColor = false;
+            btnConsultar.Click += btnConsultar_Click;
             // 
             // panel11
             // 
@@ -581,20 +560,11 @@
             // panel8
             // 
             panel8.BackColor = Color.FromArgb(0, 80, 200);
-            panel8.Location = new Point(2, 413);
+            panel8.Location = new Point(0, 364);
             panel8.Margin = new Padding(3, 2, 3, 2);
             panel8.Name = "panel8";
             panel8.Size = new Size(9, 34);
             panel8.TabIndex = 35;
-            // 
-            // panel7
-            // 
-            panel7.BackColor = Color.FromArgb(0, 80, 200);
-            panel7.Location = new Point(2, 367);
-            panel7.Margin = new Padding(3, 2, 3, 2);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(9, 34);
-            panel7.TabIndex = 35;
             // 
             // panel6
             // 
@@ -660,13 +630,11 @@
 
         private Panel panel2;
         private Button btnCerrar;
-        private Button btnHistorial;
         private Button btnCitas;
         private Button btnCliente;
         private Button button5;
         private Panel panel1;
         private Panel panel8;
-        private Panel panel7;
         private Panel panel6;
         private Panel panel3;
         private Button btnMinimizar;

@@ -94,7 +94,7 @@ namespace Tarea_Final.Models
 
                 // Verificar si el correo electrónico ya existe
                 string checkQuery = "SELECT COUNT(*) FROM Users WHERE Email = @Email";
-                using (SqlCommand checkCommand = new (checkQuery, connection))
+                using (SqlCommand checkCommand = new(checkQuery, connection))
                 {
                     checkCommand.Parameters.AddWithValue("@Email", user.Email);
                     int emailCount = (int)(await checkCommand.ExecuteScalarAsync() ?? 0);
@@ -181,6 +181,47 @@ namespace Tarea_Final.Models
                                     Password = reader["Password"].ToString()!,
                                     BirthDate = DateTime.Parse(reader["BirthDate"].ToString()!),
                                     PhoneNumber = reader["PhoneNumber"].ToString()!
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Se ha producido un error al obtener el usuario.", ex);
+            }
+            return null!;
+        }
+
+        internal static async Task<User> GetuserByEmail(string email)
+        {
+            try
+            {
+                using (SqlConnection connection = Connection.Connect())
+                {
+                    await connection.OpenAsync();
+
+                    string query = "SELECT * FROM Users WHERE Email = @Email";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Email", email);
+
+                        using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                return new User
+                                {
+                                    UserId = int.Parse(reader["UserId"].ToString()!),
+                                    Name = reader["Name"].ToString()!,
+                                    Email = reader["Email"].ToString()!,
+                                    IdCard = reader["IdCard"].ToString()!,
+                                    Password = reader["Password"].ToString()!,
+                                    BirthDate = DateTime.Parse(reader["BirthDate"].ToString()!),
+                                    PhoneNumber = reader["PhoneNumber"].ToString()!,
+                                    IsAdmin = (bool)reader["IsAdmin"]
                                 };
                             }
                         }

@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             dgvCitas = new DataGridView();
+            dvgColumnId = new DataGridViewTextBoxColumn();
+            ColumnIdUser = new DataGridViewTextBoxColumn();
+            dvgColumnService = new DataGridViewTextBoxColumn();
+            dvgColumnPrice = new DataGridViewTextBoxColumn();
+            dvgColumnDate = new DataGridViewTextBoxColumn();
+            dvgColumnHour = new DataGridViewTextBoxColumn();
+            dvgColumnEmployee = new DataGridViewTextBoxColumn();
             txtDescripcion = new TextBox();
             label3 = new Label();
             lblPrecio = new Label();
@@ -52,19 +59,13 @@
             label10 = new Label();
             label11 = new Label();
             lblPhoneNumber = new Label();
-            dvgColumnId = new DataGridViewTextBoxColumn();
-            ColumnIdUser = new DataGridViewTextBoxColumn();
-            dvgColumnService = new DataGridViewTextBoxColumn();
-            dvgColumnPrice = new DataGridViewTextBoxColumn();
-            dvgColumnDate = new DataGridViewTextBoxColumn();
-            dvgColumnHour = new DataGridViewTextBoxColumn();
-            dvgColumnEmployee = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvCitas).BeginInit();
             SuspendLayout();
             // 
             // dgvCitas
             // 
             dgvCitas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCitas.BackgroundColor = Color.FromArgb(30, 38, 70);
             dgvCitas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCitas.Columns.AddRange(new DataGridViewColumn[] { dvgColumnId, ColumnIdUser, dvgColumnService, dvgColumnPrice, dvgColumnDate, dvgColumnHour, dvgColumnEmployee });
             dgvCitas.Location = new Point(31, 269);
@@ -75,8 +76,50 @@
             dgvCitas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCitas.Size = new Size(598, 252);
             dgvCitas.TabIndex = 138;
-            dgvCitas.CellContentClick += dgvCitas_CellContentClick;
             dgvCitas.CellContentDoubleClick += dgvCitas_CellContentDoubleClick;
+            // 
+            // dvgColumnId
+            // 
+            dvgColumnId.HeaderText = "Id";
+            dvgColumnId.Name = "dvgColumnId";
+            dvgColumnId.ReadOnly = true;
+            dvgColumnId.Visible = false;
+            // 
+            // ColumnIdUser
+            // 
+            ColumnIdUser.HeaderText = "Id Usuario";
+            ColumnIdUser.Name = "ColumnIdUser";
+            ColumnIdUser.ReadOnly = true;
+            // 
+            // dvgColumnService
+            // 
+            dvgColumnService.HeaderText = "Service";
+            dvgColumnService.Name = "dvgColumnService";
+            dvgColumnService.ReadOnly = true;
+            // 
+            // dvgColumnPrice
+            // 
+            dvgColumnPrice.HeaderText = "Price";
+            dvgColumnPrice.Name = "dvgColumnPrice";
+            dvgColumnPrice.ReadOnly = true;
+            // 
+            // dvgColumnDate
+            // 
+            dvgColumnDate.HeaderText = "Date";
+            dvgColumnDate.Name = "dvgColumnDate";
+            dvgColumnDate.ReadOnly = true;
+            // 
+            // dvgColumnHour
+            // 
+            dvgColumnHour.HeaderText = "Hour";
+            dvgColumnHour.Name = "dvgColumnHour";
+            dvgColumnHour.ReadOnly = true;
+            // 
+            // dvgColumnEmployee
+            // 
+            dvgColumnEmployee.HeaderText = "Barber";
+            dvgColumnEmployee.Name = "dvgColumnEmployee";
+            dvgColumnEmployee.ReadOnly = true;
             // 
             // txtDescripcion
             // 
@@ -344,49 +387,6 @@
             lblPhoneNumber.Size = new Size(143, 22);
             lblPhoneNumber.TabIndex = 147;
             lblPhoneNumber.Text = "PhoneNumber";
-            // 
-            // dvgColumnId
-            // 
-            dvgColumnId.HeaderText = "Id";
-            dvgColumnId.Name = "dvgColumnId";
-            dvgColumnId.ReadOnly = true;
-            dvgColumnId.Visible = false;
-            // 
-            // ColumnIdUser
-            // 
-            ColumnIdUser.HeaderText = "Id Usuario";
-            ColumnIdUser.Name = "ColumnIdUser";
-            ColumnIdUser.ReadOnly = true;
-            // 
-            // dvgColumnService
-            // 
-            dvgColumnService.HeaderText = "Service";
-            dvgColumnService.Name = "dvgColumnService";
-            dvgColumnService.ReadOnly = true;
-            // 
-            // dvgColumnPrice
-            // 
-            dvgColumnPrice.HeaderText = "Price";
-            dvgColumnPrice.Name = "dvgColumnPrice";
-            dvgColumnPrice.ReadOnly = true;
-            // 
-            // dvgColumnDate
-            // 
-            dvgColumnDate.HeaderText = "Date";
-            dvgColumnDate.Name = "dvgColumnDate";
-            dvgColumnDate.ReadOnly = true;
-            // 
-            // dvgColumnHour
-            // 
-            dvgColumnHour.HeaderText = "Hour";
-            dvgColumnHour.Name = "dvgColumnHour";
-            dvgColumnHour.ReadOnly = true;
-            // 
-            // dvgColumnEmployee
-            // 
-            dvgColumnEmployee.HeaderText = "Barber";
-            dvgColumnEmployee.Name = "dvgColumnEmployee";
-            dvgColumnEmployee.ReadOnly = true;
             // 
             // frmConsultAppointmentAdmin
             // 
