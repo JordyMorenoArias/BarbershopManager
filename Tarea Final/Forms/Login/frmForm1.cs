@@ -19,15 +19,13 @@ namespace Tarea_Final
 
             try
             {
-                // User user = await User.ValidateUser(txtEmail.Text, txtContraseña.Text);
-
-                User user = await User.ValidateUser("yordimorenoarias.1@gmail.com", "2001892zZ@");
+                User user = await User.ValidateUser(txtEmail.Text, txtContraseña.Text);
 
                 if (user.IsAdmin)
                 {
                     frmAdmin frmAdmin = new frmAdmin(user);
                     frmAdmin.Show();
-                    // this.Hide();
+                    this.Hide();
                 }
                 else
                 {

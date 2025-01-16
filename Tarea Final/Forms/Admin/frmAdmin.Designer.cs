@@ -192,7 +192,7 @@
             btnCitas.ForeColor = Color.White;
             btnCitas.Image = (Image)resources.GetObject("btnCitas.Image");
             btnCitas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCitas.Location = new Point(12, 236);
+            btnCitas.Location = new Point(10, 251);
             btnCitas.Margin = new Padding(3, 2, 3, 2);
             btnCitas.Name = "btnCitas";
             btnCitas.RightToLeft = RightToLeft.No;
@@ -212,7 +212,7 @@
             btnCliente.ForeColor = Color.White;
             btnCliente.Image = (Image)resources.GetObject("btnCliente.Image");
             btnCliente.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCliente.Location = new Point(12, 322);
+            btnCliente.Location = new Point(10, 337);
             btnCliente.Margin = new Padding(3, 2, 3, 2);
             btnCliente.Name = "btnCliente";
             btnCliente.Size = new Size(217, 34);
@@ -231,7 +231,7 @@
             button5.ForeColor = Color.White;
             button5.Image = (Image)resources.GetObject("button5.Image");
             button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(10, 364);
+            button5.Location = new Point(8, 379);
             button5.Margin = new Padding(3, 2, 3, 2);
             button5.Name = "button5";
             button5.Size = new Size(217, 34);
@@ -271,7 +271,7 @@
             panelEmpleado.Controls.Add(panel12);
             panelEmpleado.Controls.Add(btnNuevoEmpleado);
             panelEmpleado.Controls.Add(panel13);
-            panelEmpleado.Location = new Point(60, 316);
+            panelEmpleado.Location = new Point(58, 331);
             panelEmpleado.Margin = new Padding(3, 2, 3, 2);
             panelEmpleado.Name = "panelEmpleado";
             panelEmpleado.Size = new Size(169, 69);
@@ -342,7 +342,7 @@
             btnHome.IconColor = Color.FromArgb(224, 224, 224);
             btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnHome.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHome.Location = new Point(13, 197);
+            btnHome.Location = new Point(11, 212);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(217, 34);
             btnHome.TabIndex = 45;
@@ -353,7 +353,7 @@
             // panel9
             // 
             panel9.BackColor = Color.FromArgb(0, 80, 200);
-            panel9.Location = new Point(2, 197);
+            panel9.Location = new Point(0, 212);
             panel9.Margin = new Padding(3, 2, 3, 2);
             panel9.Name = "panel9";
             panel9.Size = new Size(9, 34);
@@ -401,7 +401,7 @@
             panelCitas.Controls.Add(panel15);
             panelCitas.Controls.Add(btnNuevoCitas);
             panelCitas.Controls.Add(panel16);
-            panelCitas.Location = new Point(61, 272);
+            panelCitas.Location = new Point(59, 287);
             panelCitas.Margin = new Padding(3, 2, 3, 2);
             panelCitas.Name = "panelCitas";
             panelCitas.Size = new Size(168, 69);
@@ -468,7 +468,7 @@
             panelClientes.Controls.Add(panel11);
             panelClientes.Controls.Add(btnPerfil);
             panelClientes.Controls.Add(panel10);
-            panelClientes.Location = new Point(59, 360);
+            panelClientes.Location = new Point(57, 375);
             panelClientes.Margin = new Padding(3, 2, 3, 2);
             panelClientes.Name = "panelClientes";
             panelClientes.Size = new Size(168, 72);
@@ -539,7 +539,7 @@
             btnEmpleados.ForeColor = Color.White;
             btnEmpleados.Image = (Image)resources.GetObject("btnEmpleados.Image");
             btnEmpleados.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEmpleados.Location = new Point(12, 279);
+            btnEmpleados.Location = new Point(10, 294);
             btnEmpleados.Margin = new Padding(3, 2, 3, 2);
             btnEmpleados.Name = "btnEmpleados";
             btnEmpleados.Size = new Size(217, 34);
@@ -551,7 +551,7 @@
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(0, 80, 200);
-            panel4.Location = new Point(2, 279);
+            panel4.Location = new Point(0, 294);
             panel4.Margin = new Padding(3, 2, 3, 2);
             panel4.Name = "panel4";
             panel4.Size = new Size(9, 34);
@@ -560,7 +560,7 @@
             // panel8
             // 
             panel8.BackColor = Color.FromArgb(0, 80, 200);
-            panel8.Location = new Point(0, 364);
+            panel8.Location = new Point(-2, 379);
             panel8.Margin = new Padding(3, 2, 3, 2);
             panel8.Name = "panel8";
             panel8.Size = new Size(9, 34);
@@ -569,7 +569,7 @@
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(0, 80, 200);
-            panel6.Location = new Point(2, 322);
+            panel6.Location = new Point(0, 337);
             panel6.Margin = new Padding(3, 2, 3, 2);
             panel6.Name = "panel6";
             panel6.Size = new Size(9, 34);
@@ -578,7 +578,7 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(0, 80, 200);
-            panel3.Location = new Point(2, 236);
+            panel3.Location = new Point(0, 251);
             panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
             panel3.Size = new Size(9, 34);
